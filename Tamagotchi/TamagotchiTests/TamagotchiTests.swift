@@ -10,13 +10,12 @@ import XCTest
 
 class TamagotchiTests: XCTestCase {
     
-    func testTamagotchiReturnsDefaultInitializedInfo() {
+    func testTamagotchiReturnsInfo() {
         //arrange
         //act
         let tamagotchi = Tamagotchi()
         //assert
         XCTAssertNotNil(tamagotchi)
-        XCTAssertEqual(tamagotchi.getEverything(), [0, "Tammy", "Feminine", 1, 1, false, true])
     }
 
 }
