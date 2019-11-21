@@ -8,8 +8,34 @@
 
 import Foundation
 
-let tamagotchi = Tamagotchi()
-let mySecondTamagotchi = Tamagotchi(name: "Fred", gender: "Masculine")
+let tamagotchi = Tamagotchi(name: "John", gender: "Male")
+let array = tamagotchi.getEverything()
+for i in 0 ..< array.count {
+    print(array[i])
+}
+print("")
 
-print(tamagotchi.getEverything())
-print(mySecondTamagotchi.getEverything())
+func display() {
+    let array = tamagotchi.getEverything()
+    for i in 3 ..< array.count {
+        print(array[i])
+    }
+    print("")
+}
+
+tamagotchi.eat()
+tamagotchi.eat()
+tamagotchi.eat()
+tamagotchi.eat()
+display()
+tamagotchi.play()
+tamagotchi.play()
+tamagotchi.play()
+tamagotchi.play()
+display()
+tamagotchi.heal()
+display()
+for _ in 0 ... 10 {
+    tamagotchi.mature()
+}
+display()

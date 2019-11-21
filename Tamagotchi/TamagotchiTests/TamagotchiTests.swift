@@ -16,6 +16,15 @@ class TamagotchiTests: XCTestCase {
         let tamagotchi = Tamagotchi()
         //assert
         XCTAssertNotNil(tamagotchi)
+        XCTAssertEqual(tamagotchi.getName(), "Tammy")
+        XCTAssertEqual(tamagotchi.getGender(), "Female")
+        XCTAssertEqual(tamagotchi.getAge(), 0)
+        XCTAssertEqual(tamagotchi.getWeight(), 10)
+        XCTAssertEqual(tamagotchi.getHeight(), 1.0)
+        XCTAssertEqual(tamagotchi.getHappiness(), true)
+        XCTAssertEqual(tamagotchi.getHunger(), true)
+        XCTAssertEqual(tamagotchi.getFatigue(), false)
+        XCTAssertEqual(tamagotchi.getIllness(), false)
     }
 
 }

@@ -10,37 +10,132 @@ import Foundation
 
 class Tamagotchi {
     
-    private var age: Int
+    //Properties
     private var name: String
     private var gender: String
+    private var age: Int
     private var weight: Int
-    private var height: Int
+    private var height: Double
     private var happiness: Bool
     private var hunger: Bool
+    private var fatigue: Bool
+    private var illness: Bool
+    
+    //Counters
+    private var mealCount = 0
+    private var playCount = 0
     
     init() {
-        age = 0
         name = "Tammy"
         gender = "Female"
-        weight = 1
-        height = 1
-        happiness = false
+        age = 0
+        weight = 10
+        height = 1.0
+        happiness = true
         hunger = true
+        fatigue = false
+        illness = false
     }
     
     init(name: String, gender: String) {
-        age = 0
         self.name = name
         self.gender = gender
-        weight = 1
-        height = 1
-        happiness = false
+        age = 0
+        weight = 10
+        height = 1.0
+        happiness = true
         hunger = true
+        fatigue = false
+        illness = false
+    }
+    
+    func getName() -> String {
+        return self.name
+    }
+    
+    func getGender() -> String {
+        return self.gender
+    }
+    
+    func getAge() -> Int {
+        return self.age
+    }
+    
+    func getWeight() -> Int {
+        return self.weight
+    }
+    
+    func getHeight() -> Double {
+        return self.height
+    }
+    
+    func getHappiness() -> Bool {
+        return self.happiness
+    }
+    
+    func getHunger() -> Bool {
+        return self.hunger
+    }
+    
+    func getFatigue() -> Bool {
+        return self.fatigue
+    }
+    
+    func getIllness() -> Bool {
+        return self.illness
     }
     
     func getEverything() -> [String] {
-        let everything = ["age: \(self.age)", "name: \(self.name)", "gender: \(self.gender)", "weight: \(self.weight)", "height: \(self.height)", "happiness: \(self.happiness)", "hunger: \(self.hunger)"]
+        let everything = ["name: \(self.name)", "gender: \(self.gender)", "age: \(self.age)", "weight: \(self.weight)kg", "height: \(self.height)m", "happiness: \(self.happiness)", "hunger: \(self.hunger)", "fatigue: \(self.fatigue)", "illness: \(self.illness)"]
         return everything
+    }
+    
+    func eat() {
+        self.hunger = false
+        mealCount += 1
+        if mealCount > 3 {
+            self.happiness = false
+            self.weight += 5
+            self.height += 0.2
+            self.illness = true
+            mealCount = 0
+            print("I think I've eaten too much.\n")
+        } else {
+            print("Yum, that was delicious.\n")
+        }
+    }
+    
+    func play() {
+        self.happiness = true
+        playCount += 1
+        if playCount > 3 {
+            self.happiness = false
+            self.weight -= 5
+            self.height -= 0.2
+            self.fatigue = true
+            playCount = 0
+            print("Can we stop now?\n")
+        } else {
+            print("Thanks for playing with me.\n")
+        }
+    }
+    
+    func heal() {
+        self.illness = false
+        self.happiness = true
+        print("Thanks, I feel much better.\n")
+    }
+    
+    func mature() {
+        self.age += 1
+        print("That is truly fascinating.\n")
+        if age > 10 {
+            print("\(name) died of premature exposure to mature content.\n")
+            self.happiness = false
+            self.hunger = false
+            self.fatigue = false
+            self.illness = false
+        }
     }
     
 }
