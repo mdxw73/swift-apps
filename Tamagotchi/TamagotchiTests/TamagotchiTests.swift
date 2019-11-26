@@ -25,6 +25,7 @@ class TamagotchiTests: XCTestCase {
         XCTAssertEqual(tamagotchi.getHunger(), true)
         XCTAssertEqual(tamagotchi.getFatigue(), false)
         XCTAssertEqual(tamagotchi.getIllness(), false)
+        XCTAssertEqual(tamagotchi.mature(), false)
     }
 
 }

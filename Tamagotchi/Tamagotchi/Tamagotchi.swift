@@ -103,6 +103,10 @@ class Tamagotchi {
         } else {
             print("Yum, that was delicious.\n")
         }
+        let number = Int.random(in: 1...5)
+        if number == 1 {
+            self.hunger = true
+        }
     }
     
     func play() {
@@ -118,24 +122,30 @@ class Tamagotchi {
         } else {
             print("Thanks for playing with me.\n")
         }
+        let number = Int.random(in: 1...5)
+        if number == 1 {
+            self.happiness = false
+        }
     }
     
     func heal() {
         self.illness = false
         self.happiness = true
         print("Thanks, I feel much better.\n")
-    }
-    
-    func mature() {
-        self.age += 1
-        print("That is truly fascinating.\n")
-        if age > 10 {
-            print("\(name) died of premature exposure to mature content.\n")
-            self.happiness = false
-            self.hunger = false
-            self.fatigue = false
-            self.illness = false
+        let number = Int.random(in: 1...5)
+        if number == 1 {
+            self.illness = true
         }
     }
     
+    func mature() -> Bool {
+        self.age += 1
+        print("That is truly fascinating.\n")
+        var isDead = false
+        if age > 10 {
+            print("\(name) died.")
+            isDead = true
+        }
+        return isDead
+    }
 }
