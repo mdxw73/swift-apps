@@ -8,6 +8,14 @@
 
 import Foundation
 
+func display() {
+    let array = tamagotchi.getEverything()
+    for i in 2 ..< array.count {
+        print(array[i])
+    }
+    print("")
+}
+
 let tamagotchi = Tamagotchi(name: "John", gender: "Male")
 let array = tamagotchi.getEverything()
 for i in 0 ..< array.count {
@@ -15,27 +23,30 @@ for i in 0 ..< array.count {
 }
 print("")
 
-func display() {
-    let array = tamagotchi.getEverything()
-    for i in 3 ..< array.count {
-        print(array[i])
+var quit = false
+var isDead = false
+while quit == false && isDead == false {
+    print(
+    """
+    Enter a function:
+    1. Eat
+    2. Play
+    3. Heal
+    4. Mature
+    5. Quit
+    """)
+    if let input = readLine() {
+        if input == "1" {
+            tamagotchi.eat()
+        } else if input == "2" {
+            tamagotchi.play()
+        } else if input == "3" {
+            tamagotchi.heal()
+        } else if input == "4" {
+            isDead = tamagotchi.mature()
+        } else if input == "5" {
+            quit = true
+        }
     }
-    print("")
+    display()
 }
-
-tamagotchi.eat()
-tamagotchi.eat()
-tamagotchi.eat()
-tamagotchi.eat()
-display()
-tamagotchi.play()
-tamagotchi.play()
-tamagotchi.play()
-tamagotchi.play()
-display()
-tamagotchi.heal()
-display()
-for _ in 0 ... 10 {
-    tamagotchi.mature()
-}
-display()
