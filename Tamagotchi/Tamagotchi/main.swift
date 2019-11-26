@@ -18,14 +18,11 @@ func display() {
 
 let tamagotchi = Tamagotchi(name: "John", gender: "Male")
 let array = tamagotchi.getEverything()
-for i in 0 ..< array.count {
-    print(array[i])
-}
-print("")
 
 var quit = false
 var isDead = false
 while quit == false && isDead == false {
+    display()
     print(
     """
     Enter a function:
@@ -48,5 +45,4 @@ while quit == false && isDead == false {
             quit = true
         }
     }
-    display()
 }

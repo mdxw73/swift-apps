@@ -106,6 +106,8 @@ class Tamagotchi {
         let number = Int.random(in: 1...5)
         if number == 1 {
             self.hunger = true
+        } else if number == 2 {
+            self.illness = true
         }
     }
     
@@ -143,7 +145,7 @@ class Tamagotchi {
         print("That is truly fascinating.\n")
         var isDead = false
         if age > 10 {
-            print("\(name) died.")
+            print("\(name) died.\n")
             isDead = true
         }
         return isDead
