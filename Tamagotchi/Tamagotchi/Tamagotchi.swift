@@ -21,10 +21,6 @@ class Tamagotchi {
     private var fatigue: Bool
     private var illness: Bool
     
-    //Counters
-    private var mealCount = 0
-    private var playCount = 0
-    
     init() {
         name = "Tammy"
         gender = "Female"
@@ -91,62 +87,73 @@ class Tamagotchi {
     }
     
     func eat() {
-        self.hunger = false
-        mealCount += 1
-        if mealCount > 3 {
+        if self.hunger == false {
             self.happiness = false
             self.weight += 5
             self.height += 0.2
             self.illness = true
-            mealCount = 0
             print("I think I've eaten too much.\n")
         } else {
+            self.hunger = false
             print("Yum, that was delicious.\n")
         }
         let number = Int.random(in: 1...5)
         if number == 1 {
-            self.hunger = true
-        } else if number == 2 {
             self.illness = true
         }
     }
     
     func play() {
-        self.happiness = true
-        playCount += 1
-        if playCount > 3 {
+        if self.happiness == true {
             self.happiness = false
             self.weight -= 5
             self.height -= 0.2
             self.fatigue = true
-            playCount = 0
             print("Can we stop now?\n")
         } else {
+            self.happiness = true
             print("Thanks for playing with me.\n")
         }
         let number = Int.random(in: 1...5)
         if number == 1 {
-            self.happiness = false
+            self.fatigue = true
         }
     }
     
     func heal() {
         self.illness = false
-        self.happiness = true
         print("Thanks, I feel much better.\n")
         let number = Int.random(in: 1...5)
         if number == 1 {
-            self.illness = true
+            self.happiness = false
+        }
+    }
+    
+    func sleep() {
+        self.fatigue = false
+        print("Thanks, I feel much better.\n")
+        let number = Int.random(in: 1...5)
+        if number == 1 {
+            self.hunger = true
         }
     }
     
     func mature() -> Bool {
-        self.age += 1
-        print("That is truly fascinating.\n")
+        if self.happiness == true && hunger == false && fatigue == false && illness == false {
+            self.age += 1
+            print("That is truly fascinating.\n")
+            self.happiness = false
+            self.hunger = true
+            self.fatigue = true
+            self.illness = true
+        } else {
+            print("I don't feel like learning.\n")
+        }
         var isDead = false
-        if age > 10 {
-            print("\(name) died.\n")
+        let number = Int.random(in: 1...10)
+        if number == 1 {
             isDead = true
+            print("\(self.name) died.")
         }
         return isDead
     }
