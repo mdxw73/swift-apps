@@ -15,6 +15,8 @@
 		D7576DC623CA0C8C00A0EB88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7576DC423CA0C8C00A0EB88 /* LaunchScreen.storyboard */; };
 		D7576DD123CA0C8C00A0EB88 /* CarCustomizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7576DD023CA0C8C00A0EB88 /* CarCustomizerTests.swift */; };
 		D7576DDC23CA0C8C00A0EB88 /* CarCustomizerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7576DDB23CA0C8C00A0EB88 /* CarCustomizerUITests.swift */; };
+		D769C2EA23CA1A4B00F22B50 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = D769C2E923CA1A4B00F22B50 /* Car.swift */; };
+		D769C2EC23CA253800F22B50 /* StarterCars.swift in Sources */ = {isa = PBXBuildFile; fileRef = D769C2EB23CA253800F22B50 /* StarterCars.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		D7576DD723CA0C8C00A0EB88 /* CarCustomizerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarCustomizerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7576DDB23CA0C8C00A0EB88 /* CarCustomizerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarCustomizerUITests.swift; sourceTree = "<group>"; };
 		D7576DDD23CA0C8C00A0EB88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D769C2E923CA1A4B00F22B50 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
+		D769C2EB23CA253800F22B50 /* StarterCars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterCars.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				D7576DC223CA0C8C00A0EB88 /* Assets.xcassets */,
 				D7576DC423CA0C8C00A0EB88 /* LaunchScreen.storyboard */,
 				D7576DC723CA0C8C00A0EB88 /* Info.plist */,
+				D769C2E923CA1A4B00F22B50 /* Car.swift */,
+				D769C2EB23CA253800F22B50 /* StarterCars.swift */,
 			);
 			path = CarCustomizer;
 			sourceTree = "<group>";
@@ -261,6 +267,8 @@
 			files = (
 				D7576DBE23CA0C8B00A0EB88 /* ViewController.swift in Sources */,
 				D7576DBA23CA0C8B00A0EB88 /* AppDelegate.swift in Sources */,
+				D769C2EA23CA1A4B00F22B50 /* Car.swift in Sources */,
+				D769C2EC23CA253800F22B50 /* StarterCars.swift in Sources */,
 				D7576DBC23CA0C8B00A0EB88 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
