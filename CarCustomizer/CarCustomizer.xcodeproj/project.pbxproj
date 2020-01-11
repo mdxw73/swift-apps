@@ -6,17 +6,6 @@
 	objectVersion = 50;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		D74ED92123C9CA6800947F3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74ED92023C9CA6800947F3D /* AppDelegate.swift */; };
-		D74ED92323C9CA6800947F3D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74ED92223C9CA6800947F3D /* SceneDelegate.swift */; };
-		D74ED92523C9CA6800947F3D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74ED92423C9CA6800947F3D /* ContentView.swift */; };
-		D74ED92723C9CA6900947F3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D74ED92623C9CA6900947F3D /* Assets.xcassets */; };
-		D74ED92A23C9CA6900947F3D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D74ED92923C9CA6900947F3D /* Preview Assets.xcassets */; };
-		D74ED92D23C9CA6900947F3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D74ED92B23C9CA6900947F3D /* LaunchScreen.storyboard */; };
-		D74ED93823C9CA6900947F3D /* CarCustomizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74ED93723C9CA6900947F3D /* CarCustomizerTests.swift */; };
-		D74ED94323C9CA6900947F3D /* CarCustomizerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74ED94223C9CA6900947F3D /* CarCustomizerUITests.swift */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXContainerItemProxy section */
 		D74ED93423C9CA6900947F3D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -36,19 +25,8 @@
 
 /* Begin PBXFileReference section */
 		D74ED91D23C9CA6800947F3D /* CarCustomizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarCustomizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D74ED92023C9CA6800947F3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D74ED92223C9CA6800947F3D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D74ED92423C9CA6800947F3D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		D74ED92623C9CA6900947F3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D74ED92923C9CA6900947F3D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		D74ED92C23C9CA6900947F3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		D74ED92E23C9CA6900947F3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D74ED93323C9CA6900947F3D /* CarCustomizerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarCustomizerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D74ED93723C9CA6900947F3D /* CarCustomizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarCustomizerTests.swift; sourceTree = "<group>"; };
-		D74ED93923C9CA6900947F3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D74ED93E23C9CA6900947F3D /* CarCustomizerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarCustomizerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D74ED94223C9CA6900947F3D /* CarCustomizerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarCustomizerUITests.swift; sourceTree = "<group>"; };
-		D74ED94423C9CA6900947F3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,9 +57,6 @@
 		D74ED91423C9CA6800947F3D = {
 			isa = PBXGroup;
 			children = (
-				D74ED91F23C9CA6800947F3D /* CarCustomizer */,
-				D74ED93623C9CA6900947F3D /* CarCustomizerTests */,
-				D74ED94123C9CA6900947F3D /* CarCustomizerUITests */,
 				D74ED91E23C9CA6800947F3D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -94,46 +69,6 @@
 				D74ED93E23C9CA6900947F3D /* CarCustomizerUITests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		D74ED91F23C9CA6800947F3D /* CarCustomizer */ = {
-			isa = PBXGroup;
-			children = (
-				D74ED92023C9CA6800947F3D /* AppDelegate.swift */,
-				D74ED92223C9CA6800947F3D /* SceneDelegate.swift */,
-				D74ED92423C9CA6800947F3D /* ContentView.swift */,
-				D74ED92623C9CA6900947F3D /* Assets.xcassets */,
-				D74ED92B23C9CA6900947F3D /* LaunchScreen.storyboard */,
-				D74ED92E23C9CA6900947F3D /* Info.plist */,
-				D74ED92823C9CA6900947F3D /* Preview Content */,
-			);
-			path = CarCustomizer;
-			sourceTree = "<group>";
-		};
-		D74ED92823C9CA6900947F3D /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				D74ED92923C9CA6900947F3D /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		D74ED93623C9CA6900947F3D /* CarCustomizerTests */ = {
-			isa = PBXGroup;
-			children = (
-				D74ED93723C9CA6900947F3D /* CarCustomizerTests.swift */,
-				D74ED93923C9CA6900947F3D /* Info.plist */,
-			);
-			path = CarCustomizerTests;
-			sourceTree = "<group>";
-		};
-		D74ED94123C9CA6900947F3D /* CarCustomizerUITests */ = {
-			isa = PBXGroup;
-			children = (
-				D74ED94223C9CA6900947F3D /* CarCustomizerUITests.swift */,
-				D74ED94423C9CA6900947F3D /* Info.plist */,
-			);
-			path = CarCustomizerUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,9 +175,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D74ED92D23C9CA6900947F3D /* LaunchScreen.storyboard in Resources */,
-				D74ED92A23C9CA6900947F3D /* Preview Assets.xcassets in Resources */,
-				D74ED92723C9CA6900947F3D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,9 +199,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D74ED92123C9CA6800947F3D /* AppDelegate.swift in Sources */,
-				D74ED92323C9CA6800947F3D /* SceneDelegate.swift in Sources */,
-				D74ED92523C9CA6800947F3D /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,7 +206,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D74ED93823C9CA6900947F3D /* CarCustomizerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,7 +213,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D74ED94323C9CA6900947F3D /* CarCustomizerUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,17 +230,6 @@
 			targetProxy = D74ED93F23C9CA6900947F3D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		D74ED92B23C9CA6900947F3D /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D74ED92C23C9CA6900947F3D /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		D74ED94523C9CA6900947F3D /* Debug */ = {
@@ -471,7 +387,6 @@
 		D74ED94B23C9CA6900947F3D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CarCustomizerTests/Info.plist;
@@ -492,7 +407,6 @@
 		D74ED94C23C9CA6900947F3D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CarCustomizerTests/Info.plist;
@@ -513,7 +427,6 @@
 		D74ED94E23C9CA6900947F3D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CarCustomizerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -532,7 +445,6 @@
 		D74ED94F23C9CA6900947F3D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CarCustomizerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
