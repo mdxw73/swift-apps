@@ -2,8 +2,8 @@
 //  main.swift
 //  Tamagotchi
 //
-//  Created by Obied, Zack (NA) on 21/11/2019.
-//  Copyright © 2019 Obied, Zack (NA). All rights reserved.
+//  Created by Zack Obied on 21/11/2019.
+//  Copyright © 2019 Zack Obied. All rights reserved.
 //
 
 import Foundation

@@ -133,7 +133,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1120;
 				LastUpgradeCheck = 1130;
-				ORGANIZATIONNAME = "Obied, Zack (NA)";
+				ORGANIZATIONNAME = "Zack Obied";
 				TargetAttributes = {
 					44860BEF2386B8F2000E685F = {
 						CreatedOnToolsVersion = 11.2.1;
