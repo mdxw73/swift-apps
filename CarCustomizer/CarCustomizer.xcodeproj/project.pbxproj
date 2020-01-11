@@ -24,9 +24,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D74ED91D23C9CA6800947F3D /* CarCustomizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarCustomizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D74ED93323C9CA6900947F3D /* CarCustomizerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarCustomizerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D74ED93E23C9CA6900947F3D /* CarCustomizerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarCustomizerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D74ED91D23C9CA6800947F3D /* CarCustomizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = CarCustomizer.app; path = "/Users/zackobied/Documents/swift-apps/CarCustomizer/build/Debug-iphoneos/CarCustomizer.app"; sourceTree = "<absolute>"; };
+		D74ED93323C9CA6900947F3D /* CarCustomizerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = CarCustomizerTests.xctest; path = "/Users/zackobied/Documents/swift-apps/CarCustomizer/build/Debug-iphoneos/CarCustomizerTests.xctest"; sourceTree = "<absolute>"; };
+		D74ED93E23C9CA6900947F3D /* CarCustomizerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = CarCustomizerUITests.xctest; path = "/Users/zackobied/Documents/swift-apps/CarCustomizer/build/Debug-iphoneos/CarCustomizerUITests.xctest"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,18 +57,7 @@
 		D74ED91423C9CA6800947F3D = {
 			isa = PBXGroup;
 			children = (
-				D74ED91E23C9CA6800947F3D /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		D74ED91E23C9CA6800947F3D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D74ED91D23C9CA6800947F3D /* CarCustomizer.app */,
-				D74ED93323C9CA6900947F3D /* CarCustomizerTests.xctest */,
-				D74ED93E23C9CA6900947F3D /* CarCustomizerUITests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,7 +148,7 @@
 				Base,
 			);
 			mainGroup = D74ED91423C9CA6800947F3D;
-			productRefGroup = D74ED91E23C9CA6800947F3D /* Products */;
+			productRefGroup = D74ED91423C9CA6800947F3D;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
