@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     var remainingFunds = 0 {
         didSet {
             remainingFundsDisplay.text = "Remaining Funds: \(remainingFunds)"
+            disableUnaffordablePackages()
         }
     }
     var starterCars = StarterCars()
@@ -32,7 +33,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         car = starterCars.cars[currentCarIndex]
-        remainingFunds = 1000
+        resetDisplay()
     }
     
     @IBAction func nextCar(_ sender: Any) {
@@ -41,12 +42,7 @@ class ViewController: UIViewController {
             currentCarIndex = 0
         }
         car = starterCars.cars[currentCarIndex]
-        
-        engineAndExhaustPackage.setOn(false, animated: true)
-        tiresPackage.setOn(false, animated: true)
-        transmissionPackage.setOn(false, animated: true)
-        remainingFunds = 1000
-        checkPurchase()
+        resetDisplay()
     }
     
     @IBAction func engineAndExhaustPackageToggle(_ sender: Any) {
@@ -57,8 +53,8 @@ class ViewController: UIViewController {
             car?.topSpeed -= 5
             remainingFunds += 500
         }
-        checkPurchase()
     }
+    
     @IBAction func tiresPackageToggle(_ sender: Any) {
         if tiresPackage.isOn {
             car?.handling += 1
@@ -67,8 +63,8 @@ class ViewController: UIViewController {
             car?.handling -= 1
             remainingFunds += 500
         }
-        checkPurchase()
     }
+    
     @IBAction func transmissionPackageToggle(_ sender: Any) {
         if transmissionPackage.isOn {
             car?.acceleration -= 2.5
@@ -77,10 +73,9 @@ class ViewController: UIViewController {
             car?.acceleration += 2.5
             remainingFunds += 1000
         }
-        checkPurchase()
     }
     
-    func checkPurchase() {
+    func disableUnaffordablePackages() {
         if remainingFunds < 500 && engineAndExhaustPackage.isOn == false {
             engineAndExhaustPackage.isEnabled = false
         } else {
@@ -98,6 +93,13 @@ class ViewController: UIViewController {
         } else {
             transmissionPackage.isEnabled = true
         }
+    }
+    
+    func resetDisplay() {
+        engineAndExhaustPackage.setOn(false, animated: true)
+        tiresPackage.setOn(false, animated: true)
+        transmissionPackage.setOn(false, animated: true)
+        remainingFunds = 1000
     }
     
 }
