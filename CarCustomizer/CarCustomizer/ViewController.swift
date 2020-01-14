@@ -10,12 +10,20 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet var submitCar: UIButton!
+    @IBOutlet var nextCar: UIButton!
     @IBOutlet var engineAndExhaustPackage: UISwitch!
     @IBOutlet var tiresPackage: UISwitch!
-    @IBOutlet weak var carStatistics: UILabel!
     @IBOutlet var transmissionPackage: UISwitch!
+    @IBOutlet weak var carStatistics: UILabel!
     @IBOutlet var remainingFundsDisplay: UILabel!
+    @IBOutlet var remainingTimeDisplay: UILabel!
     
+    var remainingTime = 0 {
+        didSet {
+            remainingTimeDisplay.text = "\(remainingTime)"
+        }
+    }
     var remainingFunds = 0 {
         didSet {
             remainingFundsDisplay.text = "Remaining Funds: \(remainingFunds)"
@@ -29,11 +37,14 @@ class ViewController: UIViewController {
             carStatistics.text = car?.displayStats()
         }
     }
+    var timer: Timer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         car = starterCars.cars[currentCarIndex]
+        remainingTime = 30
         resetDisplay()
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(countdown), userInfo: nil, repeats: true)
     }
     
     @IBAction func nextCar(_ sender: Any) {
@@ -100,6 +111,30 @@ class ViewController: UIViewController {
         tiresPackage.setOn(false, animated: true)
         transmissionPackage.setOn(false, animated: true)
         remainingFunds = 1000
+    }
+    
+    @objc func countdown() {
+        if remainingTime > 0 {
+            remainingTime -= 1
+            remainingTimeDisplay.text = "\(remainingTime)"
+        } else {
+            displayAlert("Display")
+        }
+    }
+    
+    @IBAction func displayAlert(_ sender: Any) {
+        timer?.invalidate()
+        engineAndExhaustPackage.isEnabled = false
+        tiresPackage.isEnabled = false
+        transmissionPackage.isEnabled = false
+        nextCar.isEnabled = false
+        submitCar.isEnabled = false
+        
+        let alertController = UIAlertController(title: "Finished Car", message:
+            "\(carStatistics.text!)\n\nFunds Spent: \(1000 - remainingFunds)", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Continue", style: .default))
+
+        self.present(alertController, animated: true, completion: nil)
     }
     
 }

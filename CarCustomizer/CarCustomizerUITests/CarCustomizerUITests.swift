@@ -38,6 +38,52 @@ class CarCustomizerUITests: XCTestCase {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
+    
+    func testThatDisplayStatsGetLoadedWithTheFirstCarOnLaunch() {
+        //arrange
+        let app = XCUIApplication()
+        app.launch()
+        let expected = """
+        Make: Mazda
+        Model: MX-5
+        Top Speed: 125mph
+        Acceleration (0-60): 7.7s
+        Handling: 5
+        """
+        
+        //act
+        let actual = app.staticTexts["selectedCarStatistics"].label
+        
+        //assert
+        XCTAssertEqual(actual, expected)
+    }
+    
+    func testButtonsAreReenabledWhenCyclingCars() {
+        //arrange
+        let app = XCUIApplication()
+        app.launch()
+        
+        //act
+        app.buttons["nextCar"].tap()
+        
+        //assert
+        XCTAssertEqual(app.switches["engineAndExhaustSwitch"].isEnabled, true)
+        XCTAssertEqual(app.switches["tiresSwitch"].isEnabled, true)
+        XCTAssertEqual(app.switches["transmissionSwitch"].isEnabled, true)
+    }
+    
+    func testRemainingFundsIsInitiallySetToOneThousand() {
+        //arrange
+        let app = XCUIApplication()
+        app.launch()
+        let expected = "Remaining Funds: 1000"
+        
+        //act
+        let actual = app.staticTexts["remainingFunds"].label
+        
+        //assert
+        XCTAssertEqual(actual, expected)
+    }
 
     func testLaunchPerformance() {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {

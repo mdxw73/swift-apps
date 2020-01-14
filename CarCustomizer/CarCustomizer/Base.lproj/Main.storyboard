@@ -26,6 +26,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zIy-g8-Sk5">
                                 <rect key="frame" x="20" y="202" width="60" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" identifier="nextCar"/>
                                 <state key="normal" title="Next Car"/>
                                 <connections>
                                     <action selector="nextCar:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ieV-Br-YI0"/>
@@ -57,6 +58,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Remaining Funds" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MY1-LT-vwE">
                                 <rect key="frame" x="20" y="438" width="367" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" identifier="remainingFunds"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -83,6 +85,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Remaining Time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="glb-Mw-KFb">
+                                <rect key="frame" x="271" y="44" width="123" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" identifier="remainingTime"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lqJ-1z-35Q">
+                                <rect key="frame" x="340" y="202" width="49" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="displayAlert:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IPr-Yc-zfA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -90,7 +108,10 @@
                     <connections>
                         <outlet property="carStatistics" destination="ZcE-sq-00j" id="pFb-1D-PqP"/>
                         <outlet property="engineAndExhaustPackage" destination="AZ6-Qf-gJp" id="kX7-1s-DSL"/>
+                        <outlet property="nextCar" destination="zIy-g8-Sk5" id="Gzf-l3-TGx"/>
                         <outlet property="remainingFundsDisplay" destination="MY1-LT-vwE" id="zhI-nq-Log"/>
+                        <outlet property="remainingTimeDisplay" destination="glb-Mw-KFb" id="o9C-lv-wWg"/>
+                        <outlet property="submitCar" destination="lqJ-1z-35Q" id="lXp-3O-uRO"/>
                         <outlet property="tiresPackage" destination="PCK-aH-fwY" id="NxQ-qA-4Tg"/>
                         <outlet property="transmissionPackage" destination="jQE-8V-KHe" id="g6d-kZ-ziX"/>
                     </connections>
