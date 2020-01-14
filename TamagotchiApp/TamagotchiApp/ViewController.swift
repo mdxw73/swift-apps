@@ -53,6 +53,14 @@ class ViewController: UIViewController {
         display()
     }
     
+    @IBAction func rules(_ sender: Any) {
+        let alertController = UIAlertController(title: "Rules", message:
+            "Get you tamagotchi as old as you can. It can only age when it's: happy, fed, well and clean. If you try to age it when it's not any of these things, it'll die. If it goes overweight (over 10kg) or gets too skinny (over 10 inches), then he'll die. You might also kill it by giving it medication, but that's the only way to make it healthy; it's your call!", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Continue", style: .default))
+
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     func display() {
         tamagotchiStatistics.text = tamagotchi?.displayStats()
         if tamagotchi?.getHealth() == true {

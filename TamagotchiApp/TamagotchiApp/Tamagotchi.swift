@@ -12,25 +12,23 @@ class Tamagotchi {
     
     //Properties
     private var name: String
-    private var gender: String
     private var age: Int
     private var weight: Int
     private var height: Int
-    private var happiness: Bool
-    private var hunger: Bool
-    private var illness: Bool
+    private var happy: Bool
+    private var hungry: Bool
+    private var ill: Bool
     private var dirty: Bool
     private var dead: Bool
     
     init() {
         name = "Tammy"
-        gender = "Female"
         age = 0
-        weight = 10
-        height = 3
-        happiness = true
-        hunger = true
-        illness = false
+        weight = 1
+        height = 1
+        happy = true
+        hungry = true
+        ill = false
         dirty = false
         dead = false
     }
@@ -38,13 +36,12 @@ class Tamagotchi {
     func displayStats() -> String {
         return ("""
             Name: \(name)
-            Gender: \(gender)
             Age: \(age)
             Weight: \(weight)kg
-            Height: \(height)ft
-            Happiness: \(happiness)
-            Hunger: \(hunger)
-            Illness: \(illness)
+            Height: \(height)"
+            Happy: \(happy)
+            Hungry: \(hungry)
+            Ill: \(ill)
             Dirty: \(dirty)
             """)
     }
@@ -54,28 +51,30 @@ class Tamagotchi {
     }
     
     func feedMeal() {
-        if self.height < 10 {
-            self.hunger = false
+        if self.height < 10 && self.weight < 10 {
+            self.hungry = false
+            self.weight += 2
             self.height += 1
-            if Int.random(in: 1...5) == 1 {
-                self.illness = true
-            }
+        } else {
+            self.dead = true
         }
     }
     
     func feedSnack() {
-        if self.weight < 20 {
-            self.hunger = false
+        if self.height < 10 && self.weight < 10 {
+            self.hungry = false
             self.weight += 1
             if Int.random(in: 1...5) == 1 {
-                self.illness = true
+                self.ill = true
             }
+        } else {
+            self.dead = true
         }
     }
     
     func playGame() {
         if self.weight > 1 && height > 1 {
-            self.happiness = true
+            self.happy = true
             self.weight -= 1
             self.height -= 1
             if Int.random(in: 1...5) == 1 {
@@ -85,21 +84,21 @@ class Tamagotchi {
     }
     
     func growUp() {
-        self.age += 1
-        if Int.random(in: 1...5) == 1 {
-            self.hunger = true
-        }
-        if self.age > 10 {
-            if Int.random(in: 1...5) == 1 {
-                self.dead = true
-            }
+        if self.happy == true && self.hungry == false && self.ill == false && self.dirty == false {
+            self.age += 1
+            self.happy = false
+            self.hungry = true
+            self.ill = true
+            self.dirty = true
+        } else {
+            self.dead = true
         }
     }
     
     func cleanUp() {
         self.dirty = false
         if Int.random(in: 1...5) == 1 {
-            self.happiness = false
+            self.hungry = true
         }
     }
     
@@ -107,7 +106,8 @@ class Tamagotchi {
         if Int.random(in: 1...5) == 1 {
             self.dead = true
         } else {
-            self.illness = false
+            self.ill = false
+            self.happy = false
         }
     }
     
