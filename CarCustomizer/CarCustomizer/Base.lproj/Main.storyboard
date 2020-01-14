@@ -15,94 +15,114 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Selected Car Statistics" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZcE-sq-00j">
-                                <rect key="frame" x="20" y="44" width="374" height="150"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration" identifier="selectedCarStatistics"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zIy-g8-Sk5">
-                                <rect key="frame" x="20" y="202" width="60" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zIy-g8-Sk5">
+                                <rect key="frame" x="117" y="131" width="60" height="30"/>
                                 <accessibility key="accessibilityConfiguration" identifier="nextCar"/>
                                 <state key="normal" title="Next Car"/>
                                 <connections>
                                     <action selector="nextCar:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ieV-Br-YI0"/>
                                 </connections>
                             </button>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="AZ6-Qf-gJp">
-                                <rect key="frame" x="340" y="271" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="AZ6-Qf-gJp">
+                                <rect key="frame" x="331.5" y="181.5" width="51" height="31"/>
                                 <accessibility key="accessibilityConfiguration" identifier="engineAndExhaustSwitch"/>
                                 <connections>
                                     <action selector="engineAndExhaustPackageToggle:" destination="BYZ-38-t0r" eventType="valueChanged" id="2L7-5v-kEg"/>
                                 </connections>
                             </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="PCK-aH-fwY">
-                                <rect key="frame" x="340" y="310" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="PCK-aH-fwY">
+                                <rect key="frame" x="331.5" y="222.5" width="51" height="31"/>
                                 <accessibility key="accessibilityConfiguration" identifier="tiresSwitch"/>
                                 <connections>
                                     <action selector="tiresPackageToggle:" destination="BYZ-38-t0r" eventType="valueChanged" id="AgP-im-1MT"/>
                                 </connections>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tires Package (Cost: 500)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UfQ-Py-Gdt">
-                                <rect key="frame" x="20" y="315" width="200" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tires Package (Cost: 500)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UfQ-Py-Gdt">
+                                <rect key="frame" x="17.5" y="227.5" width="200" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Remaining Funds" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MY1-LT-vwE">
-                                <rect key="frame" x="20" y="438" width="367" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remaining Funds" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MY1-LT-vwE">
+                                <rect key="frame" x="249" y="324.5" width="131.5" height="21"/>
                                 <accessibility key="accessibilityConfiguration" identifier="remainingFunds"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Transmission Package (Cost: 1000)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lLJ-B4-Oft">
-                                <rect key="frame" x="20" y="357" width="270" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transmission Package (Cost: 1000)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lLJ-B4-Oft">
+                                <rect key="frame" x="17.5" y="268.5" width="270" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jQE-8V-KHe">
-                                <rect key="frame" x="340" y="352" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jQE-8V-KHe">
+                                <rect key="frame" x="331.5" y="263.5" width="51" height="31"/>
                                 <accessibility key="accessibilityConfiguration" identifier="transmissionSwitch"/>
                                 <connections>
                                     <action selector="transmissionPackageToggle:" destination="BYZ-38-t0r" eventType="valueChanged" id="5vX-Nh-TOM"/>
                                 </connections>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Engine &amp; Exhaust Package (Cost: 500)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTK-Pl-Q9y">
-                                <rect key="frame" x="20" y="276" width="295" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Engine &amp; Exhaust Package (Cost: 500)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTK-Pl-Q9y">
+                                <rect key="frame" x="17.5" y="186.5" width="295" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Remaining Time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="glb-Mw-KFb">
-                                <rect key="frame" x="271" y="44" width="123" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remaining Time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="glb-Mw-KFb">
+                                <rect key="frame" x="271" y="54" width="123" height="21"/>
                                 <accessibility key="accessibilityConfiguration" identifier="remainingTime"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lqJ-1z-35Q">
-                                <rect key="frame" x="340" y="202" width="49" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lqJ-1z-35Q">
+                                <rect key="frame" x="242.5" y="131" width="49" height="30"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="displayAlert:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IPr-Yc-zfA"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selected Car Statistics" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZcE-sq-00j">
+                                <rect key="frame" x="120.5" y="85" width="173.5" height="20.5"/>
+                                <accessibility key="accessibilityConfiguration" identifier="selectedCarStatistics"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="jQE-8V-KHe" firstAttribute="leading" secondItem="lLJ-B4-Oft" secondAttribute="trailing" constant="44" id="40f-QL-MXa"/>
+                            <constraint firstItem="ZcE-sq-00j" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4Z0-77-uaH"/>
+                            <constraint firstItem="glb-Mw-KFb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="6Zv-Ho-jVZ"/>
+                            <constraint firstItem="UfQ-Py-Gdt" firstAttribute="centerY" secondItem="PCK-aH-fwY" secondAttribute="centerY" id="9n5-7J-E6r"/>
+                            <constraint firstItem="lqJ-1z-35Q" firstAttribute="top" secondItem="ZcE-sq-00j" secondAttribute="baseline" constant="30" id="Cpj-xO-OPt"/>
+                            <constraint firstItem="lqJ-1z-35Q" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="60" id="DyI-o1-N0o"/>
+                            <constraint firstItem="jQE-8V-KHe" firstAttribute="leading" secondItem="PCK-aH-fwY" secondAttribute="leading" id="EjR-3z-y3v"/>
+                            <constraint firstItem="MY1-LT-vwE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="Goc-KO-mnc"/>
+                            <constraint firstItem="MTK-Pl-Q9y" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="Hek-Pj-nSK"/>
+                            <constraint firstItem="AZ6-Qf-gJp" firstAttribute="leading" secondItem="lqJ-1z-35Q" secondAttribute="trailing" constant="40" id="I6N-s9-AdB"/>
+                            <constraint firstItem="lLJ-B4-Oft" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="Iu5-LT-wQt"/>
+                            <constraint firstItem="lqJ-1z-35Q" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="LPB-L4-Gix"/>
+                            <constraint firstItem="glb-Mw-KFb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="Nbc-Pv-iwh"/>
+                            <constraint firstItem="jQE-8V-KHe" firstAttribute="top" secondItem="PCK-aH-fwY" secondAttribute="baseline" constant="10" id="Nxc-FY-QIJ"/>
+                            <constraint firstItem="MTK-Pl-Q9y" firstAttribute="centerY" secondItem="AZ6-Qf-gJp" secondAttribute="centerY" id="OlN-Uk-cjC"/>
+                            <constraint firstItem="PCK-aH-fwY" firstAttribute="top" secondItem="AZ6-Qf-gJp" secondAttribute="baseline" constant="10" id="QGP-bW-X1u"/>
+                            <constraint firstItem="lLJ-B4-Oft" firstAttribute="centerY" secondItem="jQE-8V-KHe" secondAttribute="centerY" id="Tur-8n-ERA"/>
+                            <constraint firstItem="PCK-aH-fwY" firstAttribute="leading" secondItem="AZ6-Qf-gJp" secondAttribute="leading" id="U4t-5b-Eo9"/>
+                            <constraint firstItem="zIy-g8-Sk5" firstAttribute="top" secondItem="ZcE-sq-00j" secondAttribute="baseline" constant="30" id="UHc-0E-4o5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zIy-g8-Sk5" secondAttribute="trailing" constant="10" id="VJN-sa-vCS"/>
+                            <constraint firstItem="MY1-LT-vwE" firstAttribute="top" secondItem="jQE-8V-KHe" secondAttribute="baseline" constant="30" id="VLm-5d-8qt"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="glb-Mw-KFb" secondAttribute="trailing" constant="20" id="WJC-pW-Ulg"/>
+                            <constraint firstItem="ZcE-sq-00j" firstAttribute="top" secondItem="glb-Mw-KFb" secondAttribute="bottom" constant="10" id="XTV-Z0-7P9"/>
+                            <constraint firstItem="AZ6-Qf-gJp" firstAttribute="top" secondItem="lqJ-1z-35Q" secondAttribute="baseline" constant="30" id="Y34-gc-4eL"/>
+                            <constraint firstItem="AZ6-Qf-gJp" firstAttribute="leading" secondItem="MTK-Pl-Q9y" secondAttribute="trailing" constant="19" id="Yu7-gN-SpN"/>
+                            <constraint firstItem="zIy-g8-Sk5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-60" id="k41-7w-YYJ"/>
+                            <constraint firstItem="MY1-LT-vwE" firstAttribute="trailing" secondItem="jQE-8V-KHe" secondAttribute="trailing" id="nhx-23-De0"/>
+                            <constraint firstItem="UfQ-Py-Gdt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="riC-ub-hiT"/>
+                            <constraint firstItem="PCK-aH-fwY" firstAttribute="leading" secondItem="UfQ-Py-Gdt" secondAttribute="trailing" constant="114" id="uwA-fG-OYv"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
