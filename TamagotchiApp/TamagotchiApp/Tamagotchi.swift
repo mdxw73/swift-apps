@@ -18,19 +18,21 @@ class Tamagotchi {
     private var height: Int
     private var happiness: Bool
     private var hunger: Bool
-    private var fatigue: Bool
     private var illness: Bool
+    private var dirty: Bool
+    private var dead: Bool
     
     init() {
         name = "Tammy"
         gender = "Female"
         age = 0
         weight = 10
-        height = 1
+        height = 3
         happiness = true
         hunger = true
-        fatigue = false
         illness = false
+        dirty = false
+        dead = false
     }
     
     func displayStats() -> String {
@@ -42,66 +44,70 @@ class Tamagotchi {
             Height: \(height)ft
             Happiness: \(happiness)
             Hunger: \(hunger)
-            Fatigue: \(fatigue)
             Illness: \(illness)
+            Dirty: \(dirty)
             """)
     }
     
-    func eat() {
-        if self.hunger == false {
-            self.happiness = false
-            self.weight += 5
-            self.height += 1
-            self.illness = true
-        } else {
+    func getHealth() -> Bool {
+        return self.dead
+    }
+    
+    func feedMeal() {
+        if self.height < 10 {
             self.hunger = false
-        }
-        let number = Int.random(in: 1...5)
-        if number == 1 {
-            self.illness = true
-        }
-    }
-    
-    func play() {
-        if self.happiness == true {
-            self.happiness = false
-            self.weight -= 5
-            if height < 1 {
-                self.height -= 1
+            self.height += 1
+            if Int.random(in: 1...5) == 1 {
+                self.illness = true
             }
-            self.fatigue = true
-        } else {
+        }
+    }
+    
+    func feedSnack() {
+        if self.weight < 20 {
+            self.hunger = false
+            self.weight += 1
+            if Int.random(in: 1...5) == 1 {
+                self.illness = true
+            }
+        }
+    }
+    
+    func playGame() {
+        if self.weight > 1 && height > 1 {
             self.happiness = true
-        }
-        let number = Int.random(in: 1...5)
-        if number == 1 {
-            self.fatigue = true
+            self.weight -= 1
+            self.height -= 1
+            if Int.random(in: 1...5) == 1 {
+                self.dirty = true
+            }
         }
     }
     
-    func heal() {
-        self.illness = false
-        let number = Int.random(in: 1...5)
-        if number == 1 {
+    func growUp() {
+        self.age += 1
+        if Int.random(in: 1...5) == 1 {
+            self.hunger = true
+        }
+        if self.age > 10 {
+            if Int.random(in: 1...5) == 1 {
+                self.dead = true
+            }
+        }
+    }
+    
+    func cleanUp() {
+        self.dirty = false
+        if Int.random(in: 1...5) == 1 {
             self.happiness = false
         }
     }
     
-    func sleep() {
-        self.fatigue = false
-        let number = Int.random(in: 1...5)
-        if number == 1 {
-            self.hunger = true
-        }
-    }
-    
-    func mature() {
-        if self.happiness == true && hunger == false && fatigue == false && illness == false {
-            self.age += 1
-            self.happiness = false
-            self.hunger = true
-            self.fatigue = true
-            self.illness = true
+    func medicate() {
+        if Int.random(in: 1...5) == 1 {
+            self.dead = true
+        } else {
+            self.illness = false
         }
     }
     

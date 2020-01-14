@@ -22,34 +22,42 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         tamagotchi = Tamagotchi()
     }
-
-    @IBAction func feed(_ sender: Any) {
-        tamagotchi?.eat()
+    
+    @IBAction func feedMeal(_ sender: Any) {
+        tamagotchi?.feedMeal()
         display()
     }
     
-    @IBAction func play(_ sender: Any) {
-        tamagotchi?.play()
+    @IBAction func feedSnack(_ sender: Any) {
+        tamagotchi?.feedSnack()
         display()
     }
     
-    @IBAction func heal(_ sender: Any) {
-        tamagotchi?.heal()
+    @IBAction func playGame(_ sender: Any) {
+        tamagotchi?.playGame()
         display()
     }
     
-    @IBAction func sleep(_ sender: Any) {
-        tamagotchi?.sleep()
+    @IBAction func growUp(_ sender: Any) {
+        tamagotchi?.growUp()
         display()
     }
     
-    @IBAction func mature(_ sender: Any) {
-        tamagotchi?.mature()
+    @IBAction func cleanUp(_ sender: Any) {
+        tamagotchi?.cleanUp()
+        display()
+    }
+    
+    @IBAction func medicate(_ sender: Any) {
+        tamagotchi?.medicate()
         display()
     }
     
     func display() {
         tamagotchiStatistics.text = tamagotchi?.displayStats()
+        if tamagotchi?.getHealth() == true {
+            tamagotchiStatistics.text = "Your Tamagotchi Died"
+        }
     }
     
 }
