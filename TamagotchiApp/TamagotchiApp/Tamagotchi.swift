@@ -55,8 +55,9 @@ class Tamagotchi {
             self.hungry = false
             self.weight += 2
             self.height += 1
-        } else {
-            self.dead = true
+            if Int.random(in: 1...5) == 1 {
+                self.ill = true
+            }
         }
     }
     
@@ -67,8 +68,6 @@ class Tamagotchi {
             if Int.random(in: 1...5) == 1 {
                 self.ill = true
             }
-        } else {
-            self.dead = true
         }
     }
     
@@ -84,13 +83,12 @@ class Tamagotchi {
     }
     
     func growUp() {
-        if self.happy == true && self.hungry == false && self.ill == false && self.dirty == false {
-            self.age += 1
-            self.happy = false
-            self.hungry = true
-            self.ill = true
-            self.dirty = true
-        } else {
+        self.age += 1
+        self.happy = false
+        self.hungry = true
+        self.ill = true
+        self.dirty = true
+        if Int.random(in: 1...5) == 1 && age > 10 {
             self.dead = true
         }
     }
@@ -103,11 +101,9 @@ class Tamagotchi {
     }
     
     func medicate() {
+        self.ill = false
         if Int.random(in: 1...5) == 1 {
             self.dead = true
-        } else {
-            self.ill = false
-            self.happy = false
         }
     }
     
