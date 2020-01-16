@@ -25,9 +25,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tamagotchi = Tamagotchi()
-        ageTimer = 90
-        mealTimer = 60
-        playTimer = 30
+        ageTimer = 30
+        mealTimer = 20
+        playTimer = 10
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(countdown), userInfo: nil, repeats: true)
     }
     
@@ -56,9 +56,14 @@ class ViewController: UIViewController {
         display()
     }
     
+    @IBAction func shrink(_ sender: Any) {
+        tamagotchi?.shrink()
+        display()
+    }
+    
     @IBAction func rules(_ sender: Any) {
         let alertController = UIAlertController(title: "Rules", message:
-            "Get your tamagotchi as old as you can. It can only age when it's: happy, fed, well and clean. If you try to age it when it's not any of these things, it'll die. If it goes overweight (over 10kg) or gets too skinny (over 10 inches), then he'll die. You might also kill it by giving it medication, but that's the only way to make it healthy; it's your call!", preferredStyle: .alert)
+            "Get your tamagotchi as old as you can while making sure:\n\n0 < Weight < 10\n0 < Height < 10\nHappy > 0\nHungry < 10\n Ill < 10\nDirty < 10", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Continue", style: .default))
 
         self.present(alertController, animated: true, completion: nil)
@@ -67,7 +72,8 @@ class ViewController: UIViewController {
     func display() {
         tamagotchiStatistics.text = tamagotchi?.displayStats()
         if tamagotchi?.getHealth() == true {
-            tamagotchiStatistics.text = "Your Tamagotchi Died"
+            tamagotchiStatistics.text = "Your Tamagotchi Died\nDue To \(tamagotchi?.getCauseOfDeath() ?? "Mysterious Causes")"
+            timer?.invalidate()
         }
     }
     
@@ -76,28 +82,34 @@ class ViewController: UIViewController {
             ageTimer -= 1
         } else {
             tamagotchi?.growUp()
-            playTimer = Int.random(in: 30...100)
+            ageTimer = Int.random(in: 10...30)
             display()
         }
         if mealTimer > 0 {
             mealTimer -= 1
         } else {
-            let alertController = UIAlertController(title: "Your Tamagotchi", message:
-                "I'm Hungry", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Okay", style: .default))
-
-            self.present(alertController, animated: true, completion: nil)
-            playTimer = Int.random(in: 30...100)
+            if tamagotchi?.getHungry() ?? 10 > 5 {
+                let alertController = UIAlertController(title: "Your Tamagotchi", message:
+                    "I'm Hungry", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Okay", style: .default))
+                self.present(alertController, animated: true, completion: nil)
+            } else {
+                tamagotchi?.increaseHungry()
+            }
+            mealTimer = Int.random(in: 10...30)
         }
         if playTimer > 0 {
             playTimer -= 1
         } else {
-            let alertController = UIAlertController(title: "Your Tamagotchi", message:
-                "Let's Play Something", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Okay", style: .default))
-
-            self.present(alertController, animated: true, completion: nil)
-            playTimer = Int.random(in: 30...100)
+            if tamagotchi?.getHappy() ?? 10 < 5 {
+                let alertController = UIAlertController(title: "Your Tamagotchi", message:
+                    "Let's Play Something", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Okay", style: .default))
+                self.present(alertController, animated: true, completion: nil)
+            } else {
+                tamagotchi?.decreaseHappy()
+            }
+            playTimer = Int.random(in: 10...30)
         }
     }
     
