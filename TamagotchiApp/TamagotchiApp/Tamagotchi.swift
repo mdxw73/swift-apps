@@ -22,6 +22,8 @@ class Tamagotchi {
     private var dead: Bool = false
     private var causeOfDeath: String = ""
     
+    private var limit: Int = 5
+    
     func displayStats() -> String {
         return ("""
             Name: \(name)
@@ -60,7 +62,7 @@ class Tamagotchi {
             self.hungry -= 2
         }
         self.weight += 2
-        if Int.random(in: 1...5) == 1 {
+        if Int.random(in: 1...limit) == 1 {
             self.ill += 2
         }
         checkStats()
@@ -71,7 +73,7 @@ class Tamagotchi {
             self.hungry -= 1
         }
         self.weight += 1
-        if Int.random(in: 1...5) == 1 {
+        if Int.random(in: 1...limit) == 1 {
             self.happy -= 2
         }
         checkStats()
@@ -82,7 +84,7 @@ class Tamagotchi {
             self.happy += 1
         }
         self.weight -= 1
-        if Int.random(in: 1...5) == 1 {
+        if Int.random(in: 1...limit) == 1 {
             self.dirty += 2
         }
         checkStats()
@@ -92,7 +94,7 @@ class Tamagotchi {
         if dirty > 1 {
             self.dirty -= 1
         }
-        if Int.random(in: 1...5) == 1 {
+        if Int.random(in: 1...limit) == 1 {
             self.hungry += 2
         }
         checkStats()
@@ -102,7 +104,7 @@ class Tamagotchi {
         if self.ill > 1 {
             self.ill -= 1
         }
-        if Int.random(in: 1...5) == 1 {
+        if Int.random(in: 1...limit) == 1 {
             self.happy -= 2
         }
         checkStats()
@@ -110,7 +112,7 @@ class Tamagotchi {
     
     func shrink() {
         self.height -= 1
-        if Int.random(in: 1...5) == 1 {
+        if Int.random(in: 1...limit) == 1 {
             self.ill += 2
         }
         checkStats()
@@ -119,7 +121,7 @@ class Tamagotchi {
     func growUp() {
         self.age += 1
         self.height += 1
-        if Int.random(in: 1...5) == 1 {
+        if Int.random(in: 1...limit) == 1 {
             self.hungry += 2
         }
         checkStats()
@@ -134,7 +136,7 @@ class Tamagotchi {
     }
     
     func checkStats() {
-        if Int.random(in: 1...5) == 1 && age > 10 {
+        if age > 49 {
             self.dead = true
             self.causeOfDeath = "Old Age"
         } else if weight > 9 {
@@ -162,6 +164,18 @@ class Tamagotchi {
             self.dead = true
             self.causeOfDeath = "Infection"
         }
+        
+        if self.age < 10 { //Increases difficulty as you progress
+            self.limit = 5
+        } else if self.age < 20 {
+            self.limit = 4
+        } else if self.age < 30 {
+            self.limit = 3
+        } else if self.age < 40 {
+            self.limit = 2
+        } else {
+            self.limit = 1
+        }
     }
     
     func resetGame() {
@@ -173,6 +187,7 @@ class Tamagotchi {
         self.ill = 1
         self.dirty = 1
         self.dead = false
+        self.limit = 5
     }
     
 }

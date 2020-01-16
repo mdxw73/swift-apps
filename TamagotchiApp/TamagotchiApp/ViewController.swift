@@ -71,7 +71,7 @@ class ViewController: UIViewController {
     
     @IBAction func rules(_ sender: Any) {
         let alertController = UIAlertController(title: "Rules", message:
-            "Get your tamagotchi as old as you can while making sure:\n\n0 < Weight < 10\n0 < Height < 10\nHappy > 0\nHungry < 10\n Ill < 10\nDirty < 10", preferredStyle: .alert)
+            "Get your tamagotchi as old as you can while making sure:\n\n0 < Weight < 10\n0 < Height < 10\nHappy > 0\nHungry < 10\n Ill < 10\nDirty < 10\n\nSurvive 50 days to win!\nCareful: it gets harder as you go!", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Continue", style: .default))
 
         self.present(alertController, animated: true, completion: nil)
@@ -103,7 +103,7 @@ class ViewController: UIViewController {
         if mealTimer > 0 {
             mealTimer -= 1
         } else {
-            if tamagotchi?.getHungry() ?? 10 > 5 {
+            if tamagotchi?.getHungry() ?? 5 > 5 {
                 let alertController = UIAlertController(title: "Your Tamagotchi", message:
                     "I'm Hungry", preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "Okay", style: .default))
@@ -113,13 +113,14 @@ class ViewController: UIViewController {
             } else {
                 tamagotchi?.increaseHungry()
                 tamagotchiImage.image = UIImage(named: "happyTamagotchi.png")
+                display()
             }
             mealTimer = Int.random(in: 10...30)
         }
         if playTimer > 0 {
             playTimer -= 1
         } else {
-            if tamagotchi?.getHappy() ?? 10 < 5 {
+            if tamagotchi?.getHappy() ?? 5 < 5 {
                 let alertController = UIAlertController(title: "Your Tamagotchi", message:
                     "Let's Play Something", preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "Okay", style: .default))
@@ -129,6 +130,7 @@ class ViewController: UIViewController {
             } else {
                 tamagotchi?.decreaseHappy()
                 tamagotchiImage.image = UIImage(named: "happyTamagotchi.png")
+                display()
             }
             playTimer = Int.random(in: 10...30)
         }
