@@ -17,8 +17,8 @@ class Tamagotchi {
     private var height: Int = 5
     private var happy: Int = 5
     private var hungry: Int = 5
-    private var ill: Int = 0
-    private var dirty: Int = 0
+    private var ill: Int = 1
+    private var dirty: Int = 1
     private var dead: Bool = false
     private var causeOfDeath: String = ""
     
