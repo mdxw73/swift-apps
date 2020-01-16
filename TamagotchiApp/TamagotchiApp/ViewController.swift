@@ -11,10 +11,12 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var tamagotchiStatistics: UILabel!
+    @IBOutlet var tamagotchiImage: UIImageView!
     
     var tamagotchi: Tamagotchi? {
         didSet {
             tamagotchiStatistics.text = tamagotchi?.displayStats()
+            tamagotchiImage.image = UIImage(named: "happyTamagotchi.png")
         }
     }
     var timer: Timer?
@@ -73,6 +75,7 @@ class ViewController: UIViewController {
         tamagotchiStatistics.text = tamagotchi?.displayStats()
         if tamagotchi?.getHealth() == true {
             tamagotchiStatistics.text = "Your Tamagotchi Died\nDue To \(tamagotchi?.getCauseOfDeath() ?? "Mysterious Causes")"
+            tamagotchiImage.image = UIImage(named: "deadTamagotchi.png")
             timer?.invalidate()
         }
     }
@@ -93,8 +96,11 @@ class ViewController: UIViewController {
                     "I'm Hungry", preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "Okay", style: .default))
                 self.present(alertController, animated: true, completion: nil)
+                
+                tamagotchiImage.image = UIImage(named: "sadTamagotchi.png")
             } else {
                 tamagotchi?.increaseHungry()
+                tamagotchiImage.image = UIImage(named: "happyTamagotchi.png")
             }
             mealTimer = Int.random(in: 10...30)
         }
@@ -106,8 +112,11 @@ class ViewController: UIViewController {
                     "Let's Play Something", preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "Okay", style: .default))
                 self.present(alertController, animated: true, completion: nil)
+                
+                tamagotchiImage.image = UIImage(named: "sadTamagotchi.png")
             } else {
                 tamagotchi?.decreaseHappy()
+                tamagotchiImage.image = UIImage(named: "happyTamagotchi.png")
             }
             playTimer = Int.random(in: 10...30)
         }

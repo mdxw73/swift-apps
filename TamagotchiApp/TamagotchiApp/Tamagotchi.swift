@@ -141,7 +141,7 @@ class Tamagotchi {
             self.causeOfDeath = "Anorexia"
         } else if height > 9 {
             self.dead = true
-            self.causeOfDeath = "Cancer"
+            self.causeOfDeath = "Neglect" //Height increases over time, so you must shrink him
         } else if height < 1 {
             self.dead = true
             self.causeOfDeath = "Dwarfism"

@@ -16,6 +16,9 @@
 		4408E03C23CDCE44006FE109 /* TamagotchiAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4408E03B23CDCE44006FE109 /* TamagotchiAppTests.swift */; };
 		4408E04723CDCE44006FE109 /* TamagotchiAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4408E04623CDCE44006FE109 /* TamagotchiAppUITests.swift */; };
 		4408E05523CDCEC6006FE109 /* Tamagotchi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4408E05423CDCEC6006FE109 /* Tamagotchi.swift */; };
+		D774EA6723D1097300FA084F /* sadTamagotchi.png in Resources */ = {isa = PBXBuildFile; fileRef = D774EA6423D1097300FA084F /* sadTamagotchi.png */; };
+		D774EA6823D1097300FA084F /* deadTamagotchi.png in Resources */ = {isa = PBXBuildFile; fileRef = D774EA6523D1097300FA084F /* deadTamagotchi.png */; };
+		D774EA6923D1097300FA084F /* happyTamagotchi.png in Resources */ = {isa = PBXBuildFile; fileRef = D774EA6623D1097300FA084F /* happyTamagotchi.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,9 @@
 		4408E04623CDCE44006FE109 /* TamagotchiAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamagotchiAppUITests.swift; sourceTree = "<group>"; };
 		4408E04823CDCE44006FE109 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4408E05423CDCEC6006FE109 /* Tamagotchi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tamagotchi.swift; sourceTree = "<group>"; };
+		D774EA6423D1097300FA084F /* sadTamagotchi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sadTamagotchi.png; path = ../../../sadTamagotchi.png; sourceTree = "<group>"; };
+		D774EA6523D1097300FA084F /* deadTamagotchi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = deadTamagotchi.png; path = ../../../deadTamagotchi.png; sourceTree = "<group>"; };
+		D774EA6623D1097300FA084F /* happyTamagotchi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = happyTamagotchi.png; path = ../../../happyTamagotchi.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,9 @@
 				4408E02F23CDCE43006FE109 /* LaunchScreen.storyboard */,
 				4408E03223CDCE43006FE109 /* Info.plist */,
 				4408E05423CDCEC6006FE109 /* Tamagotchi.swift */,
+				D774EA6523D1097300FA084F /* deadTamagotchi.png */,
+				D774EA6623D1097300FA084F /* happyTamagotchi.png */,
+				D774EA6423D1097300FA084F /* sadTamagotchi.png */,
 			);
 			path = TamagotchiApp;
 			sourceTree = "<group>";
@@ -236,7 +245,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4408E03123CDCE43006FE109 /* LaunchScreen.storyboard in Resources */,
+				D774EA6723D1097300FA084F /* sadTamagotchi.png in Resources */,
 				4408E02E23CDCE43006FE109 /* Assets.xcassets in Resources */,
+				D774EA6923D1097300FA084F /* happyTamagotchi.png in Resources */,
+				D774EA6823D1097300FA084F /* deadTamagotchi.png in Resources */,
 				4408E02C23CDCE42006FE109 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
