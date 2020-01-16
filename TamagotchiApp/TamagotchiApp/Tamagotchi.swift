@@ -164,4 +164,15 @@ class Tamagotchi {
         }
     }
     
+    func resetGame() {
+        self.age = 0
+        self.weight = 5
+        self.height = 5
+        self.happy = 5
+        self.hungry = 5
+        self.ill = 1
+        self.dirty = 1
+        self.dead = false
+    }
+    
 }

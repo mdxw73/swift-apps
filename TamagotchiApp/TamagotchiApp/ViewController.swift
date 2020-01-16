@@ -134,4 +134,20 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func resetButton(_ sender: Any) {
+        tamagotchi?.resetGame()
+        feedMealButton.isEnabled = true
+        feedSnackButton.isEnabled = true
+        playGameButton.isEnabled = true
+        cleanUpButton.isEnabled = true
+        medicateButton.isEnabled = true
+        shrinkButton.isEnabled = true
+        tamagotchiStatistics.text = tamagotchi?.displayStats()
+        tamagotchiImage.image = UIImage(named: "happyTamagotchi.png")
+        ageTimer = 30
+        mealTimer = 20
+        playTimer = 10
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(countdown), userInfo: nil, repeats: true)
+    }
+    
 }
