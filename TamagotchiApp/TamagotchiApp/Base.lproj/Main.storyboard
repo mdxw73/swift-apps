@@ -120,6 +120,12 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="cleanUpButton" destination="lTD-JD-8pW" id="L6j-Sn-6Gj"/>
+                        <outlet property="feedMealButton" destination="NBb-7m-b9M" id="Yq1-bX-6Zv"/>
+                        <outlet property="feedSnackButton" destination="ZxE-Ha-jdh" id="gfx-q7-RZY"/>
+                        <outlet property="medicateButton" destination="o4i-OC-WDO" id="Hjd-TJ-ngq"/>
+                        <outlet property="playGameButton" destination="D0H-9n-j1k" id="QLf-6p-ule"/>
+                        <outlet property="shrinkButton" destination="1ha-4L-sal" id="Rs5-cv-iaP"/>
                         <outlet property="tamagotchiImage" destination="axU-s9-nr7" id="kYq-iv-Zny"/>
                         <outlet property="tamagotchiStatistics" destination="bPs-BK-0jN" id="zko-bD-4wG"/>
                     </connections>

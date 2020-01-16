@@ -43,6 +43,10 @@ class Tamagotchi {
         return self.happy
     }
     
+    func getAge() -> Int {
+        return self.age
+    }
+    
     func getHealth() -> Bool {
         return self.dead
     }
@@ -107,7 +111,7 @@ class Tamagotchi {
     func shrink() {
         self.height -= 1
         if Int.random(in: 1...5) == 1 {
-            self.ill -= 2
+            self.ill += 2
         }
         checkStats()
     }

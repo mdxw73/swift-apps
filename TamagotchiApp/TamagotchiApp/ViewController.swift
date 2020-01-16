@@ -12,6 +12,12 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tamagotchiStatistics: UILabel!
     @IBOutlet var tamagotchiImage: UIImageView!
+    @IBOutlet var feedMealButton: UIButton!
+    @IBOutlet var feedSnackButton: UIButton!
+    @IBOutlet var playGameButton: UIButton!
+    @IBOutlet var cleanUpButton: UIButton!
+    @IBOutlet var medicateButton: UIButton!
+    @IBOutlet var shrinkButton: UIButton!
     
     var tamagotchi: Tamagotchi? {
         didSet {
@@ -74,8 +80,14 @@ class ViewController: UIViewController {
     func display() {
         tamagotchiStatistics.text = tamagotchi?.displayStats()
         if tamagotchi?.getHealth() == true {
-            tamagotchiStatistics.text = "Your Tamagotchi Died\nDue To \(tamagotchi?.getCauseOfDeath() ?? "Mysterious Causes")"
+            tamagotchiStatistics.text = "Your Tamagotchi Died\nDue To \(tamagotchi?.getCauseOfDeath() ?? "Mysterious Causes")\n\nYour Tamagotchi Survived \(tamagotchi?.getAge() ?? 0) Days"
             tamagotchiImage.image = UIImage(named: "deadTamagotchi.png")
+            feedMealButton.isEnabled = false
+            feedSnackButton.isEnabled = false
+            playGameButton.isEnabled = false
+            cleanUpButton.isEnabled = false
+            medicateButton.isEnabled = false
+            shrinkButton.isEnabled = false
             timer?.invalidate()
         }
     }
