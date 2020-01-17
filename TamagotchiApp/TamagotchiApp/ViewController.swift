@@ -80,6 +80,7 @@ class ViewController: UIViewController {
     func display() {
         tamagotchiStatistics.text = tamagotchi?.displayStats()
         if tamagotchi?.getHealth() == true {
+            timer?.invalidate()
             tamagotchiStatistics.text = "Your Tamagotchi Died\nDue To \(tamagotchi?.getCauseOfDeath() ?? "Mysterious Causes")\n\nYour Tamagotchi Survived \(tamagotchi?.getAge() ?? 0) Days"
             tamagotchiImage.image = UIImage(named: "deadTamagotchi.png")
             feedMealButton.isEnabled = false
@@ -88,7 +89,6 @@ class ViewController: UIViewController {
             cleanUpButton.isEnabled = false
             medicateButton.isEnabled = false
             shrinkButton.isEnabled = false
-            timer?.invalidate()
         }
     }
     
