@@ -29,6 +29,7 @@ class ViewController: UIViewController {
     var ageTimer = 0
     var mealTimer = 0
     var playTimer = 0
+    var timerInvalid = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,7 +81,6 @@ class ViewController: UIViewController {
     func display() {
         tamagotchiStatistics.text = tamagotchi?.displayStats()
         if tamagotchi?.getHealth() == true {
-            timer?.invalidate()
             tamagotchiStatistics.text = "Your Tamagotchi Died\nDue To \(tamagotchi?.getCauseOfDeath() ?? "Mysterious Causes")\n\nYour Tamagotchi Survived \(tamagotchi?.getAge() ?? 0) Days"
             tamagotchiImage.image = UIImage(named: "deadTamagotchi.png")
             feedMealButton.isEnabled = false
@@ -89,20 +89,22 @@ class ViewController: UIViewController {
             cleanUpButton.isEnabled = false
             medicateButton.isEnabled = false
             shrinkButton.isEnabled = false
+            timerInvalid = true
+            timer?.invalidate()
         }
     }
     
     @objc func countdown() {
         if ageTimer > 0 {
             ageTimer -= 1
-        } else {
+        } else if timerInvalid == false {
             tamagotchi?.growUp()
             ageTimer = Int.random(in: 10...30)
             display()
         }
         if mealTimer > 0 {
             mealTimer -= 1
-        } else {
+        } else if timerInvalid == false {
             if tamagotchi?.getHungry() ?? 5 > 5 {
                 let alertController = UIAlertController(title: "Your Tamagotchi", message:
                     "I'm Hungry", preferredStyle: .alert)
@@ -119,7 +121,7 @@ class ViewController: UIViewController {
         }
         if playTimer > 0 {
             playTimer -= 1
-        } else {
+        } else if timerInvalid == false {
             if tamagotchi?.getHappy() ?? 5 < 5 {
                 let alertController = UIAlertController(title: "Your Tamagotchi", message:
                     "Let's Play Something", preferredStyle: .alert)
@@ -149,6 +151,7 @@ class ViewController: UIViewController {
         ageTimer = 30
         mealTimer = 20
         playTimer = 10
+        timerInvalid = false
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(countdown), userInfo: nil, repeats: true)
     }
     
