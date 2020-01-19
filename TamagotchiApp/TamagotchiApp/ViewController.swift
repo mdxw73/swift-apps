@@ -30,6 +30,7 @@ class ViewController: UIViewController {
     var mealTimer = 0
     var playTimer = 0
     var timerInvalid = false
+    var alertActive = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,24 +74,29 @@ class ViewController: UIViewController {
     @IBAction func rules(_ sender: Any) {
         let alertController = UIAlertController(title: "Rules", message:
             "Get your tamagotchi as old as you can while making sure:\n\n0 < Weight < 10\n0 < Height < 10\nHappy > 0\nHungry < 10\n Ill < 10\nDirty < 10\n\nSurvive 50 days to win!\nCareful: it gets harder as you go!", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Continue", style: .default))
+        alertController.addAction(UIAlertAction(title: "Continue", style: .default, handler: {(_) in
+            self.alertActive = false
+        }))
 
         self.present(alertController, animated: true, completion: nil)
+        alertActive = true
     }
     
     @IBAction func name(_ sender: Any) {
-        let alert = UIAlertController(title: "Name Your Tamagotchi", message: "Enter a name", preferredStyle: .alert)
-        alert.addTextField { (textField) in
+        let alertController = UIAlertController(title: "Name Your Tamagotchi", message: "Enter a name", preferredStyle: .alert)
+        alertController.addTextField { (textField) in
             textField.text = "\(self.tamagotchi?.getName() ?? "Tammy")"
         }
-        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { [weak alert] (_) in
-            let textField = alert?.textFields![0]
+        alertController.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { [weak alertController] (_) in
+            let textField = alertController?.textFields![0]
             if textField!.text?.count ?? 10 < 10 && textField!.text?.count ?? 0 > 0 {
+                self.alertActive = false
                 self.tamagotchi?.name(textField!.text ?? "Tammy")
                 self.display()
             }
         }))
-        self.present(alert, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
+        alertActive = true
     }
     
     func display() {
@@ -121,11 +127,15 @@ class ViewController: UIViewController {
             mealTimer -= 1
         } else if timerInvalid == false {
             if tamagotchi?.getHungry() ?? 5 > 5 {
-                let alertController = UIAlertController(title: "Your Tamagotchi", message:
-                    "I'm Hungry", preferredStyle: .alert)
-                alertController.addAction(UIAlertAction(title: "Okay", style: .default))
-                self.present(alertController, animated: true, completion: nil)
-                
+                if alertActive == false {
+                    let alertController = UIAlertController(title: "Your Tamagotchi", message:
+                        "I'm Hungry", preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (_) in
+                        self.alertActive = false
+                    }))
+                    self.present(alertController, animated: true, completion: nil)
+                    alertActive = true
+                }
                 tamagotchiImage.image = UIImage(named: "sadTamagotchi.png")
             } else {
                 tamagotchi?.increaseHungry()
@@ -138,11 +148,15 @@ class ViewController: UIViewController {
             playTimer -= 1
         } else if timerInvalid == false {
             if tamagotchi?.getHappy() ?? 5 < 5 {
-                let alertController = UIAlertController(title: "Your Tamagotchi", message:
-                    "Let's Play Something", preferredStyle: .alert)
-                alertController.addAction(UIAlertAction(title: "Okay", style: .default))
-                self.present(alertController, animated: true, completion: nil)
-                
+                if alertActive == false {
+                    let alertController = UIAlertController(title: "Your Tamagotchi", message:
+                        "Let's Play Something", preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (_) in
+                        self.alertActive = false
+                    }))
+                    self.present(alertController, animated: true, completion: nil)
+                    alertActive = true
+                }
                 tamagotchiImage.image = UIImage(named: "sadTamagotchi.png")
             } else {
                 tamagotchi?.decreaseHappy()
