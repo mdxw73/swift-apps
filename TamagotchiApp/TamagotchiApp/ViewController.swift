@@ -78,6 +78,21 @@ class ViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
+    @IBAction func name(_ sender: Any) {
+        let alert = UIAlertController(title: "Name Your Tamagotchi", message: "Enter a name", preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.text = "\(self.tamagotchi?.getName() ?? "Tammy")"
+        }
+        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { [weak alert] (_) in
+            let textField = alert?.textFields![0]
+            if textField!.text?.count ?? 10 < 10 && textField!.text?.count ?? 0 > 0 {
+                self.tamagotchi?.name(textField!.text ?? "Tammy")
+                self.display()
+            }
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     func display() {
         tamagotchiStatistics.text = tamagotchi?.displayStats()
         if tamagotchi?.getHealth() == true {

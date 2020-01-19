@@ -37,6 +37,14 @@ class Tamagotchi {
             """)
     }
     
+    func name(_ name: String) {
+        self.name = name
+    }
+    
+    func getName() -> String {
+        return self.name
+    }
+    
     func getHungry() -> Int {
         return self.hungry
     }

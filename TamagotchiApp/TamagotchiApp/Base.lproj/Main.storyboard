@@ -62,10 +62,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRo-Iq-p35">
-                                <rect key="frame" x="188" y="832" width="38" height="30"/>
+                                <rect key="frame" x="128" y="832" width="38" height="30"/>
                                 <state key="normal" title="Rules"/>
                                 <connections>
-                                    <action selector="medicate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GTt-nL-s9D"/>
                                     <action selector="rules:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SHG-jy-WhL"/>
                                 </connections>
                             </button>
@@ -86,7 +85,6 @@
                                     <color key="titleColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="medicate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a5u-xA-MCO"/>
                                     <action selector="shrink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XC7-SP-4pI"/>
                                 </connections>
                             </button>
@@ -102,6 +100,13 @@
                                     <action selector="resetButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QE8-eE-ZBG"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CYs-aR-LfV">
+                                <rect key="frame" x="246.5" y="832" width="41" height="30"/>
+                                <state key="normal" title="Name"/>
+                                <connections>
+                                    <action selector="name:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MRI-kG-mo1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -111,8 +116,8 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="bRo-Iq-p35" secondAttribute="bottom" id="93g-0G-9pf"/>
                             <constraint firstItem="axU-s9-nr7" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="15:56" id="AoJ-C6-S9W"/>
                             <constraint firstItem="D0H-9n-j1k" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-60" id="BKx-yu-sE9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="CYs-aR-LfV" secondAttribute="bottom" id="FVw-Wx-x8a"/>
                             <constraint firstItem="axU-s9-nr7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="G5l-Xq-1CU"/>
-                            <constraint firstItem="bRo-Iq-p35" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HoZ-r7-XYy"/>
                             <constraint firstItem="ZxE-Ha-jdh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="60" id="Mrh-hj-K3D"/>
                             <constraint firstItem="o4i-OC-WDO" firstAttribute="top" secondItem="lTD-JD-8pW" secondAttribute="baseline" constant="10" id="QaF-rq-MBa"/>
                             <constraint firstItem="lTD-JD-8pW" firstAttribute="centerY" secondItem="D0H-9n-j1k" secondAttribute="centerY" id="RM7-1D-pad"/>
@@ -121,7 +126,9 @@
                             <constraint firstItem="D0H-9n-j1k" firstAttribute="top" secondItem="ZxE-Ha-jdh" secondAttribute="baseline" constant="10" id="Xm8-BM-EQF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kvG-vK-FXT" secondAttribute="trailing" constant="20" id="YWg-Po-1NZ"/>
                             <constraint firstItem="bPs-BK-0jN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Z3t-3a-iEQ"/>
+                            <constraint firstItem="bRo-Iq-p35" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-60" id="ZiC-ja-4vg"/>
                             <constraint firstItem="axU-s9-nr7" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.142857" id="cdd-Yb-1qj"/>
+                            <constraint firstItem="CYs-aR-LfV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="60" id="gN6-S4-Y4r"/>
                             <constraint firstItem="lTD-JD-8pW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="60" id="jJ7-S4-hz0"/>
                             <constraint firstItem="kvG-vK-FXT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="k1p-lI-Wi2"/>
                             <constraint firstItem="1ha-4L-sal" firstAttribute="centerY" secondItem="o4i-OC-WDO" secondAttribute="centerY" id="lYF-6u-2ex"/>
