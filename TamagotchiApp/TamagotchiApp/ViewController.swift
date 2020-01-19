@@ -181,6 +181,7 @@ class ViewController: UIViewController {
         mealTimer = 20
         playTimer = 10
         timerInvalid = false
+        timer?.invalidate()
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(countdown), userInfo: nil, repeats: true)
     }
     

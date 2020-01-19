@@ -187,6 +187,7 @@ class Tamagotchi {
     }
     
     func resetGame() {
+        self.name = "Tammy"
         self.age = 0
         self.weight = 5
         self.height = 5
