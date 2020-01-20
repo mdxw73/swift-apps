@@ -62,7 +62,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRo-Iq-p35">
-                                <rect key="frame" x="128" y="832" width="38" height="30"/>
+                                <rect key="frame" x="88" y="832" width="38" height="30"/>
                                 <state key="normal" title="Rules"/>
                                 <connections>
                                     <action selector="rules:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SHG-jy-WhL"/>
@@ -89,10 +89,10 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="axU-s9-nr7">
-                                <rect key="frame" x="87" y="201.5" width="240" height="128"/>
+                                <rect key="frame" x="87" y="191.5" width="240" height="128"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kvG-vK-FXT">
-                                <rect key="frame" x="355" y="54" width="39" height="30"/>
+                                <rect key="frame" x="187.5" y="832" width="39" height="30"/>
                                 <state key="normal" title="Reset">
                                     <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -101,21 +101,36 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CYs-aR-LfV">
-                                <rect key="frame" x="246.5" y="832" width="41" height="30"/>
+                                <rect key="frame" x="286.5" y="832" width="41" height="30"/>
                                 <state key="normal" title="Name"/>
                                 <connections>
                                     <action selector="name:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MRI-kG-mo1"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nap-wH-IpR">
+                                <rect key="frame" x="356.5" y="54" width="37.5" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="12"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="State" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ash-NR-YGn">
+                                <rect key="frame" x="189.5" y="324.5" width="35" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="12"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="axU-s9-nr7" firstAttribute="firstBaseline" secondItem="o4i-OC-WDO" secondAttribute="baseline" constant="20" id="5Iy-oe-nWM"/>
+                            <constraint firstItem="Nap-wH-IpR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="3oy-yJ-rNL"/>
+                            <constraint firstItem="axU-s9-nr7" firstAttribute="firstBaseline" secondItem="o4i-OC-WDO" secondAttribute="baseline" constant="10" id="5Iy-oe-nWM"/>
                             <constraint firstItem="o4i-OC-WDO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-60" id="7hv-bZ-dY5"/>
                             <constraint firstItem="NBb-7m-b9M" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-60" id="8dB-Hd-wgB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="bRo-Iq-p35" secondAttribute="bottom" id="93g-0G-9pf"/>
                             <constraint firstItem="axU-s9-nr7" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="15:56" id="AoJ-C6-S9W"/>
                             <constraint firstItem="D0H-9n-j1k" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-60" id="BKx-yu-sE9"/>
+                            <constraint firstItem="kvG-vK-FXT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CRV-kT-sdi"/>
+                            <constraint firstItem="Nap-wH-IpR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="EGZ-8i-JkU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="CYs-aR-LfV" secondAttribute="bottom" id="FVw-Wx-x8a"/>
                             <constraint firstItem="axU-s9-nr7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="G5l-Xq-1CU"/>
                             <constraint firstItem="ZxE-Ha-jdh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="60" id="Mrh-hj-K3D"/>
@@ -124,17 +139,18 @@
                             <constraint firstItem="bPs-BK-0jN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Tqn-Ig-iPL"/>
                             <constraint firstItem="NBb-7m-b9M" firstAttribute="top" secondItem="bPs-BK-0jN" secondAttribute="baseline" constant="20" id="WKl-1x-c56"/>
                             <constraint firstItem="D0H-9n-j1k" firstAttribute="top" secondItem="ZxE-Ha-jdh" secondAttribute="baseline" constant="10" id="Xm8-BM-EQF"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kvG-vK-FXT" secondAttribute="trailing" constant="20" id="YWg-Po-1NZ"/>
+                            <constraint firstItem="Ash-NR-YGn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Y0H-8R-ygG"/>
                             <constraint firstItem="bPs-BK-0jN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Z3t-3a-iEQ"/>
-                            <constraint firstItem="bRo-Iq-p35" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-60" id="ZiC-ja-4vg"/>
+                            <constraint firstItem="bRo-Iq-p35" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-100" id="ZiC-ja-4vg"/>
                             <constraint firstItem="axU-s9-nr7" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.142857" id="cdd-Yb-1qj"/>
-                            <constraint firstItem="CYs-aR-LfV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="60" id="gN6-S4-Y4r"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Nap-wH-IpR" secondAttribute="trailing" constant="20" id="fwk-kq-sw3"/>
+                            <constraint firstItem="CYs-aR-LfV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="100" id="gN6-S4-Y4r"/>
                             <constraint firstItem="lTD-JD-8pW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="60" id="jJ7-S4-hz0"/>
-                            <constraint firstItem="kvG-vK-FXT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="k1p-lI-Wi2"/>
                             <constraint firstItem="1ha-4L-sal" firstAttribute="centerY" secondItem="o4i-OC-WDO" secondAttribute="centerY" id="lYF-6u-2ex"/>
+                            <constraint firstItem="Ash-NR-YGn" firstAttribute="top" secondItem="axU-s9-nr7" secondAttribute="bottom" constant="5" id="mvV-3y-sID"/>
                             <constraint firstItem="ZxE-Ha-jdh" firstAttribute="centerY" secondItem="NBb-7m-b9M" secondAttribute="centerY" id="oWo-1E-64q"/>
-                            <constraint firstItem="kvG-vK-FXT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="rUp-wk-8nn"/>
                             <constraint firstItem="1ha-4L-sal" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="60" id="tHC-cJ-6NO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="kvG-vK-FXT" secondAttribute="bottom" id="xYx-sz-ADX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -144,7 +160,9 @@
                         <outlet property="feedSnackButton" destination="ZxE-Ha-jdh" id="gfx-q7-RZY"/>
                         <outlet property="medicateButton" destination="o4i-OC-WDO" id="Hjd-TJ-ngq"/>
                         <outlet property="playGameButton" destination="D0H-9n-j1k" id="QLf-6p-ule"/>
+                        <outlet property="scoreDisplay" destination="Nap-wH-IpR" id="VWr-0W-yBm"/>
                         <outlet property="shrinkButton" destination="1ha-4L-sal" id="Rs5-cv-iaP"/>
+                        <outlet property="stateDisplay" destination="Ash-NR-YGn" id="vbI-Zg-4eh"/>
                         <outlet property="tamagotchiImage" destination="axU-s9-nr7" id="kYq-iv-Zny"/>
                         <outlet property="tamagotchiStatistics" destination="bPs-BK-0jN" id="zko-bD-4wG"/>
                     </connections>
