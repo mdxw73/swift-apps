@@ -201,6 +201,7 @@ class Tamagotchi {
         self.ill = 1
         self.dirty = 1
         self.dead = false
+        self.causeOfDeath = ""
         self.randomiserLimit = 10
     }
     
