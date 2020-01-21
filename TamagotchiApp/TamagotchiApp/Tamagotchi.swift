@@ -56,6 +56,14 @@ class Tamagotchi {
         return self.happy
     }
     
+    func getIll() -> Int {
+        return self.ill
+    }
+    
+    func getDirty() -> Int {
+        return self.dirty
+    }
+    
     func getAge() -> Int {
         return self.age
     }

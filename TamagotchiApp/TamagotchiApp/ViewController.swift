@@ -33,7 +33,7 @@ class ViewController: UIViewController {
     var mealTimer = 0
     var playTimer = 0
     var timerInvalid = false
-    var randomiserLimit = 20
+    var randomiserLimit = 9
     var state = "Hello" {
         didSet {
             stateDisplay.text = state
@@ -43,15 +43,19 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tamagotchi = Tamagotchi()
-        ageTimer = 20
-        mealTimer = 10
-        playTimer = 5
+        ageTimer = 10
+        mealTimer = 6
+        playTimer = 2
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(countdown), userInfo: nil, repeats: true)
     }
     
     @IBAction func feedMeal(_ sender: Any) {
         tamagotchi?.feedMeal()
         display()
+        if tamagotchi?.getIll() ?? 1 > 5 {
+            state = "I Don't Feel Too Good"
+            tamagotchiImage.image = UIImage(named: "sadTamagotchi")
+        }
     }
     
     @IBAction func feedSnack(_ sender: Any) {
@@ -62,6 +66,10 @@ class ViewController: UIViewController {
     @IBAction func playGame(_ sender: Any) {
         tamagotchi?.playGame()
         display()
+        if tamagotchi?.getDirty() ?? 1 > 5 {
+            state = "I'm Really Dirty"
+            tamagotchiImage.image = UIImage(named: "sadTamagotchi")
+        }
     }
     
     @IBAction func cleanUp(_ sender: Any) {
@@ -125,15 +133,15 @@ class ViewController: UIViewController {
     @objc func countdown() {
         //Increases speed as you progress
         if tamagotchi?.getAge() ?? 0 < 10 {
-            randomiserLimit = 20
+            randomiserLimit = 9
         } else if tamagotchi?.getAge() ?? 0 < 20 {
-            randomiserLimit = 15
+            randomiserLimit = 8
         } else if tamagotchi?.getAge() ?? 0 < 30 {
-            randomiserLimit = 10
+            randomiserLimit = 7
         } else if tamagotchi?.getAge() ?? 0 < 40 {
-            randomiserLimit = 5
+            randomiserLimit = 6
         } else {
-            randomiserLimit = 1
+            randomiserLimit = 5
         }
         //Timer decrements and resets
         if ageTimer > 0 {
@@ -147,7 +155,7 @@ class ViewController: UIViewController {
                 state = "I Feel Sick"
                 tamagotchiImage.image = UIImage(named: "sadTamagotchi")
             }
-            ageTimer = Int.random(in: 1...randomiserLimit)
+            ageTimer = 10
         }
         if mealTimer > 0 {
             mealTimer -= 1
@@ -157,8 +165,13 @@ class ViewController: UIViewController {
                 tamagotchiImage.image = UIImage(named: "sadTamagotchi")
             } else {
                 tamagotchi?.increaseHungry()
-                state = "I'm Well Fed"
-                tamagotchiImage.image = UIImage(named: "happyTamagotchi")
+                if tamagotchi?.getHungry() ?? 5 < 5 {
+                    state = "I'm Well Fed"
+                    tamagotchiImage.image = UIImage(named: "happyTamagotchi")
+                } else {
+                    state = "I'm Hungry"
+                    tamagotchiImage.image = UIImage(named: "sadTamagotchi")
+                }
             }
             mealTimer = Int.random(in: 1...randomiserLimit)
         }
@@ -170,8 +183,13 @@ class ViewController: UIViewController {
                 tamagotchiImage.image = UIImage(named: "sadTamagotchi")
             } else {
                 tamagotchi?.decreaseHappy()
-                state = "I'm Having Fun"
-                tamagotchiImage.image = UIImage(named: "happyTamagotchi")
+                if tamagotchi?.getHappy() ?? 5 > 5 {
+                    state = "I'm Having Fun"
+                    tamagotchiImage.image = UIImage(named: "happyTamagotchi")
+                } else {
+                    state = "I'm Bored"
+                    tamagotchiImage.image = UIImage(named: "sadTamagotchi")
+                }
             }
             playTimer = Int.random(in: 1...randomiserLimit)
         }
@@ -188,11 +206,11 @@ class ViewController: UIViewController {
         shrinkButton.isEnabled = true
         tamagotchiStatistics.text = tamagotchi?.displayStats()
         tamagotchiImage.image = UIImage(named: "happyTamagotchi")
-        ageTimer = 20
-        mealTimer = 10
-        playTimer = 5
+        ageTimer = 10
+        mealTimer = 6
+        playTimer = 2
         timerInvalid = false
-        randomiserLimit = 20
+        randomiserLimit = 9
         state = "Hello"
         progressBar.progress = 0.0
         timer?.invalidate()
