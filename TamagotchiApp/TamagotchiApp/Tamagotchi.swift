@@ -140,15 +140,15 @@ class Tamagotchi {
         checkStats()
         //Increases difficulty as you progress
         if self.age < 10 {
-            self.randomiserLimit = 10
+            self.randomiserLimit = 9
         } else if self.age < 20 {
             self.randomiserLimit = 8
         } else if self.age < 30 {
-            self.randomiserLimit = 6
+            self.randomiserLimit = 7
         } else if self.age < 40 {
-            self.randomiserLimit = 4
+            self.randomiserLimit = 6
         } else {
-            self.randomiserLimit = 2
+            self.randomiserLimit = 5
         }
     }
     
@@ -158,6 +158,10 @@ class Tamagotchi {
     
     func decreaseHappy() {
         self.happy -= 3
+    }
+    
+    func increaseIll() {
+        self.ill += 3
     }
     
     func checkStats() {
@@ -202,7 +206,7 @@ class Tamagotchi {
         self.dirty = 1
         self.dead = false
         self.causeOfDeath = ""
-        self.randomiserLimit = 10
+        self.randomiserLimit = 9
     }
     
 }

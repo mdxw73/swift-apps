@@ -25,6 +25,7 @@ class ViewController: UIViewController {
         didSet {
             tamagotchiStatistics.text = tamagotchi?.displayStats()
             tamagotchiImage.image = UIImage(named: "happyTamagotchi")
+            stateDisplay.text = state
         }
     }
     var timer: Timer?
@@ -32,8 +33,8 @@ class ViewController: UIViewController {
     var mealTimer = 0
     var playTimer = 0
     var timerInvalid = false
-    var randomiserLimit = 30
-    var state = "" {
+    var randomiserLimit = 20
+    var state = "Hello" {
         didSet {
             stateDisplay.text = state
         }
@@ -42,10 +43,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tamagotchi = Tamagotchi()
-        ageTimer = 10
-        mealTimer = 5
-        playTimer = 1
-        state = "Hello"
+        ageTimer = 20
+        mealTimer = 10
+        playTimer = 5
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(countdown), userInfo: nil, repeats: true)
     }
     
@@ -81,7 +81,7 @@ class ViewController: UIViewController {
     
     @IBAction func rules(_ sender: Any) {
         let alert = UIAlertController(title: "Rules", message:
-            "Get your tamagotchi as old as you can:\n\n0 < Weight < 10\n0 < Height < 10\nHappy > 0\nHungry < 10\n Ill < 10\nDirty < 10\n\nSurvive 50 days to win!\nCareful: it gets harder as you go!", preferredStyle: .alert)
+            "Get your tamagotchi to live as long as you can. Here are the rules:\n\n0 < Weight < 10\n0 < Height < 10\nHappy > 0\nHungry < 10\n Ill < 10\nDirty < 10\n\nSurvive 50 days to win!\nCareful, it gets harder as you go!", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Continue", style: .default))
         self.present(alert, animated: true, completion: nil)
     }
@@ -141,6 +141,12 @@ class ViewController: UIViewController {
         } else if timerInvalid == false {
             tamagotchi?.growUp()
             progressBar.progress += 0.02
+            let age = tamagotchi?.getAge() ?? 0
+            if age == Int.random(in: age - 2...age + 2) {
+                tamagotchi?.increaseIll()
+                state = "I Feel Sick"
+                tamagotchiImage.image = UIImage(named: "sadTamagotchi")
+            }
             ageTimer = Int.random(in: 1...randomiserLimit)
         }
         if mealTimer > 0 {
@@ -151,7 +157,7 @@ class ViewController: UIViewController {
                 tamagotchiImage.image = UIImage(named: "sadTamagotchi")
             } else {
                 tamagotchi?.increaseHungry()
-                state = "I'm Not Hungry Any More"
+                state = "I'm Well Fed"
                 tamagotchiImage.image = UIImage(named: "happyTamagotchi")
             }
             mealTimer = Int.random(in: 1...randomiserLimit)
@@ -182,11 +188,11 @@ class ViewController: UIViewController {
         shrinkButton.isEnabled = true
         tamagotchiStatistics.text = tamagotchi?.displayStats()
         tamagotchiImage.image = UIImage(named: "happyTamagotchi")
-        ageTimer = 10
-        mealTimer = 5
-        playTimer = 1
+        ageTimer = 20
+        mealTimer = 10
+        playTimer = 5
         timerInvalid = false
-        randomiserLimit = 30
+        randomiserLimit = 20
         state = "Hello"
         progressBar.progress = 0.0
         timer?.invalidate()
