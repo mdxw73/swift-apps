@@ -52,10 +52,6 @@ class ViewController: UIViewController {
     @IBAction func feedMeal(_ sender: Any) {
         tamagotchi?.feedMeal()
         display()
-        if tamagotchi?.getIll() ?? 1 > 5 {
-            state = "I Don't Feel Too Good"
-            tamagotchiImage.image = UIImage(named: "sadTamagotchi")
-        }
     }
     
     @IBAction func feedSnack(_ sender: Any) {
@@ -66,10 +62,6 @@ class ViewController: UIViewController {
     @IBAction func playGame(_ sender: Any) {
         tamagotchi?.playGame()
         display()
-        if tamagotchi?.getDirty() ?? 1 > 5 {
-            state = "I'm Really Dirty"
-            tamagotchiImage.image = UIImage(named: "sadTamagotchi")
-        }
     }
     
     @IBAction func cleanUp(_ sender: Any) {
@@ -149,12 +141,6 @@ class ViewController: UIViewController {
         } else if timerInvalid == false {
             tamagotchi?.growUp()
             progressBar.progress += 0.02
-            let age = tamagotchi?.getAge() ?? 0
-            if age == Int.random(in: age - 2...age + 2) {
-                tamagotchi?.increaseIll()
-                state = "I Feel Sick"
-                tamagotchiImage.image = UIImage(named: "sadTamagotchi")
-            }
             ageTimer = 10
         }
         if mealTimer > 0 {
@@ -164,14 +150,8 @@ class ViewController: UIViewController {
                 state = "I'm Hungry"
                 tamagotchiImage.image = UIImage(named: "sadTamagotchi")
             } else {
-                tamagotchi?.increaseHungry()
-                if tamagotchi?.getHungry() ?? 5 < 5 {
-                    state = "I'm Well Fed"
-                    tamagotchiImage.image = UIImage(named: "happyTamagotchi")
-                } else {
-                    state = "I'm Hungry"
-                    tamagotchiImage.image = UIImage(named: "sadTamagotchi")
-                }
+                state = "I'm Stuffed"
+                tamagotchiImage.image = UIImage(named: "happyTamagotchi")
             }
             mealTimer = Int.random(in: 1...randomiserLimit)
         }
@@ -182,14 +162,8 @@ class ViewController: UIViewController {
                 state = "I'm Bored"
                 tamagotchiImage.image = UIImage(named: "sadTamagotchi")
             } else {
-                tamagotchi?.decreaseHappy()
-                if tamagotchi?.getHappy() ?? 5 > 5 {
-                    state = "I'm Having Fun"
-                    tamagotchiImage.image = UIImage(named: "happyTamagotchi")
-                } else {
-                    state = "I'm Bored"
-                    tamagotchiImage.image = UIImage(named: "sadTamagotchi")
-                }
+                state = "I'm Happy"
+                tamagotchiImage.image = UIImage(named: "happyTamagotchi")
             }
             playTimer = Int.random(in: 1...randomiserLimit)
         }

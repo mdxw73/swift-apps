@@ -56,14 +56,6 @@ class Tamagotchi {
         return self.happy
     }
     
-    func getIll() -> Int {
-        return self.ill
-    }
-    
-    func getDirty() -> Int {
-        return self.dirty
-    }
-    
     func getAge() -> Int {
         return self.age
     }
@@ -145,6 +137,12 @@ class Tamagotchi {
         if Int.random(in: 1...randomiserLimit) == 1 {
             self.hungry += 2
         }
+        if Int.random(in: 1...randomiserLimit) == 1 {
+            self.ill += 2
+        }
+        if Int.random(in: 1...randomiserLimit) == 1 {
+            self.happy -= 2
+        }
         checkStats()
         //Increases difficulty as you progress
         if self.age < 10 {
@@ -158,18 +156,6 @@ class Tamagotchi {
         } else {
             self.randomiserLimit = 5
         }
-    }
-    
-    func increaseHungry() {
-        self.hungry += 3
-    }
-    
-    func decreaseHappy() {
-        self.happy -= 3
-    }
-    
-    func increaseIll() {
-        self.ill += 3
     }
     
     func checkStats() {
@@ -190,7 +176,7 @@ class Tamagotchi {
             self.causeOfDeath = "Dwarfism"
         } else if self.happy < 1 {
             self.dead = true
-            self.causeOfDeath = "Suicide"
+            self.causeOfDeath = "Boredom"
         } else if self.hungry > 9 {
             self.dead = true
             self.causeOfDeath = "Starvation"
