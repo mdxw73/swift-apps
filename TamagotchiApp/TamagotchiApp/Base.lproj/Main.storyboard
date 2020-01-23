@@ -16,10 +16,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0wX-dh-54e">
-                                <rect key="frame" x="-36.666666666666657" y="377" width="487.33333333333326" height="88"/>
+                                <rect key="frame" x="-36.666666666666657" y="192" width="487.33333333333326" height="56"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="40"/>
-                                <inset key="contentEdgeInsets" minX="200" minY="20" maxX="200" maxY="20"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="30"/>
+                                <inset key="contentEdgeInsets" minX="200" minY="10" maxX="200" maxY="10"/>
                                 <state key="normal" title="Play">
                                     <color key="titleColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -27,30 +27,18 @@
                                     <segue destination="BYZ-38-t0r" kind="show" id="Xya-73-Bhf"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="happyTamagotchi" translatesAutoresizingMaskIntoConstraints="NO" id="5NK-Kr-EJH">
-                                <rect key="frame" x="20" y="86" width="112" height="325"/>
-                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="happyTamagotchi" translatesAutoresizingMaskIntoConstraints="NO" id="AkX-Zc-RJv">
-                                <rect key="frame" x="151" y="86" width="112" height="325"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="happyTamagotchi" translatesAutoresizingMaskIntoConstraints="NO" id="s88-72-5AA">
-                                <rect key="frame" x="282" y="86" width="112" height="325"/>
+                                <rect key="frame" x="62.666666666666657" y="20" width="289" height="152"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="0wX-dh-54e" firstAttribute="width" secondItem="SXV-1R-b6P" secondAttribute="width" multiplier="1.17713" id="4QK-6d-O5e"/>
-                            <constraint firstItem="5NK-Kr-EJH" firstAttribute="width" secondItem="SXV-1R-b6P" secondAttribute="height" multiplier="56:421" id="6jj-0t-Qzg"/>
-                            <constraint firstItem="AkX-Zc-RJv" firstAttribute="width" secondItem="SXV-1R-b6P" secondAttribute="height" multiplier="56:421" id="Be9-QB-XK1"/>
-                            <constraint firstItem="0wX-dh-54e" firstAttribute="centerY" secondItem="s88-72-5AA" secondAttribute="bottom" constant="10" id="DDa-T7-0TP"/>
-                            <constraint firstItem="0wX-dh-54e" firstAttribute="centerY" secondItem="SXV-1R-b6P" secondAttribute="centerY" id="NG9-wd-BoN"/>
+                            <constraint firstItem="AkX-Zc-RJv" firstAttribute="height" secondItem="SXV-1R-b6P" secondAttribute="height" multiplier="0.180523" id="6fi-OU-xeA"/>
+                            <constraint firstItem="AkX-Zc-RJv" firstAttribute="top" secondItem="OM1-wP-2rf" secondAttribute="top" constant="20" id="YZ2-Xn-71D"/>
                             <constraint firstItem="AkX-Zc-RJv" firstAttribute="centerX" secondItem="SXV-1R-b6P" secondAttribute="centerX" id="dK5-6W-00A"/>
-                            <constraint firstItem="OM1-wP-2rf" firstAttribute="trailing" secondItem="s88-72-5AA" secondAttribute="trailing" constant="20" id="eIP-ed-Aer"/>
                             <constraint firstItem="0wX-dh-54e" firstAttribute="centerX" secondItem="SXV-1R-b6P" secondAttribute="centerX" id="fiZ-zg-fdh"/>
-                            <constraint firstItem="AkX-Zc-RJv" firstAttribute="centerY" secondItem="5NK-Kr-EJH" secondAttribute="centerY" id="hxw-se-U3R"/>
-                            <constraint firstItem="5NK-Kr-EJH" firstAttribute="leading" secondItem="OM1-wP-2rf" secondAttribute="leading" constant="20" id="kPF-7l-M3I"/>
-                            <constraint firstItem="s88-72-5AA" firstAttribute="width" secondItem="SXV-1R-b6P" secondAttribute="height" multiplier="56:421" id="qZt-dp-eMW"/>
-                            <constraint firstItem="0wX-dh-54e" firstAttribute="centerY" secondItem="5NK-Kr-EJH" secondAttribute="bottom" constant="10" id="ukG-Ls-woa"/>
+                            <constraint firstItem="0wX-dh-54e" firstAttribute="top" secondItem="AkX-Zc-RJv" secondAttribute="bottom" constant="20" id="qxp-W1-Dih"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OM1-wP-2rf"/>
                     </view>
