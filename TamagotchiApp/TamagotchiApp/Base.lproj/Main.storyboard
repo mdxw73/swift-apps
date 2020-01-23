@@ -39,6 +39,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="0wX-dh-54e" firstAttribute="width" secondItem="SXV-1R-b6P" secondAttribute="width" multiplier="1.17713" id="4QK-6d-O5e"/>
                             <constraint firstItem="5NK-Kr-EJH" firstAttribute="width" secondItem="SXV-1R-b6P" secondAttribute="height" multiplier="56:421" id="6jj-0t-Qzg"/>
                             <constraint firstItem="AkX-Zc-RJv" firstAttribute="width" secondItem="SXV-1R-b6P" secondAttribute="height" multiplier="56:421" id="Be9-QB-XK1"/>
                             <constraint firstItem="0wX-dh-54e" firstAttribute="centerY" secondItem="s88-72-5AA" secondAttribute="bottom" constant="10" id="DDa-T7-0TP"/>
@@ -226,6 +227,7 @@
                             <constraint firstItem="Jp2-uB-Cf4" firstAttribute="top" secondItem="dtJ-6f-NXJ" secondAttribute="bottom" constant="30" id="cEX-PO-jHy"/>
                             <constraint firstItem="axU-s9-nr7" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.142857" id="cdd-Yb-1qj"/>
                             <constraint firstItem="CYs-aR-LfV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="100" id="gN6-S4-Y4r"/>
+                            <constraint firstItem="dtJ-6f-NXJ" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="1.06119" id="hdv-LL-8D2"/>
                             <constraint firstItem="lTD-JD-8pW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="50" id="jJ7-S4-hz0"/>
                             <constraint firstItem="dtJ-6f-NXJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kg8-zT-mTv"/>
                             <constraint firstItem="1ha-4L-sal" firstAttribute="centerY" secondItem="o4i-OC-WDO" secondAttribute="centerY" id="lYF-6u-2ex"/>
