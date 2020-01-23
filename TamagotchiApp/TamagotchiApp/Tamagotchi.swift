@@ -15,13 +15,13 @@ class Tamagotchi {
     private var age: Int = 0
     private var weight: Int = 5
     private var height: Int = 5
-    private var happy: Int = 5
-    private var hungry: Int = 5
+    private var happy: Int = 9
+    private var hungry: Int = 1
     private var ill: Int = 1
     private var dirty: Int = 1
     private var dead: Bool = false
     private var causeOfDeath: String = ""
-    private var randomiserLimit: Int = 5
+    private var randomiserLimit: Int = 6
     
     func displayStats() -> String {
         var noun = "days"
@@ -62,6 +62,14 @@ class Tamagotchi {
     
     func getHealth() -> Bool {
         return self.dead
+    }
+    
+    func getDirty() -> Int {
+        return self.dirty
+    }
+    
+    func getIll() -> Int {
+        return self.ill
     }
     
     func getCauseOfDeath() -> String {
@@ -146,15 +154,27 @@ class Tamagotchi {
         checkStats()
         //Increases difficulty as you progress
         if self.age < 10 {
-            self.randomiserLimit = 9
-        } else if self.age < 20 {
-            self.randomiserLimit = 8
-        } else if self.age < 30 {
-            self.randomiserLimit = 7
-        } else if self.age < 40 {
             self.randomiserLimit = 6
-        } else {
+        } else if self.age < 20 {
             self.randomiserLimit = 5
+        } else if self.age < 30 {
+            self.randomiserLimit = 4
+        } else if self.age < 40 {
+            self.randomiserLimit = 3
+        } else {
+            self.randomiserLimit = 2
+        }
+    }
+    
+    func randomlyIncreaseHungry() {
+        if Int.random(in: 1...randomiserLimit) == 1 {
+            self.hungry += 2
+        }
+    }
+    
+    func randomlyDecreaseHappy() {
+        if Int.random(in: 1...randomiserLimit) == 1 {
+            self.happy -= 2
         }
     }
     
