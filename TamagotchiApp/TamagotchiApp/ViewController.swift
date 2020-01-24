@@ -166,7 +166,7 @@ class ViewController: UIViewController {
         display()
     }
     
-    @IBAction func resetButton(_ sender: Any) {
+    @IBAction func retryButton(_ sender: Any) {
         tamagotchi?.resetGame()
         feedMealButton.isEnabled = true
         feedSnackButton.isEnabled = true

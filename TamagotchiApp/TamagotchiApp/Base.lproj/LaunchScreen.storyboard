@@ -14,25 +14,7 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tamagotchi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCA-W8-TFo">
-                                <rect key="frame" x="61" y="318" width="292.5" height="60"/>
-                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="50"/>
-                                <color key="textColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="happyTamagotchi" translatesAutoresizingMaskIntoConstraints="NO" id="LKI-k2-toE">
-                                <rect key="frame" x="62.5" y="398" width="289" height="165"/>
-                            </imageView>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="LKI-k2-toE" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="0.184152" id="4qm-Uz-EyC"/>
-                            <constraint firstItem="eCA-W8-TFo" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="fnW-R7-GQu"/>
-                            <constraint firstItem="LKI-k2-toE" firstAttribute="top" secondItem="eCA-W8-TFo" secondAttribute="bottom" constant="20" id="kyo-4g-OBv"/>
-                            <constraint firstItem="LKI-k2-toE" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="lq8-py-v7o"/>
-                            <constraint firstItem="eCA-W8-TFo" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-100" id="pfd-KF-53c"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -41,7 +23,4 @@
             <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="happyTamagotchi" width="289" height="325"/>
-    </resources>
 </document>
