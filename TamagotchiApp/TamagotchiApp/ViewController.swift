@@ -60,11 +60,11 @@ class ViewController: UIViewController {
     
     @IBAction func playGame(_ sender: Any) {
         tamagotchi?.playGame()
-        display()
         if tamagotchi?.getDirty() ?? 1 > 5 {
             state = "I'm Dirty"
             tamagotchiImage.image = UIImage(named: "sadTamagotchi")
         }
+        display()
     }
     
     @IBAction func cleanUp(_ sender: Any) {
@@ -153,7 +153,7 @@ class ViewController: UIViewController {
             progressBar.progress += 0.02
             ageTimer = 10
             if tamagotchi?.getIll() ?? 1 > 5 {
-                state = "I'm Ill"
+                state = "I'm Sick"
                 tamagotchiImage.image = UIImage(named: "sadTamagotchi")
             }
         }
@@ -174,7 +174,7 @@ class ViewController: UIViewController {
             playTimer -= 1
         } else if timerInvalid == false {
             if tamagotchi?.getHappy() ?? 5 < 5 {
-                state = "I'm Bored"
+                state = "I'm Sad"
                 tamagotchiImage.image = UIImage(named: "sadTamagotchi")
             } else {
                 tamagotchi?.randomlyDecreaseHappy()
