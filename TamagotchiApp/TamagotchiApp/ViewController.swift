@@ -89,6 +89,26 @@ class ViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    @IBAction func retryButton(_ sender: Any) {
+        tamagotchi?.resetGame()
+        feedMealButton.isEnabled = true
+        feedSnackButton.isEnabled = true
+        playGameButton.isEnabled = true
+        cleanUpButton.isEnabled = true
+        medicateButton.isEnabled = true
+        shrinkButton.isEnabled = true
+        tamagotchiStatistics.text = tamagotchi?.displayStats()
+        tamagotchiImage.image = UIImage(named: "happyTamagotchi")
+        ageTimer = 10
+        mealTimer = 15
+        playTimer = 5
+        timerInvalid = false
+        state = "Hello"
+        progressBar.progress = 0.0
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(countdown), userInfo: nil, repeats: true)
+    }
+    
     @IBAction func name(_ sender: Any) {
         let alertController = UIAlertController(title: "Name Your Tamagotchi", message: "Enter a name", preferredStyle: .alert)
         alertController.addTextField { (textField) in
@@ -164,26 +184,6 @@ class ViewController: UIViewController {
             playTimer = Int.random(in: 1...20)
         }
         display()
-    }
-    
-    @IBAction func retryButton(_ sender: Any) {
-        tamagotchi?.resetGame()
-        feedMealButton.isEnabled = true
-        feedSnackButton.isEnabled = true
-        playGameButton.isEnabled = true
-        cleanUpButton.isEnabled = true
-        medicateButton.isEnabled = true
-        shrinkButton.isEnabled = true
-        tamagotchiStatistics.text = tamagotchi?.displayStats()
-        tamagotchiImage.image = UIImage(named: "happyTamagotchi")
-        ageTimer = 10
-        mealTimer = 15
-        playTimer = 5
-        timerInvalid = false
-        state = "Hello"
-        progressBar.progress = 0.0
-        timer?.invalidate()
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(countdown), userInfo: nil, repeats: true)
     }
     
 }
