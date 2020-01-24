@@ -42,9 +42,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tamagotchi = Tamagotchi()
-        ageTimer = 5
-        mealTimer = 10
-        playTimer = 15
+        ageTimer = 10
+        mealTimer = 15
+        playTimer = 5
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(countdown), userInfo: nil, repeats: true)
     }
     
@@ -135,9 +135,6 @@ class ViewController: UIViewController {
             if tamagotchi?.getIll() ?? 1 > 5 {
                 state = "I'm Ill"
                 tamagotchiImage.image = UIImage(named: "sadTamagotchi")
-            } else {
-                state = "I'm Growing"
-                tamagotchiImage.image = UIImage(named: "happyTamagotchi")
             }
         }
         if mealTimer > 0 {
@@ -148,7 +145,7 @@ class ViewController: UIViewController {
                 tamagotchiImage.image = UIImage(named: "sadTamagotchi")
             } else {
                 tamagotchi?.randomlyIncreaseHungry()
-                state = "I'm Stuffed"
+                state = "I'm Full"
                 tamagotchiImage.image = UIImage(named: "happyTamagotchi")
             }
             mealTimer = Int.random(in: 1...20)
@@ -179,9 +176,9 @@ class ViewController: UIViewController {
         shrinkButton.isEnabled = true
         tamagotchiStatistics.text = tamagotchi?.displayStats()
         tamagotchiImage.image = UIImage(named: "happyTamagotchi")
-        ageTimer = 5
-        mealTimer = 10
-        playTimer = 15
+        ageTimer = 10
+        mealTimer = 15
+        playTimer = 5
         timerInvalid = false
         state = "Hello"
         progressBar.progress = 0.0
