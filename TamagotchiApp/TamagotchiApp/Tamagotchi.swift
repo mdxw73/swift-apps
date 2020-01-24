@@ -143,13 +143,7 @@ class Tamagotchi {
         self.age += 1
         self.height += 1
         if Int.random(in: 1...randomiserLimit) == 1 {
-            self.hungry += 2
-        }
-        if Int.random(in: 1...randomiserLimit) == 1 {
             self.ill += 2
-        }
-        if Int.random(in: 1...randomiserLimit) == 1 {
-            self.happy -= 2
         }
         checkStats()
         //Increases difficulty as you progress
@@ -175,6 +169,12 @@ class Tamagotchi {
     func randomlyDecreaseHappy() {
         if Int.random(in: 1...randomiserLimit) == 1 {
             self.happy -= 2
+        }
+    }
+    
+    func randomlyIncreaseDirty() {
+        if Int.random(in: 1...randomiserLimit) == 1 {
+            self.dirty += 2
         }
     }
     

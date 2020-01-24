@@ -183,7 +183,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="State" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ash-NR-YGn">
-                                <rect key="frame" x="183.33333333333334" y="404" width="47.333333333333343" height="20.333333333333314"/>
+                                <rect key="frame" x="183.33333333333334" y="399" width="47.333333333333343" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="17"/>
                                 <color key="textColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <nil key="highlightedColor"/>
@@ -220,7 +220,7 @@
                             <constraint firstItem="dtJ-6f-NXJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kg8-zT-mTv"/>
                             <constraint firstItem="1ha-4L-sal" firstAttribute="centerY" secondItem="o4i-OC-WDO" secondAttribute="centerY" id="lYF-6u-2ex"/>
                             <constraint firstItem="ZxE-Ha-jdh" firstAttribute="centerY" secondItem="NBb-7m-b9M" secondAttribute="centerY" id="oWo-1E-64q"/>
-                            <constraint firstItem="Ash-NR-YGn" firstAttribute="top" secondItem="axU-s9-nr7" secondAttribute="bottom" constant="10" id="qn1-pd-Elg"/>
+                            <constraint firstItem="Ash-NR-YGn" firstAttribute="top" secondItem="axU-s9-nr7" secondAttribute="bottom" constant="5" id="qn1-pd-Elg"/>
                             <constraint firstItem="1ha-4L-sal" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="50" id="tHC-cJ-6NO"/>
                             <constraint firstItem="bPs-BK-0jN" firstAttribute="top" secondItem="Jp2-uB-Cf4" secondAttribute="baseline" constant="20" id="x2q-iI-H6D"/>
                         </constraints>

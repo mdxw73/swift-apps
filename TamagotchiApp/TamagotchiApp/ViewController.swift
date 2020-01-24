@@ -32,6 +32,7 @@ class ViewController: UIViewController {
     var ageTimer = 0
     var mealTimer = 0
     var playTimer = 0
+    var cleanTimer = 0
     var timerInvalid = false
     var state = "Hello" {
         didSet {
@@ -45,6 +46,7 @@ class ViewController: UIViewController {
         ageTimer = 10
         mealTimer = 15
         playTimer = 5
+        cleanTimer = 20
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(countdown), userInfo: nil, repeats: true)
     }
     
@@ -60,10 +62,6 @@ class ViewController: UIViewController {
     
     @IBAction func playGame(_ sender: Any) {
         tamagotchi?.playGame()
-        if tamagotchi?.getDirty() ?? 1 > 5 {
-            state = "I'm Dirty"
-            tamagotchiImage.image = UIImage(named: "sadTamagotchi")
-        }
         display()
     }
     
@@ -102,6 +100,7 @@ class ViewController: UIViewController {
         ageTimer = 10
         mealTimer = 15
         playTimer = 5
+        cleanTimer = 20
         timerInvalid = false
         state = "Hello"
         progressBar.progress = 0.0
@@ -152,36 +151,58 @@ class ViewController: UIViewController {
             tamagotchi?.growUp()
             progressBar.progress += 0.02
             ageTimer = 10
-            if tamagotchi?.getIll() ?? 1 > 5 {
+            if tamagotchi?.getIll() ?? 1 >= 5 {
                 state = "I'm Sick"
                 tamagotchiImage.image = UIImage(named: "sadTamagotchi")
+            } else if tamagotchi?.getHappy() ?? 9 > 5 && tamagotchi?.getHungry() ?? 1 < 5 && tamagotchi?.getDirty() ?? 1 < 5 {
+                state = "I'm Healthy"
+                tamagotchiImage.image = UIImage(named: "happyTamagotchi")
             }
         }
         if mealTimer > 0 {
             mealTimer -= 1
         } else if timerInvalid == false {
-            if tamagotchi?.getHungry() ?? 1 > 5 {
+            if tamagotchi?.getHungry() ?? 1 >= 5 {
                 state = "I'm Hungry"
                 tamagotchiImage.image = UIImage(named: "sadTamagotchi")
             } else {
                 tamagotchi?.randomlyIncreaseHungry()
-                state = "I'm Full"
-                tamagotchiImage.image = UIImage(named: "happyTamagotchi")
+                if tamagotchi?.getHappy() ?? 9 > 5 && tamagotchi?.getIll() ?? 1 < 5 && tamagotchi?.getDirty() ?? 1 < 5 {
+                    state = "I'm Full"
+                    tamagotchiImage.image = UIImage(named: "happyTamagotchi")
+                }
             }
-            mealTimer = Int.random(in: 1...20)
+            mealTimer = Int.random(in: 1...30)
         }
         if playTimer > 0 {
             playTimer -= 1
         } else if timerInvalid == false {
-            if tamagotchi?.getHappy() ?? 9 < 5 {
+            if tamagotchi?.getHappy() ?? 9 <= 5 {
                 state = "I'm Sad"
                 tamagotchiImage.image = UIImage(named: "sadTamagotchi")
             } else {
                 tamagotchi?.randomlyDecreaseHappy()
-                state = "I'm Happy"
-                tamagotchiImage.image = UIImage(named: "happyTamagotchi")
+                if tamagotchi?.getIll() ?? 1 < 5 && tamagotchi?.getHungry() ?? 1 < 5 && tamagotchi?.getDirty() ?? 1 < 5 {
+                    state = "I'm Happy"
+                    tamagotchiImage.image = UIImage(named: "happyTamagotchi")
+                }
             }
-            playTimer = Int.random(in: 1...20)
+            playTimer = Int.random(in: 1...30)
+        }
+        if cleanTimer > 0 {
+            cleanTimer -= 1
+        } else if timerInvalid == false {
+            if tamagotchi?.getDirty() ?? 1 >= 5 {
+                state = "I'm Dirty"
+                tamagotchiImage.image = UIImage(named: "sadTamagotchi")
+            } else {
+                tamagotchi?.randomlyIncreaseDirty()
+                if tamagotchi?.getHappy() ?? 9 > 5 && tamagotchi?.getHungry() ?? 1 < 5 && tamagotchi?.getIll() ?? 1 < 5 {
+                    state = "I'm Clean"
+                    tamagotchiImage.image = UIImage(named: "happyTamagotchi")
+                }
+            }
+            cleanTimer = Int.random(in: 1...30)
         }
         display()
     }
