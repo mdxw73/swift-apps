@@ -160,7 +160,7 @@ class ViewController: UIViewController {
         if mealTimer > 0 {
             mealTimer -= 1
         } else if timerInvalid == false {
-            if tamagotchi?.getHungry() ?? 5 > 5 {
+            if tamagotchi?.getHungry() ?? 1 > 5 {
                 state = "I'm Hungry"
                 tamagotchiImage.image = UIImage(named: "sadTamagotchi")
             } else {
@@ -173,7 +173,7 @@ class ViewController: UIViewController {
         if playTimer > 0 {
             playTimer -= 1
         } else if timerInvalid == false {
-            if tamagotchi?.getHappy() ?? 5 < 5 {
+            if tamagotchi?.getHappy() ?? 9 < 5 {
                 state = "I'm Sad"
                 tamagotchiImage.image = UIImage(named: "sadTamagotchi")
             } else {
