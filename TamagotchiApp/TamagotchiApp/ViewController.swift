@@ -30,9 +30,10 @@ class ViewController: UIViewController {
     }
     var timer: Timer?
     var ageTimer = 0
-    var mealTimer = 0
+    var feedTimer = 0
     var playTimer = 0
     var cleanTimer = 0
+    var medicateTimer = 0
     var timerInvalid = false
     var state = "Hello" {
         didSet {
@@ -44,9 +45,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         tamagotchi = Tamagotchi()
         ageTimer = 10
-        mealTimer = 15
+        feedTimer = 15
         playTimer = 5
         cleanTimer = 20
+        medicateTimer = 25
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(countdown), userInfo: nil, repeats: true)
     }
     
@@ -98,9 +100,10 @@ class ViewController: UIViewController {
         tamagotchiStatistics.text = tamagotchi?.displayStats()
         tamagotchiImage.image = UIImage(named: "happyTamagotchi")
         ageTimer = 10
-        mealTimer = 15
+        feedTimer = 15
         playTimer = 5
         cleanTimer = 20
+        medicateTimer = 25
         timerInvalid = false
         state = "Hello"
         progressBar.progress = 0.0
@@ -151,16 +154,9 @@ class ViewController: UIViewController {
             tamagotchi?.growUp()
             progressBar.progress += 0.02
             ageTimer = 10
-            if tamagotchi?.getIll() ?? 1 >= 5 {
-                state = "I'm Sick"
-                tamagotchiImage.image = UIImage(named: "sadTamagotchi")
-            } else if tamagotchi?.getHappy() ?? 9 > 5 && tamagotchi?.getHungry() ?? 1 < 5 && tamagotchi?.getDirty() ?? 1 < 5 {
-                state = "I'm Healthy"
-                tamagotchiImage.image = UIImage(named: "happyTamagotchi")
-            }
         }
-        if mealTimer > 0 {
-            mealTimer -= 1
+        if feedTimer > 0 {
+            feedTimer -= 1
         } else if timerInvalid == false {
             if tamagotchi?.getHungry() ?? 1 >= 5 {
                 state = "I'm Hungry"
@@ -172,7 +168,7 @@ class ViewController: UIViewController {
                     tamagotchiImage.image = UIImage(named: "happyTamagotchi")
                 }
             }
-            mealTimer = Int.random(in: 1...30)
+            feedTimer = Int.random(in: 1...30)
         }
         if playTimer > 0 {
             playTimer -= 1
@@ -203,6 +199,21 @@ class ViewController: UIViewController {
                 }
             }
             cleanTimer = Int.random(in: 1...30)
+        }
+        if medicateTimer > 0 {
+            medicateTimer -= 1
+        } else if timerInvalid == false {
+            if tamagotchi?.getIll() ?? 1 >= 5 {
+                state = "I'm Sick"
+                tamagotchiImage.image = UIImage(named: "sadTamagotchi")
+            } else {
+                tamagotchi?.randomlyIncreaseIll()
+                if tamagotchi?.getHappy() ?? 9 > 5 && tamagotchi?.getHungry() ?? 1 < 5 && tamagotchi?.getDirty() ?? 1 < 5 {
+                    state = "I'm Healthy"
+                    tamagotchiImage.image = UIImage(named: "happyTamagotchi")
+                }
+            }
+            medicateTimer = Int.random(in: 1...30)
         }
         display()
     }
