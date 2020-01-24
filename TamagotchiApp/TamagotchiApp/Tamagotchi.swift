@@ -196,7 +196,7 @@ class Tamagotchi {
             self.causeOfDeath = "Dwarfism"
         } else if self.happy < 1 {
             self.dead = true
-            self.causeOfDeath = "Depression"
+            self.causeOfDeath = "Suicide"
         } else if self.hungry > 9 {
             self.dead = true
             self.causeOfDeath = "Starvation"
