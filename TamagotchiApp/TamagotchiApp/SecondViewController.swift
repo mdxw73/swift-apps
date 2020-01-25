@@ -72,6 +72,7 @@ class SecondViewController: UIViewController {
     
     @objc func countdown() {
         if timerInvalid == false {
+            progressBar.progress += 0.01
             for i in 0...11 {
                 if Int.random(in: 1...randomiserLimit) == 1 {
                     switchArray[i].setOn(false, animated: true)
@@ -85,7 +86,6 @@ class SecondViewController: UIViewController {
             }
             if count > 9 {
                 image.image = UIImage(named: "happyTamagotchi")
-                progressBar.progress += 0.01
             } else if count > 5 {
                 image.image = UIImage(named: "sadTamagotchi")
             } else {
