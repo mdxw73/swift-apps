@@ -56,7 +56,7 @@ class SecondViewController: UIViewController {
     
     @IBAction func rules(_ sender: Any) {
         let alert = UIAlertController(title: "Rules", message:
-            "Keep the switches on to make your tamagotchi happy. If more than three switches are turned off he gets sad and if more than seven switches are turned off, he dies. Get the progress bar to the end to win!\n\nAs always, it gets harder as you go!", preferredStyle: .alert)
+            "Keep the switches on to make your tamagotchi happy. If more than three switches are turned off he gets sad and if more than six switches are turned off, he dies. Get the progress bar to the end to win!\n\nAs always, it gets harder as you go!", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { (_) in
             self.timer = Timer.scheduledTimer(timeInterval: self.timeInterval, target: self, selector: #selector(self.countdown), userInfo: nil, repeats: true)
             }))
@@ -84,7 +84,7 @@ class SecondViewController: UIViewController {
                     count += 1
                 }
             }
-            if count > 9 {
+            if count > 8 {
                 image.image = UIImage(named: "happyTamagotchi")
             } else if count > 5 {
                 image.image = UIImage(named: "sadTamagotchi")
