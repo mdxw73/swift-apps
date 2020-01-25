@@ -16,6 +16,7 @@
 		4408E03C23CDCE44006FE109 /* TamagotchiAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4408E03B23CDCE44006FE109 /* TamagotchiAppTests.swift */; };
 		4408E04723CDCE44006FE109 /* TamagotchiAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4408E04623CDCE44006FE109 /* TamagotchiAppUITests.swift */; };
 		4408E05523CDCEC6006FE109 /* Tamagotchi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4408E05423CDCEC6006FE109 /* Tamagotchi.swift */; };
+		D7AD453423DC78470056E11A /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AD453323DC78470056E11A /* SecondViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		4408E04623CDCE44006FE109 /* TamagotchiAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamagotchiAppUITests.swift; sourceTree = "<group>"; };
 		4408E04823CDCE44006FE109 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4408E05423CDCEC6006FE109 /* Tamagotchi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tamagotchi.swift; sourceTree = "<group>"; };
+		D7AD453323DC78470056E11A /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				4408E02423CDCE42006FE109 /* AppDelegate.swift */,
 				4408E02623CDCE42006FE109 /* SceneDelegate.swift */,
 				4408E02823CDCE42006FE109 /* ViewController.swift */,
+				D7AD453323DC78470056E11A /* SecondViewController.swift */,
 				4408E02A23CDCE42006FE109 /* Main.storyboard */,
 				4408E02D23CDCE43006FE109 /* Assets.xcassets */,
 				4408E02F23CDCE43006FE109 /* LaunchScreen.storyboard */,
@@ -265,6 +268,7 @@
 				4408E05523CDCEC6006FE109 /* Tamagotchi.swift in Sources */,
 				4408E02923CDCE42006FE109 /* ViewController.swift in Sources */,
 				4408E02523CDCE42006FE109 /* AppDelegate.swift in Sources */,
+				D7AD453423DC78470056E11A /* SecondViewController.swift in Sources */,
 				4408E02723CDCE42006FE109 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

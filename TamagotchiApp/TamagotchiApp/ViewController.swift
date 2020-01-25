@@ -85,8 +85,11 @@ class ViewController: UIViewController {
     @IBAction func rules(_ sender: Any) {
         let alert = UIAlertController(title: "Rules", message:
             "Get your tamagotchi to live as long as you can. Here are the rules:\n\n0 < Weight < 10\n0 < Height < 10\nHappy > 0\nHungry < 10\n Ill < 10\nDirty < 10\n\nSurvive 50 days to win!\nCareful, it gets harder as you go!", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Continue", style: .default))
+        alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { (_) in
+            self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.countdown), userInfo: nil, repeats: true)
+        }))
         self.present(alert, animated: true, completion: nil)
+        timer?.invalidate()
     }
     
     @IBAction func retryButton(_ sender: Any) {
@@ -122,8 +125,10 @@ class ViewController: UIViewController {
                 self.tamagotchi?.name(textField!.text ?? "Tammy")
                 self.display()
             }
+            self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.countdown), userInfo: nil, repeats: true)
         }))
         self.present(alertController, animated: true, completion: nil)
+        timer?.invalidate()
     }
     
     func display() {
