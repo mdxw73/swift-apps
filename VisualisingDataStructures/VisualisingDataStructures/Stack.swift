@@ -10,7 +10,7 @@ import Foundation
 
 class Stack {
     
-    var array: [String] = [String](repeating: "", count: 5)
+    var array: [String] = [String](repeating: "Empty", count: 5)
     var pointer: Int = -1
 
     func push(_ value: String) {

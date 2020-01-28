@@ -32,8 +32,6 @@ class SecondViewController: UIViewController {
     var headArray: [UIImageView]?
     var tailArray: [UIImageView]?
     var itemArray: [UILabel]?
-    var currentTail = 0
-    var currentHead = 0
     var tailCount = 0
     var headCount = 0
 
@@ -43,10 +41,10 @@ class SecondViewController: UIViewController {
         tailArray = [tailZero, tailOne, tailTwo, tailThree, tailFour, tailFive]
         itemArray = [itemOne, itemTwo, itemThree, itemFour, itemFive]
         queue = Queue()
-        headArray?[currentHead].image = UIImage(systemName: "hand.point.right")
-        tailArray?[currentTail].image = UIImage(systemName: "hand.point.right")
+        headArray![0].image = UIImage(systemName: "hand.point.right")
+        tailArray![0].image = UIImage(systemName: "hand.point.right")
         for i in 0..<itemArray!.count {
-            itemArray![i].text = "Empty"
+            itemArray![i].text = queue!.display()[i]
         }
     }
     
@@ -59,20 +57,10 @@ class SecondViewController: UIViewController {
             let textField = alertController?.textFields![0]
             if textField!.text!.count < 20 && textField!.text!.count > 0 {
                 self.queue?.push(textField!.text!)
+                self.display()
                 if self.tailCount - self.headCount != self.tailArray!.count - 1 {
-                    if self.currentTail == self.tailArray!.count - 1 {
-                        self.currentTail = 1
-                        self.tailCount += 1
-                        self.tailArray?[self.tailArray!.count - 1].image = nil
-                        self.tailArray?[self.currentTail].image = UIImage(systemName: "hand.point.right")
-                        self.itemArray?[self.currentTail - 1].text = textField!.text!
-                    } else {
-                        self.currentTail += 1
-                        self.tailCount += 1
-                        self.tailArray?[self.currentTail - 1].image = nil
-                        self.tailArray?[self.currentTail].image = UIImage(systemName: "hand.point.right")
-                        self.itemArray?[self.currentTail - 1].text = textField!.text!
-                    }
+                    self.increaseTail()
+                    self.tailCount += 1
                 }
             }
         }))
@@ -81,20 +69,52 @@ class SecondViewController: UIViewController {
     
     @IBAction func popButton(_ sender: Any) {
         queue?.pop()
-        if self.headCount != self.tailCount {
-            if self.currentHead == self.headArray!.count - 1 {
-                self.currentHead = 0
-                self.headCount += 1
-                self.headArray?[self.headArray!.count - 1].image = nil
-                self.headArray?[self.currentHead].image = UIImage(systemName: "hand.point.right")
-            } else {
-                self.currentHead += 1
-                self.headCount += 1
-                self.headArray?[self.currentHead - 1].image = nil
-                self.headArray?[self.currentHead].image = UIImage(systemName: "hand.point.right")
-            }
+        display()
+        if headCount != tailCount {
+            increaseHead()
+            headCount += 1
         }
-        
+    }
+    
+    func display() {
+        let array = queue!.display()
+        for i in 0..<array.count {
+            itemArray![i].text = array[i]
+        }
+    }
+    
+    func increaseTail() {
+        var count = 0
+        var end = false
+        while end == false && count < tailArray!.count {
+            if tailArray![count].image != nil {
+                tailArray![count].image = nil
+                if count == tailArray!.count - 1 {
+                    tailArray![1].image = UIImage(systemName: "hand.point.right")
+                } else {
+                    tailArray![count + 1].image = UIImage(systemName: "hand.point.right")
+                }
+                end = true
+            }
+            count += 1
+        }
+    }
+    
+    func increaseHead() {
+        var count = 0
+        var end = false
+        while end == false && count < headArray!.count {
+            if headArray![count].image != nil {
+                headArray![count].image = nil
+                if count == headArray!.count - 1 {
+                    headArray![0].image = UIImage(systemName: "hand.point.right")
+                } else {
+                    headArray![count + 1].image = UIImage(systemName: "hand.point.right")
+                }
+                end = true
+            }
+            count += 1
+        }
     }
 
 }

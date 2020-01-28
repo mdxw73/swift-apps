@@ -33,7 +33,7 @@ class VisualisingDataStructuresTests: XCTestCase {
     func testDisplayInitialStackReturnsEmptyArray() {
         //arrange
         let stack = Stack()
-        let expected = [String](repeating: "", count: 5)
+        let expected = [String](repeating: "Empty", count: 5)
         //act
         let actual = stack.display()
         //assert
@@ -62,7 +62,7 @@ class VisualisingDataStructuresTests: XCTestCase {
     func testDisplayInitialQueueReturnsEmptyArray() {
         //arrange
         let queue = Queue()
-        let expected = [String](repeating: "", count: 5)
+        let expected = [String](repeating: "Empty", count: 5)
         //act
         let actual = queue.display()
         //assert

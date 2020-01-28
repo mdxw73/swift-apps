@@ -10,7 +10,7 @@ import Foundation
 
 class Queue {
 
-    var array: [String] = [String](repeating: "", count: 5)
+    var array: [String] = [String](repeating: "Empty", count: 5)
     var tail: Int = -1
     var head: Int = 0
     var headCount: Int = 0
