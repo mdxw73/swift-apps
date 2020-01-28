@@ -94,6 +94,7 @@
                             <constraint firstItem="k3w-Lh-b6f" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8B1-rA-nsJ"/>
                             <constraint firstItem="L4f-kE-qUz" firstAttribute="centerY" secondItem="3Wj-RG-Onk" secondAttribute="centerY" constant="30" id="8eY-X3-sVg"/>
                             <constraint firstItem="nry-xc-vJF" firstAttribute="height" secondItem="sBy-av-yaW" secondAttribute="height" multiplier="0.809524" id="Ad3-d6-1yo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oNA-ek-XhN" secondAttribute="trailing" constant="10" id="BtG-g4-Xft"/>
                             <constraint firstItem="mn1-Vg-6uF" firstAttribute="centerY" secondItem="vQn-Zm-zxd" secondAttribute="centerY" id="EHq-Ge-Icv"/>
                             <constraint firstItem="L4f-kE-qUz" firstAttribute="leading" secondItem="cIb-QJ-tDV" secondAttribute="trailing" constant="10" id="GRJ-Kf-pUa"/>
                             <constraint firstItem="Sz8-Vk-GY6" firstAttribute="leading" secondItem="aIX-aw-mlb" secondAttribute="trailing" constant="10" id="H3L-li-Fwq"/>
@@ -122,6 +123,7 @@
                             <constraint firstItem="3Wj-RG-Onk" firstAttribute="leading" secondItem="Ncv-Dv-Q3W" secondAttribute="trailing" constant="10" id="mRN-1G-wgT"/>
                             <constraint firstItem="mn1-Vg-6uF" firstAttribute="height" secondItem="vQn-Zm-zxd" secondAttribute="height" multiplier="0.809524" id="nCe-Jy-pgE"/>
                             <constraint firstItem="k3w-Lh-b6f" firstAttribute="top" secondItem="cIb-QJ-tDV" secondAttribute="bottom" constant="30" id="nzj-GA-lg5"/>
+                            <constraint firstItem="k3w-Lh-b6f" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="oOh-Oo-tUf"/>
                             <constraint firstItem="Sz8-Vk-GY6" firstAttribute="centerY" secondItem="sBy-av-yaW" secondAttribute="centerY" constant="30" id="qbn-v1-XS2"/>
                             <constraint firstItem="sBy-av-yaW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qpQ-5M-oME"/>
                             <constraint firstItem="xK2-zJ-3fx" firstAttribute="height" secondItem="L4f-kE-qUz" secondAttribute="height" multiplier="0.809524" id="s9q-gb-LFZ"/>
