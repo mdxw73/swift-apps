@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		445EBFDE23E04B4E000BD676 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445EBFDD23E04B4E000BD676 /* Queue.swift */; };
+		445EBFE023E04F3C000BD676 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445EBFDF23E04F3C000BD676 /* SecondViewController.swift */; };
 		44CF0FCB23DF4C6800D91FCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CF0FCA23DF4C6800D91FCE /* AppDelegate.swift */; };
 		44CF0FCD23DF4C6800D91FCE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CF0FCC23DF4C6800D91FCE /* SceneDelegate.swift */; };
 		44CF0FCF23DF4C6800D91FCE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CF0FCE23DF4C6800D91FCE /* ViewController.swift */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		445EBFDD23E04B4E000BD676 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		445EBFDF23E04F3C000BD676 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		44CF0FC723DF4C6800D91FCE /* VisualisingDataStructures.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VisualisingDataStructures.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44CF0FCA23DF4C6800D91FCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44CF0FCC23DF4C6800D91FCE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,11 +109,13 @@
 				44CF0FCA23DF4C6800D91FCE /* AppDelegate.swift */,
 				44CF0FCC23DF4C6800D91FCE /* SceneDelegate.swift */,
 				44CF0FCE23DF4C6800D91FCE /* ViewController.swift */,
+				445EBFDF23E04F3C000BD676 /* SecondViewController.swift */,
 				44CF0FD023DF4C6800D91FCE /* Main.storyboard */,
 				44CF0FD323DF4C6900D91FCE /* Assets.xcassets */,
 				44CF0FD523DF4C6900D91FCE /* LaunchScreen.storyboard */,
 				44CF0FD823DF4C6900D91FCE /* Info.plist */,
 				44CF0FFA23DF4DF500D91FCE /* Stack.swift */,
+				445EBFDD23E04B4E000BD676 /* Queue.swift */,
 			);
 			path = VisualisingDataStructures;
 			sourceTree = "<group>";
@@ -263,6 +269,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				445EBFE023E04F3C000BD676 /* SecondViewController.swift in Sources */,
+				445EBFDE23E04B4E000BD676 /* Queue.swift in Sources */,
 				44CF0FFB23DF4DF500D91FCE /* Stack.swift in Sources */,
 				44CF0FCF23DF4C6800D91FCE /* ViewController.swift in Sources */,
 				44CF0FCB23DF4C6800D91FCE /* AppDelegate.swift in Sources */,
