@@ -39,5 +39,49 @@ class VisualisingDataStructuresTests: XCTestCase {
         //assert
         XCTAssertEqual(actual, expected)
     }
+    
+    func testPushingToQueue() {
+        //arrange
+        let queue = Queue()
+        //act
+        queue.push("Example")
+        //assert
+        XCTAssertEqual(queue.peek(), "Example")
+    }
+    
+    func testPoppingFromQueue() {
+        //arrange
+        let queue = Queue()
+        //act
+        queue.push("Example")
+        queue.pop()
+        //assert
+        XCTAssertEqual(queue.peek(), nil)
+    }
+    
+    func testDisplayInitialQueueReturnsEmptyArray() {
+        //arrange
+        let queue = Queue()
+        let expected = [String](repeating: "", count: 5)
+        //act
+        let actual = queue.display()
+        //assert
+        XCTAssertEqual(actual, expected)
+    }
+    
+    func testCircularPushingAndPopping() {
+        //arrange
+        let queue = Queue()
+        //act
+        for _ in 0..<queue.display().count {
+            queue.push("Filler")
+        }
+        for _ in 0..<queue.display().count {
+            queue.pop()
+        }
+        queue.push("Example")
+        //assert
+        XCTAssertEqual(queue.display(), ["Example","Filler","Filler","Filler","Filler"])
+    }
 
 }

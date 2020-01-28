@@ -15,20 +15,39 @@ class SecondViewController: UIViewController {
     @IBOutlet var itemThree: UILabel!
     @IBOutlet var itemFour: UILabel!
     @IBOutlet var itemFive: UILabel!
-    @IBOutlet var pointerZero: UIImageView!
-    @IBOutlet var pointerOne: UIImageView!
-    @IBOutlet var pointerTwo: UIImageView!
-    @IBOutlet var pointerThree: UIImageView!
-    @IBOutlet var pointerFour: UIImageView!
-    @IBOutlet var pointerFive: UIImageView!
+    @IBOutlet var headOne: UIImageView!
+    @IBOutlet var headTwo: UIImageView!
+    @IBOutlet var headThree: UIImageView!
+    @IBOutlet var headFour: UIImageView!
+    @IBOutlet var headFive: UIImageView!
+    @IBOutlet var tailZero: UIImageView!
+    @IBOutlet var tailOne: UIImageView!
+    @IBOutlet var tailTwo: UIImageView!
+    @IBOutlet var tailThree: UIImageView!
+    @IBOutlet var tailFour: UIImageView!
+    @IBOutlet var tailFive: UIImageView!
+
     
-    var stack: Stack?
-    var pointerArray: [UIImageView]?
+    var queue: Queue?
+    var headArray: [UIImageView]?
+    var tailArray: [UIImageView]?
     var itemArray: [UILabel]?
-    var currentPointer = 0
+    var currentTail = 0
+    var currentHead = 0
+    var tailCount = 0
+    var headCount = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        headArray = [headOne, headTwo, headThree, headFour, headFive]
+        tailArray = [tailZero, tailOne, tailTwo, tailThree, tailFour, tailFive]
+        itemArray = [itemOne, itemTwo, itemThree, itemFour, itemFive]
+        queue = Queue()
+        headArray?[currentHead].image = UIImage(systemName: "hand.point.right")
+        tailArray?[currentTail].image = UIImage(systemName: "hand.point.right")
+        for i in 0..<itemArray!.count {
+            itemArray![i].text = "Empty"
+        }
     }
     
     @IBAction func pushButton(_ sender: Any) {
@@ -39,12 +58,21 @@ class SecondViewController: UIViewController {
         alertController.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { [weak alertController] (_) in
             let textField = alertController?.textFields![0]
             if textField!.text!.count < 20 && textField!.text!.count > 0 {
-                if self.currentPointer < self.pointerArray!.count - 1 {
-                    self.stack?.push(textField!.text!)
-                    self.currentPointer += 1
-                    self.pointerArray?[self.currentPointer - 1].image = nil
-                    self.pointerArray?[self.currentPointer].image = UIImage(systemName: "hand.point.right")
-                    self.itemArray?[self.currentPointer - 1].text = self.stack?.peek()
+                self.queue?.push(textField!.text!)
+                if self.tailCount - self.headCount != self.tailArray!.count - 1 {
+                    if self.currentTail == self.tailArray!.count - 1 {
+                        self.currentTail = 1
+                        self.tailCount += 1
+                        self.tailArray?[self.tailArray!.count - 1].image = nil
+                        self.tailArray?[self.currentTail].image = UIImage(systemName: "hand.point.right")
+                        self.itemArray?[self.currentTail - 1].text = textField!.text!
+                    } else {
+                        self.currentTail += 1
+                        self.tailCount += 1
+                        self.tailArray?[self.currentTail - 1].image = nil
+                        self.tailArray?[self.currentTail].image = UIImage(systemName: "hand.point.right")
+                        self.itemArray?[self.currentTail - 1].text = textField!.text!
+                    }
                 }
             }
         }))
@@ -52,12 +80,21 @@ class SecondViewController: UIViewController {
     }
     
     @IBAction func popButton(_ sender: Any) {
-        stack?.pop()
-        if self.currentPointer > 0 {
-            self.currentPointer -= 1
-            self.pointerArray?[self.currentPointer + 1].image = nil
-            self.pointerArray?[self.currentPointer].image = UIImage(systemName: "hand.point.right")
+        queue?.pop()
+        if self.headCount != self.tailCount {
+            if self.currentHead == self.headArray!.count - 1 {
+                self.currentHead = 0
+                self.headCount += 1
+                self.headArray?[self.headArray!.count - 1].image = nil
+                self.headArray?[self.currentHead].image = UIImage(systemName: "hand.point.right")
+            } else {
+                self.currentHead += 1
+                self.headCount += 1
+                self.headArray?[self.currentHead - 1].image = nil
+                self.headArray?[self.currentHead].image = UIImage(systemName: "hand.point.right")
+            }
         }
+        
     }
 
 }

@@ -10,15 +10,14 @@ import Foundation
 
 class Queue {
 
-    var maxSize: Int = 10
-    var array: [String] = [String](repeating: "_", count: 10)
-    var tail: Int = 0
+    var array: [String] = [String](repeating: "", count: 5)
+    var tail: Int = -1
     var head: Int = 0
     var headCount: Int = 0
     var tailCount: Int = 0
 
     func push(_ value: String) {
-        if self.tailCount - headCount != array.count - 1 {
+        if self.tailCount - headCount != array.count {
             if self.tail == array.count - 1 {
                 self.tail = 0
             } else {
@@ -45,8 +44,8 @@ class Queue {
     }
     
     func peek() -> String? {
-        if tailCount == headCount {
-            return array[tail]
+        if tailCount != headCount {
+            return array[head]
         }
         return nil
     }
