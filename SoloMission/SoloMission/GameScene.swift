@@ -142,7 +142,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         explosion.setScale(0)
         self.addChild(explosion)
         
-        let scaleIn = SKAction.scale(to: 0.1, duration: 0.2)
+        let scaleIn = SKAction.scale(to: 0.3, duration: 0.2)
         let fadeOut = SKAction.fadeOut(withDuration: 0.2)
         let delete = SKAction.removeFromParent()
         let explosionSequence = SKAction.sequence([scaleIn, fadeOut, delete])
@@ -198,8 +198,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let randomXStart = random(min: gameArea.minX, max: gameArea.maxX)
         let randomXEnd = random(min: gameArea.minX + player.size.width/2, max: gameArea.maxX - player.size.width/2)
         
-        let startPoint = CGPoint(x: randomXStart, y: self.size.height*1.2)
-        let endPoint = CGPoint(x: randomXEnd, y: -self.size.height*0.2)
+        let startPoint = CGPoint(x: randomXStart, y: self.size.height*1.1)
+        let endPoint = CGPoint(x: randomXEnd, y: -self.size.height*0.1)
         
         let enemy = SKSpriteNode(imageNamed: "enemyShip")
         enemy.setScale(0.3)
