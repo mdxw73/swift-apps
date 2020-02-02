@@ -58,8 +58,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         background.zPosition = 0
         self.addChild(background)
         
-        player.setScale(0.5)
-        player.position = CGPoint(x: self.size.width/2, y: self.size.height*0.2)
+        player.setScale(0.4)
+        player.position = CGPoint(x: self.size.width/2, y: self.size.height*0.15)
         player.zPosition = 2
         player.physicsBody = SKPhysicsBody(rectangleOf: player.size)
         player.physicsBody!.affectedByGravity = false
@@ -178,7 +178,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func fireBullet() {
         let bullet = SKSpriteNode(imageNamed: "bullet")
-        bullet.setScale(0.7)
+        bullet.setScale(0.6)
         bullet.position = player.position
         bullet.zPosition = 1
         bullet.physicsBody = SKPhysicsBody(rectangleOf: bullet.size)
@@ -198,8 +198,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let randomXStart = random(min: gameArea.minX, max: gameArea.maxX)
         let randomXEnd = random(min: gameArea.minX + player.size.width/2, max: gameArea.maxX - player.size.width/2)
         
-        let startPoint = CGPoint(x: randomXStart, y: self.size.height*1.1)
-        let endPoint = CGPoint(x: randomXEnd, y: -self.size.height*0.1)
+        let startPoint = CGPoint(x: randomXStart, y: self.size.height*1.2)
+        let endPoint = CGPoint(x: randomXEnd, y: -self.size.height*0.2)
         
         let enemy = SKSpriteNode(imageNamed: "enemyShip")
         enemy.setScale(0.3)
@@ -212,7 +212,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         enemy.physicsBody!.contactTestBitMask = PhysicsCategories.Player | PhysicsCategories.Bullet
         self.addChild(enemy)
         
-        let moveEnemy = SKAction.move(to: endPoint, duration: 10)
+        let moveEnemy = SKAction.move(to: endPoint, duration: 2)
         let deleteEnemy = SKAction.removeFromParent()
         let loseALifeAction = SKAction.run(loseALife)
         let enemySequence = SKAction.sequence([moveEnemy, deleteEnemy, loseALifeAction])
