@@ -58,8 +58,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         background.zPosition = 0
         self.addChild(background)
         
-        player.setScale(0.4)
-        player.position = CGPoint(x: self.size.width/2, y: self.size.height*0.15)
+        player.setScale(1)
+        player.position = CGPoint(x: self.size.width/2, y: self.size.height*0.2)
         player.zPosition = 2
         player.physicsBody = SKPhysicsBody(rectangleOf: player.size)
         player.physicsBody!.affectedByGravity = false
@@ -142,8 +142,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         explosion.setScale(0)
         self.addChild(explosion)
         
-        let scaleIn = SKAction.scale(to: 0.3, duration: 0.2)
-        let fadeOut = SKAction.fadeOut(withDuration: 0.2)
+        let scaleIn = SKAction.scale(to: 1, duration: 0.1)
+        let fadeOut = SKAction.fadeOut(withDuration: 0.1)
         let delete = SKAction.removeFromParent()
         let explosionSequence = SKAction.sequence([scaleIn, fadeOut, delete])
         
@@ -178,7 +178,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func fireBullet() {
         let bullet = SKSpriteNode(imageNamed: "bullet")
-        bullet.setScale(0.6)
+        bullet.setScale(1)
         bullet.position = player.position
         bullet.zPosition = 1
         bullet.physicsBody = SKPhysicsBody(rectangleOf: bullet.size)
@@ -202,7 +202,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let endPoint = CGPoint(x: randomXEnd, y: -self.size.height*0.2)
         
         let enemy = SKSpriteNode(imageNamed: "enemyShip")
-        enemy.setScale(0.3)
+        enemy.setScale(1)
         enemy.position = startPoint
         enemy.zPosition = 2
         enemy.physicsBody = SKPhysicsBody(rectangleOf: enemy.size)
