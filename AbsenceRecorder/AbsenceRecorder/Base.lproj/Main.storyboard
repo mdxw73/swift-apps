@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xd0-OI-DDE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="f9R-tW-laz">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Divisions-->
         <scene sceneID="AWw-CB-c4h">
             <objects>
                 <tableViewController id="xd0-OI-DDE" customClass="ViewController" customModule="AbsenceRecorder" customModuleProvider="target" sceneMemberID="viewController">
@@ -38,10 +39,118 @@
                             <outlet property="delegate" destination="xd0-OI-DDE" id="35s-49-jdb"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Divisions" id="o36-NU-7nS">
+                        <barButtonItem key="leftBarButtonItem" title="Previous Day" image="arrow.left" catalog="system" id="7zh-Bd-idr">
+                            <connections>
+                                <action selector="previousDay:" destination="xd0-OI-DDE" id="OSi-jH-jpX"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Next Day" image="arrow.right" catalog="system" id="i7k-ZI-jXv">
+                            <connections>
+                                <action selector="nextDay:" destination="xd0-OI-DDE" id="ZFd-1Q-Ol0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6LA-7K-U1K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="102" y="107"/>
+            <point key="canvasLocation" x="1921.7391304347827" y="106.47321428571428"/>
+        </scene>
+        <!--Division Absence View Controller-->
+        <scene sceneID="bRn-3D-xLk">
+            <objects>
+                <tableViewController storyboardIdentifier="DivisionAbsenceViewController" id="lKP-kh-6D5" customClass="DivisionAbsenceViewController" customModule="AbsenceRecorder" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="FzP-Qg-lBf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Student" id="fsQ-LA-p7z">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fsQ-LA-p7z" id="xvp-on-4d7">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="lKP-kh-6D5" id="1Fb-gx-lpR"/>
+                            <outlet property="delegate" destination="lKP-kh-6D5" id="LR4-MR-OAA"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SiJ-45-ngj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2592.753623188406" y="105.80357142857143"/>
+        </scene>
+        <!--Absence-->
+        <scene sceneID="1Ij-xc-vIP">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SMJ-aF-Ysl" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Absence" image="square.and.pencil" catalog="system" id="QHJ-qs-cBi"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MDO-Vz-ltZ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="xd0-OI-DDE" kind="relationship" relationship="rootViewController" id="mor-GO-G9N"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RXt-Sn-i3F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1011.5942028985507" y="106.47321428571428"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="rcy-gW-fVl">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="f9R-tW-laz" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="n7x-pG-hSz">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="SMJ-aF-Ysl" kind="relationship" relationship="viewControllers" id="0Q2-ft-m8j"/>
+                        <segue destination="gg5-95-U5U" kind="relationship" relationship="viewControllers" id="o8G-3t-anr"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Qd-ZF-qu4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="101.44927536231884" y="106.47321428571428"/>
+        </scene>
+        <!--Seach-->
+        <scene sceneID="obV-ZW-058">
+            <objects>
+                <viewController id="gg5-95-U5U" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="opC-rQ-gRJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Search View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OP5-XV-vkm">
+                                <rect key="frame" x="159" y="438" width="95" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="HEj-KE-NgE"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Seach" image="magnifyingglass" catalog="system" id="kku-sf-Zjw"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gNc-d6-3Gc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="101" y="850"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="arrow.left" catalog="system" width="64" height="48"/>
+        <image name="arrow.right" catalog="system" width="64" height="48"/>
+        <image name="magnifyingglass" catalog="system" width="64" height="56"/>
+        <image name="square.and.pencil" catalog="system" width="64" height="58"/>
+    </resources>
 </document>

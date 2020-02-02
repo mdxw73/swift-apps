@@ -11,7 +11,8 @@ import UIKit
 class ViewController: UITableViewController {
     
     var divisions: [Division] = []
-
+    var currentDate: Date = Date()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addDummyData()
@@ -21,6 +22,7 @@ class ViewController: UITableViewController {
                 print(student.forename, student.surname)
             }
         }
+        updateDateDisplay()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -33,9 +35,33 @@ class ViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let vc = storyboard?.instantiateViewController(identifier: "DivisionAbsenceViewController") as? DivisionAbsenceViewController else {
+            fatalError("Failed to load Division Absence View Controller from Storyboard")
+        }
+        vc.division = divisions[indexPath.row]
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func previousDay(_ sender: Any) {
+        currentDate = Calendar.current.date(byAdding: .day, value: -1, to: currentDate) ?? Date()
+        updateDateDisplay()
+    }
+    
+    @IBAction func nextDay(_ sender: Any) {
+        currentDate = Calendar.current.date(byAdding: .day, value: 1, to: currentDate) ?? Date()
+        updateDateDisplay()
+    }
+    
+    func updateDateDisplay() {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        navigationItem.title = formatter.string(from: currentDate)
+    }
+    
     func addDummyData() {
         divisions.append(DivisionFactory.createDivision(code: "BY-1", of: 8))
-        divisions.append(DivisionFactory.createDivision(code: "XC-1", of: 9))
+        divisions.append(DivisionFactory.createDivision(code: "XC-1", of: 5))
         divisions.append(DivisionFactory.createDivision(code: "DV-1", of: 10))
     }
 
