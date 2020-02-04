@@ -293,7 +293,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func spawnEnemy() {
         let randomXStart = random(min: gameArea.minX, max: gameArea.maxX)
-        let randomXEnd = random(min: gameArea.minX + player.size.width/2, max: gameArea.maxX - player.size.width/2)
+        let randomXEnd = random(min: gameArea.minX, max: gameArea.maxX)
         
         let startPoint = CGPoint(x: randomXStart, y: self.size.height*1.2)
         let endPoint = CGPoint(x: randomXEnd, y: -self.size.height*0.2)
