@@ -11,7 +11,7 @@ import SpriteKit
 
 class GameOverScene: SKScene {
     
-    let restartLabel = SKLabelNode()
+    let restartLabel = SKLabelNode(fontNamed: "The Bold Font")
     
     override func didMove(to view: SKView) {
         let background = SKSpriteNode(imageNamed: "background")
@@ -19,7 +19,7 @@ class GameOverScene: SKScene {
         background.zPosition = 0
         self.addChild(background)
         
-        let gameOverLabel = SKLabelNode()
+        let gameOverLabel = SKLabelNode(fontNamed: "The Bold Font")
         gameOverLabel.text = "Game Over"
         gameOverLabel.fontSize = 150
         gameOverLabel.fontColor = SKColor.white
@@ -27,7 +27,7 @@ class GameOverScene: SKScene {
         gameOverLabel.zPosition = 1
         self.addChild(gameOverLabel)
         
-        let scoreLabel = SKLabelNode()
+        let scoreLabel = SKLabelNode(fontNamed: "The Bold Font")
         scoreLabel.text = "Score: \(gameScore)"
         scoreLabel.fontSize = 100
         scoreLabel.fontColor = SKColor.white
@@ -42,7 +42,7 @@ class GameOverScene: SKScene {
             defaults.set(highScoreNumber, forKey: "highScoreSaved")
         }
         
-        let highScoreLabel = SKLabelNode()
+        let highScoreLabel = SKLabelNode(fontNamed: "The Bold Font")
         highScoreLabel.text = "High Score: \(highScoreNumber)"
         highScoreLabel.fontSize = 100
         highScoreLabel.color = SKColor.white

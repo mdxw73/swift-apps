@@ -13,17 +13,17 @@ var gameScore = 0
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
-    let scoreLabel = SKLabelNode()
+    let scoreLabel = SKLabelNode(fontNamed: "The Bold Font")
     
     var levelNumber = 0
     
     var livesNumber = 3
-    let livesLabel = SKLabelNode()
+    let livesLabel = SKLabelNode(fontNamed: "The Bold Font")
     
     let player = SKSpriteNode(imageNamed: "playerShip")
     let gameArea: CGRect
     
-    let tapToStartLabel = SKLabelNode()
+    let tapToStartLabel = SKLabelNode(fontNamed: "The Bold Font")
     
     enum gameState {
         case preGame
