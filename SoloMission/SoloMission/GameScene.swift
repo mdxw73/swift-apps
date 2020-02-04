@@ -130,7 +130,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let amountToMoveBackground = amountToMovePerSecond * CGFloat(deltaFrameTime)
         self.enumerateChildNodes(withName: "Background") {
             background, stop in
-            background.position.y -= amountToMoveBackground
+            if self.currentGameState == gameState.inGame {
+                background.position.y -= amountToMoveBackground
+            }
             if background.position.y < -self.size.height {
                 background.position.y += self.size.height*2
             }
