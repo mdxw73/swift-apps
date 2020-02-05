@@ -9,6 +9,7 @@
 import Foundation
 
 class Student {
+    
     let forename: String
     let surname: String
     let birthday: Date
@@ -18,4 +19,5 @@ class Student {
         self.surname = surname
         self.birthday = birthday
     }
+    
 }

@@ -15,13 +15,7 @@ class ViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addDummyData()
-        for division in divisions {
-            print(division.code, division.students.count)
-            for student in division.students {
-                print(student.forename, student.surname)
-            }
-        }
+        loadDummyData()
         updateDateDisplay()
     }
     
@@ -39,7 +33,15 @@ class ViewController: UITableViewController {
         guard let vc = storyboard?.instantiateViewController(identifier: "DivisionAbsenceViewController") as? DivisionAbsenceViewController else {
             fatalError("Failed to load Division Absence View Controller from Storyboard")
         }
-        vc.division = divisions[indexPath.row]
+        let selectedDivision = divisions[indexPath.row]
+        if let existingAbsence = selectedDivision.getAbsence(for: currentDate) {
+            vc.absence = existingAbsence
+        } else {
+            let newAbsence = Absence(date: currentDate)
+            selectedDivision.absences.append(newAbsence)
+            vc.absence = newAbsence
+        }
+        vc.division = selectedDivision
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -59,7 +61,7 @@ class ViewController: UITableViewController {
         navigationItem.title = formatter.string(from: currentDate)
     }
     
-    func addDummyData() {
+    func loadDummyData() {
         divisions.append(DivisionFactory.createDivision(code: "BY-1", of: 8))
         divisions.append(DivisionFactory.createDivision(code: "XC-1", of: 5))
         divisions.append(DivisionFactory.createDivision(code: "DV-1", of: 10))
