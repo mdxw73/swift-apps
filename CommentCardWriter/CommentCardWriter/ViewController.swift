@@ -55,8 +55,8 @@ class ViewController: UIViewController {
     
     var effort: Bool = false
     var enjoyment: Bool = false
-    var weakness: String = "distraction"
-    var strength: String = "focus"
+    var weakness: String = ""
+    var strength: String = ""
     
     @IBAction func effortToggle(_ sender: Any) {
         if effortSwitch.isOn {
@@ -75,31 +75,67 @@ class ViewController: UIViewController {
     @IBAction func distractionToggle(_ sender: Any) {
         if distractionSwitch.isOn {
             weakness = "distraction"
+            confidenceSwitch.isEnabled = false
+            organisationSwitch.isEnabled = false
+        } else {
+            weakness = ""
+            confidenceSwitch.isEnabled = true
+            organisationSwitch.isEnabled = true
         }
     }
     @IBAction func confidenceToggle(_ sender: Any) {
         if confidenceSwitch.isOn {
             weakness = "confidence"
+            distractionSwitch.isEnabled = false
+            organisationSwitch.isEnabled = false
+        } else {
+            weakness = ""
+            distractionSwitch.isEnabled = true
+            organisationSwitch.isEnabled = true
         }
     }
     @IBAction func organisationToggle(_ sender: Any) {
         if organisationSwitch.isOn {
             weakness = "organisation"
+            confidenceSwitch.isEnabled = false
+            distractionSwitch.isEnabled = false
+        } else {
+            weakness = ""
+            confidenceSwitch.isEnabled = true
+            distractionSwitch.isEnabled = true
         }
     }
     @IBAction func focusToggle(_ sender: Any) {
         if focusSwitch.isOn {
             strength = "focus"
+            commitmentSwitch.isEnabled = false
+            creativitySwitch.isEnabled = false
+        } else {
+            strength = ""
+            commitmentSwitch.isEnabled = true
+            creativitySwitch.isEnabled = true
         }
     }
     @IBAction func commitmentToggle(_ sender: Any) {
         if commitmentSwitch.isOn {
             strength = "commitment"
+            focusSwitch.isEnabled = false
+            creativitySwitch.isEnabled = false
+        } else {
+            strength = ""
+            focusSwitch.isEnabled = true
+            creativitySwitch.isEnabled = true
         }
     }
     @IBAction func creativityToggle(_ sender: Any) {
         if creativitySwitch.isOn {
             strength = "creativity"
+            focusSwitch.isEnabled = false
+            commitmentSwitch.isEnabled = false
+        } else {
+            strength = ""
+            focusSwitch.isEnabled = true
+            commitmentSwitch.isEnabled = true
         }
     }
 
