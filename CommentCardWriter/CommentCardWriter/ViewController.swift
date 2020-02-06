@@ -9,7 +9,7 @@
 import UIKit
 
 var commentCard: [SubjectCard] = []
-var subjectCount = 0
+var stageCount = 1
 
 class ViewController: UIViewController {
     
@@ -28,17 +28,25 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        subjectCount += 1
-        navigationItem.title = "Subject \(subjectCount)"
+        navigationItem.title = "Subject \(stageCount/2 + 1)"
     }
     
     @IBAction func subjectCard(_ sender: Any) {
         guard let vc = storyboard?.instantiateViewController(identifier: "SubjectCardViewController") as? SubjectCardViewController else {
             fatalError("Failed to load Subject Card View Controller from Storyboard")
         }
+        stageCount += 1
         commentCard.append(SubjectCardGenerator.generateSubjectCard(effort: effort, enjoyment: enjoyment, weakness: weakness, strength: strength, maxLength: maxLength, subject: subject, teacher: teacher))
         vc.subjectCard = commentCard.last
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    override func didMove(toParent parent: UIViewController?) {
+        super.didMove(toParent: parent)
+
+        if parent == nil {
+            stageCount -= 1
+        }
     }
     
     let subject: String = "Computer Science"

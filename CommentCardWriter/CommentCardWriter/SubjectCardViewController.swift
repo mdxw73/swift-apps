@@ -19,8 +19,13 @@ class SubjectCardViewController: UIViewController {
         navigationItem.title = "Subject Card"
         comment.text = subjectCard?.comment.write()
         
-        let nextStage = UIBarButtonItem(image: UIImage(systemName: "arrow.right"), style: .plain, target: self, action: #selector(nextStageButton))
-        self.navigationItem.rightBarButtonItem = nextStage
+        if stageCount >= 8 {
+            let finishButton = UIBarButtonItem(title: "Finish", style: .plain, target: self, action: #selector(nextStage))
+            self.navigationItem.rightBarButtonItem = finishButton
+        } else {
+            let nextStageButton = UIBarButtonItem(image: UIImage(systemName: "arrow.right"), style: .plain, target: self, action: #selector(nextStage))
+            self.navigationItem.rightBarButtonItem = nextStageButton
+        }
     }
     
     override func didMove(toParent parent: UIViewController?) {
@@ -28,15 +33,23 @@ class SubjectCardViewController: UIViewController {
 
         if parent == nil {
             commentCard.removeLast()
+            stageCount -= 1
         }
     }
     
-    @objc func nextStageButton() {
-        commentCard.append(subjectCard!)
-        guard let vc = storyboard?.instantiateViewController(identifier: "ViewController") as? ViewController else {
-            fatalError("Failed to load Subject Card View Controller from Storyboard")
+    @objc func nextStage() {
+        if stageCount >= 8 {
+            guard let vc = storyboard?.instantiateViewController(identifier: "CommentCardViewController") as? CommentCardViewController else {
+                fatalError("Failed to load Subject Card View Controller from Storyboard")
+            }
+            navigationController?.pushViewController(vc, animated: true)
+        } else {
+            stageCount += 1
+            guard let vc = storyboard?.instantiateViewController(identifier: "ViewController") as? ViewController else {
+                fatalError("Failed to load Subject Card View Controller from Storyboard")
+            }
+            navigationController?.pushViewController(vc, animated: true)
         }
-        navigationController?.pushViewController(vc, animated: true)
     }
 
 }

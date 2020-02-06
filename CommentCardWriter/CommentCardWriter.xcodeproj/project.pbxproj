@@ -20,6 +20,7 @@
 		D78BE59723EC89A700DFC707 /* SubjectCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78BE59623EC89A700DFC707 /* SubjectCard.swift */; };
 		D78BE59B23EC8AE000DFC707 /* SubjectCardGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78BE59A23EC8AE000DFC707 /* SubjectCardGenerator.swift */; };
 		D78BE59D23ECAABF00DFC707 /* SubjectCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78BE59C23ECAABF00DFC707 /* SubjectCardViewController.swift */; };
+		D7DF857023ECCEA30070D53E /* CommentCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DF856F23ECCEA30070D53E /* CommentCardViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		D78BE59623EC89A700DFC707 /* SubjectCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCard.swift; sourceTree = "<group>"; };
 		D78BE59A23EC8AE000DFC707 /* SubjectCardGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCardGenerator.swift; sourceTree = "<group>"; };
 		D78BE59C23ECAABF00DFC707 /* SubjectCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCardViewController.swift; sourceTree = "<group>"; };
+		D7DF856F23ECCEA30070D53E /* CommentCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				D78BE59623EC89A700DFC707 /* SubjectCard.swift */,
 				D78BE59A23EC8AE000DFC707 /* SubjectCardGenerator.swift */,
 				D78BE59C23ECAABF00DFC707 /* SubjectCardViewController.swift */,
+				D7DF856F23ECCEA30070D53E /* CommentCardViewController.swift */,
 			);
 			path = CommentCardWriter;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7DF857023ECCEA30070D53E /* CommentCardViewController.swift in Sources */,
 				D78BE59B23EC8AE000DFC707 /* SubjectCardGenerator.swift in Sources */,
 				D78BE59523EC859200DFC707 /* Comment.swift in Sources */,
 				D78BE56723EC848A00DFC707 /* ViewController.swift in Sources */,
