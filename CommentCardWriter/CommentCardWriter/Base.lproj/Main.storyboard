@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Setup-->
+        <!--Subject 1-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CommentCardWriter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="CommentCardWriter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -169,10 +169,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Setup" id="wDg-7L-H0R">
+                    <navigationItem key="navigationItem" title="Subject 1" id="wDg-7L-H0R">
                         <barButtonItem key="rightBarButtonItem" title="Next Stage" image="arrow.right" catalog="system" id="NjT-vw-WaF">
                             <connections>
-                                <action selector="nextStage:" destination="BYZ-38-t0r" id="Ykt-Fs-q6d"/>
+                                <action selector="subjectCard:" destination="BYZ-38-t0r" id="Ykt-Fs-q6d"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
