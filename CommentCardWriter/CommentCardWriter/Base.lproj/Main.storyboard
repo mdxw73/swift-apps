@@ -297,9 +297,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="78V-yC-2au">
+                                <rect key="frame" x="171.5" y="832" width="71" height="30"/>
+                                <state key="normal" title="Start Over"/>
+                                <connections>
+                                    <action selector="startOver:" destination="O3R-Ch-QNM" eventType="touchUpInside" id="vqE-RH-1Hn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="eP4-Yw-ixc" firstAttribute="bottom" secondItem="78V-yC-2au" secondAttribute="bottom" id="4fV-QP-bbd"/>
                             <constraint firstItem="WBg-b6-wVK" firstAttribute="leading" secondItem="eP4-Yw-ixc" secondAttribute="centerX" constant="10" id="5oF-YF-FOh"/>
                             <constraint firstItem="eP4-Yw-ixc" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oBo-rb-tBA" secondAttribute="trailing" constant="20" id="DtQ-xi-DWa"/>
                             <constraint firstItem="hWL-7r-tMI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lRy-SP-6He" secondAttribute="trailing" constant="20" id="EQP-rg-sab"/>
@@ -324,6 +332,7 @@
                             <constraint firstItem="hWL-7r-tMI" firstAttribute="leading" secondItem="eP4-Yw-ixc" secondAttribute="centerX" constant="10" id="hNj-zC-89c"/>
                             <constraint firstItem="v2U-QE-wc4" firstAttribute="top" secondItem="hWL-7r-tMI" secondAttribute="bottom" constant="20" id="hte-af-eyA"/>
                             <constraint firstItem="PFC-he-4Qd" firstAttribute="leading" secondItem="eP4-Yw-ixc" secondAttribute="leading" constant="10" id="rAM-Ey-q0a"/>
+                            <constraint firstItem="78V-yC-2au" firstAttribute="centerX" secondItem="eP4-Yw-ixc" secondAttribute="centerX" id="xzN-tY-lfv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eP4-Yw-ixc"/>
                     </view>

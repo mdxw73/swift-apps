@@ -40,5 +40,14 @@ class CommentCardViewController: UIViewController {
             }
         }
     }
-
+    
+    @IBAction func startOver(_ sender: Any) {
+        stageCount = 1
+        commentCard.removeAll()
+        guard let vc = storyboard?.instantiateViewController(identifier: "ViewController") as? ViewController else {
+            fatalError("Failed to load View Controller from Storyboard")
+        }
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }

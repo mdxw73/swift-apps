@@ -26,6 +26,10 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let index = navigationController?.viewControllers.count ?? 1
+        if index > 1 && navigationController?.viewControllers[index - 2] is CommentCardViewController {
+            self.navigationItem.setHidesBackButton(true, animated: true)
+        }
         navigationItem.title = "Subject \(stageCount/2 + 1)"
     }
     
