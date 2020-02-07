@@ -46,7 +46,7 @@ class SubjectCardViewController: UIViewController {
         } else {
             stageCount += 1
             guard let vc = storyboard?.instantiateViewController(identifier: "ViewController") as? ViewController else {
-                fatalError("Failed to load Subject Card View Controller from Storyboard")
+                fatalError("Failed to load View Controller from Storyboard")
             }
             navigationController?.pushViewController(vc, animated: true)
         }
