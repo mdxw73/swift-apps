@@ -23,8 +23,6 @@ class ViewController: UIViewController {
     @IBOutlet var focusSwitch: UISwitch!
     @IBOutlet var commitmentSwitch: UISwitch!
     @IBOutlet var creativitySwitch: UISwitch!
-    
-    var student: String = "Student"
 
     override func viewDidLoad() {
         super.viewDidLoad()
