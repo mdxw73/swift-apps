@@ -39,7 +39,6 @@ class CommentCardViewController: UIViewController {
                 labelArray[i]?.text? += " - \(commentCard[i].teacher)"
             }
         }
-        
     }
 
 }

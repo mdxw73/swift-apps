@@ -40,7 +40,7 @@ class SubjectCardViewController: UIViewController {
     @objc func nextStage() {
         if stageCount >= 8 {
             guard let vc = storyboard?.instantiateViewController(identifier: "CommentCardViewController") as? CommentCardViewController else {
-                fatalError("Failed to load Subject Card View Controller from Storyboard")
+                fatalError("Failed to load Comment Card View Controller from Storyboard")
             }
             navigationController?.pushViewController(vc, animated: true)
         } else {
