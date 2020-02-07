@@ -47,8 +47,8 @@ class ViewController: UIViewController {
         }
     }
     
-    let subject: String = "Computer Science"
-    let teacher: String = "DPC"
+    var subject: String = ""
+    var teacher: String = ""
     let maxLength: Int = 500
     
     var effort: Bool = false
@@ -136,6 +136,29 @@ class ViewController: UIViewController {
             commitmentSwitch.isEnabled = true
         }
     }
-
+    
+    @IBAction func addSubject(_ sender: Any) {
+        let alert = UIAlertController(title: "Enter Subject Name", message: "e.g. Maths", preferredStyle: .alert)
+        alert.addTextField(configurationHandler: { textField in
+            textField.text = ""
+            })
+        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (_) in
+            let textField = alert.textFields![0]
+            self.subject = textField.text ?? ""
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    @IBAction func addTeacher(_ sender: Any) {
+        let alert = UIAlertController(title: "Enter Teacher Initials", message: "e.g. DPC", preferredStyle: .alert)
+        alert.addTextField(configurationHandler: { textField in
+            textField.text = ""
+            })
+        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (_) in
+            let textField = alert.textFields![0]
+            self.teacher = textField.text ?? ""
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
 }
 

@@ -123,6 +123,20 @@
                                     <action selector="creativityToggle:" destination="BYZ-38-t0r" eventType="valueChanged" id="hbb-eU-c7W"/>
                                 </connections>
                             </switch>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iy6-En-M3h">
+                                <rect key="frame" x="243.5" y="832" width="87" height="30"/>
+                                <state key="normal" title="Add Teacher"/>
+                                <connections>
+                                    <action selector="addTeacher:" destination="BYZ-38-t0r" eventType="touchUpInside" id="y9Y-c9-4js"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vKy-An-upT">
+                                <rect key="frame" x="85" y="832" width="84" height="30"/>
+                                <state key="normal" title="Add Subject"/>
+                                <connections>
+                                    <action selector="addSubject:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eIb-nV-LV4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -144,9 +158,12 @@
                             <constraint firstItem="oBZ-1f-T7i" firstAttribute="centerX" secondItem="lG2-5R-0nW" secondAttribute="centerX" id="IGQ-vn-j7s"/>
                             <constraint firstItem="lV1-RZ-lwQ" firstAttribute="centerX" secondItem="H9e-Ul-eHa" secondAttribute="centerX" id="JpH-Yu-Cag"/>
                             <constraint firstItem="1K6-gR-MlW" firstAttribute="centerX" secondItem="Zhc-tR-eJZ" secondAttribute="centerX" id="LmS-wA-BWt"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="vKy-An-upT" secondAttribute="bottom" id="LvB-v7-HsQ"/>
                             <constraint firstItem="H9e-Ul-eHa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="18O-P6-ood" secondAttribute="trailing" constant="10" id="MOJ-DB-8I5"/>
+                            <constraint firstItem="vKy-An-upT" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" constant="-80" id="Nzw-hy-NPm"/>
                             <constraint firstItem="aC9-CT-2OE" firstAttribute="centerY" secondItem="18O-P6-ood" secondAttribute="centerY" id="QkH-Se-hL9"/>
                             <constraint firstItem="o2x-Vv-ak9" firstAttribute="centerY" secondItem="Um1-aO-S3k" secondAttribute="centerY" id="TSM-uc-JCs"/>
+                            <constraint firstItem="iy6-En-M3h" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" constant="80" id="VWe-tK-KYS"/>
                             <constraint firstItem="H9e-Ul-eHa" firstAttribute="centerY" secondItem="18O-P6-ood" secondAttribute="centerY" id="Val-Va-13c"/>
                             <constraint firstItem="aDq-cJ-nLA" firstAttribute="centerY" secondItem="Um1-aO-S3k" secondAttribute="centerY" id="ZYA-WM-oQU"/>
                             <constraint firstItem="8Gd-db-WtT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="ZlD-AQ-Wil"/>
@@ -155,6 +172,7 @@
                             <constraint firstItem="Um1-aO-S3k" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="dav-fN-QFV"/>
                             <constraint firstItem="1aV-8D-NqU" firstAttribute="centerX" secondItem="o2x-Vv-ak9" secondAttribute="centerX" id="dni-Wl-AJy"/>
                             <constraint firstItem="CoS-f9-vJY" firstAttribute="centerX" secondItem="aC9-CT-2OE" secondAttribute="centerX" id="eK9-SW-zwo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="iy6-En-M3h" secondAttribute="bottom" id="eP3-9t-vCd"/>
                             <constraint firstItem="ndK-Rv-MeR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Jv-h8-lGH" secondAttribute="trailing" constant="10" id="fbf-Ml-4sX"/>
                             <constraint firstItem="18O-P6-ood" firstAttribute="top" secondItem="6Jv-h8-lGH" secondAttribute="bottom" constant="40" id="iKV-ZA-yP2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="s0Q-Qh-StR" secondAttribute="trailing" constant="20" id="kfA-sU-Qbn"/>
@@ -255,26 +273,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subject 1:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lRy-SP-6He">
-                                <rect key="frame" x="10" y="104" width="68.5" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subject 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lRy-SP-6He">
+                                <rect key="frame" x="10" y="104" width="63.5" height="17"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subject 2:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hWL-7r-tMI">
-                                <rect key="frame" x="217" y="104" width="70" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subject 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hWL-7r-tMI">
+                                <rect key="frame" x="217" y="104" width="66" height="17"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subject 4:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBo-rb-tBA">
-                                <rect key="frame" x="217" y="178" width="70.5" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subject 4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBo-rb-tBA">
+                                <rect key="frame" x="217" y="178" width="66" height="17"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subject 3:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WNV-fy-4fU">
-                                <rect key="frame" x="10" y="178" width="70.5" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subject 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WNV-fy-4fU">
+                                <rect key="frame" x="10" y="178" width="66" height="17"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -311,9 +329,13 @@
                     </view>
                     <connections>
                         <outlet property="subjectFourComment" destination="WBg-b6-wVK" id="gG5-Cw-BZC"/>
+                        <outlet property="subjectFourLabel" destination="oBo-rb-tBA" id="Hca-iS-tgs"/>
                         <outlet property="subjectOneComment" destination="PFC-he-4Qd" id="I07-d7-8dC"/>
+                        <outlet property="subjectOneLabel" destination="lRy-SP-6He" id="JdC-cl-Yb2"/>
                         <outlet property="subjectThreeComment" destination="uAu-kC-YHv" id="baj-JV-9ce"/>
+                        <outlet property="subjectThreeLabel" destination="WNV-fy-4fU" id="Oqu-4u-iyT"/>
                         <outlet property="subjectTwoComment" destination="v2U-QE-wc4" id="LLV-al-rfa"/>
+                        <outlet property="subjectTwoLabel" destination="hWL-7r-tMI" id="GUN-VU-85B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RiU-QQ-tiw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
