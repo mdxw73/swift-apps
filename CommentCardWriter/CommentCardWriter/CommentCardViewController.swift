@@ -20,23 +20,27 @@ class CommentCardViewController: UIViewController {
     @IBOutlet var subjectThreeLabel: UILabel!
     @IBOutlet var subjectFourLabel: UILabel!
     
+    var subjectArray: [UILabel] = []
+    var labelArray: [UILabel] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Comment Card"
         
-        let labelArray = [subjectOneLabel, subjectTwoLabel, subjectThreeLabel, subjectFourLabel]
+        subjectArray = [subjectOneLabel, subjectTwoLabel, subjectThreeLabel, subjectFourLabel]
+        labelArray = [subjectOneComment, subjectTwoComment, subjectThreeComment, subjectFourComment]
         
         subjectOneComment.text = commentCard[0].comment.write()
         subjectTwoComment.text = commentCard[1].comment.write()
         subjectThreeComment.text = commentCard[2].comment.write()
         subjectFourComment.text = commentCard[3].comment.write()
         
-        for i in 0..<labelArray.count {
+        for i in 0..<subjectArray.count {
             if commentCard[i].subject != "" {
-                labelArray[i]?.text = commentCard[i].subject
+                subjectArray[i].text = commentCard[i].subject
             }
             if commentCard[i].teacher != "" {
-                labelArray[i]?.text? += " - \(commentCard[i].teacher)"
+                subjectArray[i].text? += " - \(commentCard[i].teacher)"
             }
         }
     }
@@ -48,6 +52,31 @@ class CommentCardViewController: UIViewController {
             fatalError("Failed to load View Controller from Storyboard")
         }
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func editOne(_ sender: Any) {
+        displayEditor(label: labelArray[0])
+    }
+    @IBAction func editTwo(_ sender: Any) {
+        displayEditor(label: labelArray[1])
+    }
+    @IBAction func editThree(_ sender: Any) {
+        displayEditor(label: labelArray[2])
+    }
+    @IBAction func editFour(_ sender: Any) {
+        displayEditor(label: labelArray[3])
+    }
+    
+    func displayEditor(label: UILabel) {
+        let alert = UIAlertController(title: "Subject Editor", message: "You can edit or copy the following comment:", preferredStyle: .alert)
+        alert.addTextField(configurationHandler: { textField in
+            textField.text = label.text
+            })
+        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (_) in
+            let textField = alert.textFields![0]
+            label.text = textField.text ?? label.text
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
 }
