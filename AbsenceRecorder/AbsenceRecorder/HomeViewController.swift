@@ -24,11 +24,6 @@ class HomeViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
-        self.tableView(tableView, didSelectRowAt: indexPath)
-    }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return divisions.count
     }
@@ -64,11 +59,13 @@ class HomeViewController: UITableViewController {
     @IBAction func previousDay(_ sender: Any) {
         currentDate = Calendar.current.date(byAdding: .day, value: -1, to: currentDate) ?? Date()
         updateDateDisplay()
+        tableView.reloadData()
     }
     
     @IBAction func nextDay(_ sender: Any) {
         currentDate = Calendar.current.date(byAdding: .day, value: 1, to: currentDate) ?? Date()
         updateDateDisplay()
+        tableView.reloadData()
     }
     
     func updateDateDisplay() {
