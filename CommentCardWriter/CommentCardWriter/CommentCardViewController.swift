@@ -21,14 +21,14 @@ class CommentCardViewController: UIViewController {
     @IBOutlet var subjectFourLabel: UILabel!
     
     var subjectArray: [UILabel] = []
-    var labelArray: [UILabel] = []
+    var commentArray: [UILabel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Comment Card"
         
         subjectArray = [subjectOneLabel, subjectTwoLabel, subjectThreeLabel, subjectFourLabel]
-        labelArray = [subjectOneComment, subjectTwoComment, subjectThreeComment, subjectFourComment]
+        commentArray = [subjectOneComment, subjectTwoComment, subjectThreeComment, subjectFourComment]
         
         subjectOneComment.text = commentCard[0].comment.write()
         subjectTwoComment.text = commentCard[1].comment.write()
@@ -55,16 +55,16 @@ class CommentCardViewController: UIViewController {
     }
     
     @IBAction func editOne(_ sender: Any) {
-        displayEditor(label: labelArray[0])
+        displayEditor(label: commentArray[0])
     }
     @IBAction func editTwo(_ sender: Any) {
-        displayEditor(label: labelArray[1])
+        displayEditor(label: commentArray[1])
     }
     @IBAction func editThree(_ sender: Any) {
-        displayEditor(label: labelArray[2])
+        displayEditor(label: commentArray[2])
     }
     @IBAction func editFour(_ sender: Any) {
-        displayEditor(label: labelArray[3])
+        displayEditor(label: commentArray[3])
     }
     
     func displayEditor(label: UILabel) {
@@ -77,6 +77,22 @@ class CommentCardViewController: UIViewController {
             label.text = textField.text ?? label.text
         }))
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func storeCard(_ sender: Any) {
+        var array = [String]()
+        for comment in commentArray {
+            array.append(comment.text ?? "")
+        }
+        commentCardComments.append(array)
+        
+        array.removeAll()
+        for subject in subjectArray {
+            array.append(subject.text ?? "")
+        }
+        commentCardSubjects.append(array)
+        
+        self.startOver("")
     }
     
 }
