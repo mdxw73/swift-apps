@@ -465,7 +465,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="i7t-bt-FVm"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Guide" image="doc.text" catalog="system" id="TEm-ki-Uaz"/>
+                    <tabBarItem key="tabBarItem" title="Guide" image="doc.plaintext" catalog="system" id="TEm-ki-Uaz"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="caW-eC-pCQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -496,6 +496,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="diV-7B-zYk" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="v7V-Tj-WUf">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -511,7 +512,7 @@
     </scenes>
     <resources>
         <image name="arrow.right" catalog="system" width="64" height="48"/>
-        <image name="doc.text" catalog="system" width="56" height="64"/>
+        <image name="doc.plaintext" catalog="system" width="56" height="64"/>
         <image name="pencil" catalog="system" width="64" height="56"/>
     </resources>
 </document>
