@@ -8,15 +8,25 @@
 
 import UIKit
 
-class ViewController: UITableViewController {
+class HomeViewController: UITableViewController {
     
     var divisions: [Division] = []
     var currentDate: Date = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.allowsMultipleSelection = true
         loadDummyData()
         updateDateDisplay()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+        self.tableView(tableView, didSelectRowAt: indexPath)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -25,23 +35,29 @@ class ViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Division", for: indexPath)
-        cell.textLabel?.text = divisions[indexPath.row].code
+        let selectedDivision = divisions[indexPath.row]
+        cell.textLabel?.text = selectedDivision.code
+        
+        if divisions[indexPath.row].getAbsence(for: currentDate) != nil {
+            tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+        }
+        
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let vc = storyboard?.instantiateViewController(identifier: "DivisionAbsenceViewController") as? DivisionAbsenceViewController else {
+        let selectedDivision = divisions[indexPath.row]
+        var absence = Absence(date: currentDate)
+        if let existingAbsence = selectedDivision.getAbsence(for: currentDate) {
+            absence = existingAbsence
+        } else {
+            selectedDivision.absences.append(absence)
+        }
+        guard let vc = storyboard?.instantiateViewController(identifier: "DivisionAbsenceViewController", creator: { coder in
+            return DivisionAbsenceViewController(coder: coder, division: selectedDivision, absence: absence)
+        }) else {
             fatalError("Failed to load Division Absence View Controller from Storyboard")
         }
-        let selectedDivision = divisions[indexPath.row]
-        if let existingAbsence = selectedDivision.getAbsence(for: currentDate) {
-            vc.absence = existingAbsence
-        } else {
-            let newAbsence = Absence(date: currentDate)
-            selectedDivision.absences.append(newAbsence)
-            vc.absence = newAbsence
-        }
-        vc.division = selectedDivision
         navigationController?.pushViewController(vc, animated: true)
     }
     
