@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         let index = navigationController?.viewControllers.count ?? 1
         if index > 1 && navigationController?.viewControllers[index - 2] is CommentCardViewController {
-            self.navigationItem.setHidesBackButton(true, animated: true)
+            self.navigationItem.setHidesBackButton(true, animated: true) // Hides default back button when the previous view controller on the stack is a Comment Card View Controller
         }
         navigationItem.title = "Subject \(stageCount/2 + 1)"
     }
