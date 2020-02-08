@@ -20,6 +20,7 @@ class StoredCommentCardViewController: UIViewController {
     @IBOutlet var subjectThreeLabel: UILabel!
     @IBOutlet var subjectFourLabel: UILabel!
     
+    var indexPathRow: Int = 0
     var commentArray: [String] = ["","","",""]
     var subjectArray: [String] = ["","","",""]
     var commentLabelArray: [UILabel] = []
@@ -41,19 +42,19 @@ class StoredCommentCardViewController: UIViewController {
     }
     
     @IBAction func editOne(_ sender: Any) {
-        displayEditor(label: commentLabelArray[0])
+        displayEditor(label: commentLabelArray[0], index: 0)
     }
     @IBAction func editTwo(_ sender: Any) {
-        displayEditor(label: commentLabelArray[1])
+        displayEditor(label: commentLabelArray[1], index: 1)
     }
     @IBAction func editThree(_ sender: Any) {
-        displayEditor(label: commentLabelArray[2])
+        displayEditor(label: commentLabelArray[2], index: 2)
     }
     @IBAction func editFour(_ sender: Any) {
-        displayEditor(label: commentLabelArray[3])
+        displayEditor(label: commentLabelArray[3], index: 3)
     }
     
-    func displayEditor(label: UILabel) {
+    func displayEditor(label: UILabel, index: Int) {
         let alert = UIAlertController(title: "Subject Editor", message: "You can edit or copy the following comment:", preferredStyle: .alert)
         alert.addTextField(configurationHandler: { textField in
             textField.text = label.text
@@ -61,6 +62,7 @@ class StoredCommentCardViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (_) in
             let textField = alert.textFields![0]
             label.text = textField.text ?? label.text
+            commentCardComments[self.indexPathRow][index] = label.text ?? commentCardComments[self.indexPathRow][index]
         }))
         self.present(alert, animated: true, completion: nil)
     }

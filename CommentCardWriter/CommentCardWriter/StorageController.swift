@@ -41,6 +41,7 @@ class StorageController: UITableViewController {
         for i in 0..<vc.subjectArray.count {
             vc.subjectArray[i] = commentCardSubjects[indexPath.row][i]
         }
+        vc.indexPathRow = indexPath.row
         navigationController?.pushViewController(vc, animated: true)
     }
     
