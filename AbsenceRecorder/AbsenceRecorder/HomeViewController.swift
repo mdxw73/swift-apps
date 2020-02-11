@@ -60,6 +60,35 @@ class HomeViewController: UITableViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let allPresent = UIContextualAction(style: .normal, title: "All Present") { action, view, completionHandler in
+            let division = self.divisions[indexPath.row]
+            if let absence = division.getAbsence(for: self.currentDate) {
+                absence.present = division.students
+            } else {
+                let absence = Absence(date: self.currentDate, present: division.students)
+                division.absences.append(absence)
+            }
+            tableView.reloadData()
+            completionHandler(true)
+        }
+        allPresent.backgroundColor = UIColor.blue
+        return UISwipeActionsConfiguration(actions: [allPresent])
+    }
+    
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let allPresent = UIContextualAction(style: .normal, title: "Clear") { action, view, completionHandler in
+            let division = self.divisions[indexPath.row]
+            if let absence = division.getAbsence(for: self.currentDate) {
+                division.absences.removeAll { $0 == absence }
+            }
+            tableView.reloadData()
+            completionHandler(true)
+        }
+        allPresent.backgroundColor = UIColor.red
+        return UISwipeActionsConfiguration(actions: [allPresent])
+    }
+    
     @IBAction func previousDay(_ sender: Any) {
         currentDate = Calendar.current.date(byAdding: .day, value: -1, to: currentDate) ?? Date()
         updateDateDisplay()

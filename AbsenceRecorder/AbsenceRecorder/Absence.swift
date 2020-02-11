@@ -8,14 +8,22 @@
 
 import Foundation
 
-class Absence {
+class Absence: Equatable {
     
     var takenOn: Date
     var present: [Student] = []
-    var selectedRows: [IndexPath]?
     
     init(date: Date) {
         takenOn = date
+    }
+    
+    init(date: Date, present: [Student]) {
+        takenOn = date
+        self.present = present
+    }
+    
+    static func == (lhs: Absence, rhs: Absence) -> Bool {
+        return lhs.present == rhs.present && lhs.takenOn == rhs.takenOn
     }
     
 }
