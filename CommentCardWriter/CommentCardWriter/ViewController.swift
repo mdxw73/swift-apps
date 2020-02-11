@@ -149,6 +149,7 @@ class ViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (_) in
             let textField = alert.textFields![0]
             self.subject = textField.text ?? ""
+            self.navigationItem.title = self.subject
         }))
         self.present(alert, animated: true, completion: nil)
     }
