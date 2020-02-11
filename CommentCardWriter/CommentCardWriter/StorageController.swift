@@ -46,5 +46,16 @@ class StorageController: UITableViewController {
         vc.indexPathRow = indexPath.row
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let allPresent = UIContextualAction(style: .destructive, title: "Delete") { action, view, completionHandler in
+            commentCardSubjects.remove(at: indexPath.row)
+            commentCardComments.remove(at: indexPath.row)
+            tableView.reloadData()
+            completionHandler(true)
+        }
+        allPresent.backgroundColor = UIColor.red
+        return UISwipeActionsConfiguration(actions: [allPresent])
+    }
 
 }
