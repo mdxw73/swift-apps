@@ -16,8 +16,10 @@ class StorageController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Storage"
-        let refreshButton = UIBarButtonItem(image: UIImage(systemName: "arrow.clockwise"), style: .plain, target: self, action: #selector(refresh))
-        self.navigationItem.rightBarButtonItem = refreshButton
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -43,10 +45,6 @@ class StorageController: UITableViewController {
         }
         vc.indexPathRow = indexPath.row
         navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    @objc func refresh() {
-        tableView.reloadData()
     }
 
 }
