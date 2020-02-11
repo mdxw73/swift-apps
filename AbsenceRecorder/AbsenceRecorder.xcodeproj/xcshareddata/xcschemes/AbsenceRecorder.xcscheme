@@ -56,6 +56,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D7CAD18423E0DBBE00378C23"
+               BuildableName = "AbsenceRecorderTests.xctest"
+               BlueprintName = "AbsenceRecorderTests"
+               ReferencedContainer = "container:AbsenceRecorder.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D7CAD18F23E0DBBE00378C23"
+               BuildableName = "AbsenceRecorderUITests.xctest"
+               BlueprintName = "AbsenceRecorderUITests"
+               ReferencedContainer = "container:AbsenceRecorder.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
