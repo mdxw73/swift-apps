@@ -46,7 +46,7 @@ class HomeViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedDivision = divisions[indexPath.row]
-        var absence = Absence(date: currentDate)
+        var absence = Absence(date: currentDate, present: selectedDivision.students)
         if let existingAbsence = selectedDivision.getAbsence(for: currentDate) {
             absence = existingAbsence
         } else {
@@ -79,9 +79,7 @@ class HomeViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let allPresent = UIContextualAction(style: .normal, title: "Clear") { action, view, completionHandler in
             let division = self.divisions[indexPath.row]
-            if let absence = division.getAbsence(for: self.currentDate) {
-                division.absences.removeAll { $0 == absence }
-            }
+            division.removeAbsence(for: self.currentDate)
             tableView.reloadData()
             completionHandler(true)
         }

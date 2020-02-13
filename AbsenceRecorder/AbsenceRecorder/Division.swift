@@ -22,4 +22,8 @@ class Division {
         return absences.first { $0.takenOn == date }
     }
     
+    func removeAbsence(for date: Date) {
+        absences.removeAll { $0.takenOn == date }
+    }
+    
 }
