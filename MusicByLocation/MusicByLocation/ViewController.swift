@@ -32,15 +32,51 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 if error != nil {
                     self.musicRecommendations.text = "Could not perform lookup of location for latitude: \(firstLocation.coordinate.latitude.description)"
                 } else {
-                    self.musicRecommendations.text = "\(placemarks?[0].subThoroughfare ?? "Unknown")\n\(placemarks?[0].thoroughfare ?? "Unknown")\n\(placemarks?[0].subLocality ?? "Unknown")\n\(placemarks?[0].locality ?? "Unknown")\n\(placemarks?[0].administrativeArea ?? "Unknown")\n\(placemarks?[0].country ?? "Unknown")\n\(placemarks?[0].postalCode ?? "Unknown")"
+                    let _ = self.getArtists(placemark: placemarks?[0].country?.components(separatedBy: " ").first ?? "United")
                 }
             })
-            musicRecommendations.text = firstLocation.coordinate.latitude.description
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         musicRecommendations.text = "Could not at access user's location. Error: \(error.localizedDescription)"
+    }
+    
+    func getArtists(placemark: String) -> String {
+        guard let url = URL(string: "https://itunes.apple.com/search?term=\(placemark)&entity=musicArtist")
+            else {
+                print("Invalid URL")
+                return "Invalid URL. Wasn't able to search ITunes"
+        }
+        
+        let request = URLRequest(url: url)
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let data = data {
+                if let response = self.parseJson(json: data) {
+                    let names = response.results.map {
+                        return $0.artistName
+                    }
+                    
+                    DispatchQueue.main.async {
+                        self.musicRecommendations.text = names.joined(separator: ", ")
+                    }
+                }
+            }
+        }.resume()
+        
+        return ""
+    }
+    
+    func parseJson(json: Data) -> ArtistResponse? {
+        let decoder = JSONDecoder()
+        
+        if let artistResponse = try? decoder.decode(ArtistResponse.self, from: json) {
+            return artistResponse
+        } else {
+            print("Failed to decode to Artist Response")
+            return nil
+        }
     }
     
 }
