@@ -18,7 +18,7 @@ class ITunesAdaptor {
             return
         }
         
-        let path = "/term=\(search)&entity=musicArtist".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        let path = "/search?term=\(search)&entity=musicArtist".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         
         guard let url = URL(string: baseUrl + path) else {
             print("Invalid URL. Not able to update recommended artists")
