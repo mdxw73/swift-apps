@@ -7,7 +7,6 @@
 //
 
 import XCTest
-@testable import AbsenceRecorder
 
 class AbsenceRecorderTests: XCTestCase {
 

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Absence: Equatable {
+class Absence: Equatable, Codable {
     
     var takenOn: Date
     var present: [Student] = []

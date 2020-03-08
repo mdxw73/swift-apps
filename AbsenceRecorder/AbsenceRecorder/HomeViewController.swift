@@ -15,7 +15,6 @@ class HomeViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadDummyData()
         updateDateDisplay()
     }
     
@@ -103,6 +102,60 @@ class HomeViewController: UITableViewController {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
         navigationItem.title = formatter.string(from: currentDate)
+    }
+    
+    func convertDivisionsToJson() -> String? {
+        let encoder = JSONEncoder()
+        guard let encoded = try? encoder.encode(divisions) else {
+            print("Unable to encode divisions into json")
+            return nil
+        }
+        
+        guard let json = String(data: encoded, encoding: .utf8) else {
+            print("Unable to turn encoded divisions into a string")
+            return nil
+        }
+        
+        return json
+    }
+    
+    func convertJsonToDivisions(json: Data) -> [Division]? {
+        let decoder = JSONDecoder()
+        
+        guard let decoded = try? decoder.decode([Division].self, from: json) else {
+            return nil
+        }
+        
+        return decoded
+    }
+    
+    func saveDataToFile() {
+        guard let divisionsJson = convertDivisionsToJson() else {
+            return
+        }
+        
+        let filePath = UserDocumentManager.getDocumentsDirectory().appendingPathComponent("divisions.txt")
+        
+        do {
+            try divisionsJson.write(to: filePath, atomically: true, encoding: String.Encoding.utf8)
+        } catch {
+            print("Unable to save by writing to a file")
+        }
+    }
+    
+    func loadDataFromFile() {
+        let filePath = UserDocumentManager.getDocumentsDirectory().appendingPathComponent("divisions.txt")
+        
+        do {
+            let json = try Data(contentsOf: filePath)
+            divisions = convertJsonToDivisions(json: json) ?? []
+            if divisions.count == 0 {
+                loadDummyData()
+            }
+        } catch {
+            print("Failed to read from file")
+            loadDummyData()
+        }
     }
     
     func loadDummyData() {
