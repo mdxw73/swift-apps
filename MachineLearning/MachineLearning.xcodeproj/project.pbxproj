@@ -14,8 +14,8 @@
 		D7171B2124196EC2009EA06A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7171B1F24196EC2009EA06A /* LaunchScreen.storyboard */; };
 		D7171B2C24196EC3009EA06A /* MachineLearningTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7171B2B24196EC3009EA06A /* MachineLearningTests.swift */; };
 		D7171B3724196EC3009EA06A /* MachineLearningUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7171B3624196EC3009EA06A /* MachineLearningUITests.swift */; };
-		D7171B4524196EDB009EA06A /* MNISTClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D7171B4424196EDB009EA06A /* MNISTClassifier.mlmodel */; };
 		D7171B4724196F10009EA06A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7171B4624196F10009EA06A /* Main.storyboard */; };
+		D7D8D2B824197B9800706E80 /* SqueezeNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D7D8D2B724197B9800706E80 /* SqueezeNet.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,8 +49,8 @@
 		D7171B3224196EC3009EA06A /* MachineLearningUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MachineLearningUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7171B3624196EC3009EA06A /* MachineLearningUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineLearningUITests.swift; sourceTree = "<group>"; };
 		D7171B3824196EC3009EA06A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D7171B4424196EDB009EA06A /* MNISTClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MNISTClassifier.mlmodel; sourceTree = "<group>"; };
 		D7171B4624196F10009EA06A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		D7D8D2B724197B9800706E80 /* SqueezeNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SqueezeNet.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +108,7 @@
 				D7171B1D24196EC2009EA06A /* Assets.xcassets */,
 				D7171B1F24196EC2009EA06A /* LaunchScreen.storyboard */,
 				D7171B2224196EC3009EA06A /* Info.plist */,
-				D7171B4424196EDB009EA06A /* MNISTClassifier.mlmodel */,
+				D7D8D2B724197B9800706E80 /* SqueezeNet.mlmodel */,
 			);
 			path = MachineLearning;
 			sourceTree = "<group>";
@@ -264,8 +264,8 @@
 			files = (
 				D7171B1924196EC1009EA06A /* ViewController.swift in Sources */,
 				D7171B1524196EC1009EA06A /* AppDelegate.swift in Sources */,
+				D7D8D2B824197B9800706E80 /* SqueezeNet.mlmodel in Sources */,
 				D7171B1724196EC1009EA06A /* SceneDelegate.swift in Sources */,
-				D7171B4524196EDB009EA06A /* MNISTClassifier.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

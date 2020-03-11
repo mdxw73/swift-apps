@@ -25,7 +25,6 @@ class ViewController: UIViewController {
         resultsLabel.text = "choose or take a photo"
         resultsLabel.layer.masksToBounds = true
         resultsLabel.layer.cornerRadius = 5
-        resultsLabel.setContentCompressionResistancePriority(UILayoutPriority.required, for: .horizontal)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -46,7 +45,7 @@ class ViewController: UIViewController {
     }
     
     lazy var classificationRequest: VNCoreMLRequest = {
-        let visionModel = try! VNCoreMLModel(for: MNISTClassifier().model)
+        let visionModel = try! VNCoreMLModel(for: SqueezeNet().model)
         let request = VNCoreMLRequest(model: visionModel) { [unowned self] request, _ in
             self.processObservations(for: request)
         }
