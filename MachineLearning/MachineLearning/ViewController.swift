@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
-        resultsLabel.text = "choose or take a photo"
+        resultsLabel.text = "\n choose or take a photo    \n"
         resultsLabel.layer.masksToBounds = true
         resultsLabel.layer.cornerRadius = 5
     }
@@ -83,7 +83,7 @@ class ViewController: UIViewController {
             let formatter = NumberFormatter()
             formatter.maximumFractionDigits = 1
             let confidencePrecentage = formatter.string(from: result.confidence * 100 as NSNumber)!
-            self.resultsLabel.text = "\(result.identifier): \(confidencePrecentage)%"
+            self.resultsLabel.text = "\n \(result.identifier): \(confidencePrecentage)%    \n"
             self.showResultsView()
         }
     }
