@@ -95,11 +95,11 @@ class ViewController: UIViewController {
             }
             
             let endpoint = search.firstIndex(of: ":")!
-            var searchTerm = search[...endpoint]
+            var searchTerm = search[..<endpoint]
             
             if search.contains(",") {
                 let endpoint = search.firstIndex(of: ",")!
-                searchTerm = search[...endpoint]
+                searchTerm = search[..<endpoint]
             }
             
             recipeAdaptor.getRecipes(String(searchTerm)) { (recipe) in
