@@ -15,16 +15,15 @@ class ViewController: UIViewController {
     @IBOutlet var cameraButton: UIButton!
     @IBOutlet var photosButton: UIButton!
     @IBOutlet var imageView: UIImageView!
-    @IBOutlet var resultsLabel: UILabel!
+    @IBOutlet var results: UIButton!
     
     var firstTime = true
+    let recipeAdaptor = RecipeAdaptor()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
-        resultsLabel.text = "\n choose or take a photo    \n"
-        resultsLabel.layer.masksToBounds = true
-        resultsLabel.layer.cornerRadius = 5
+        results.setTitle("choose or take a photo", for: .normal)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -83,8 +82,37 @@ class ViewController: UIViewController {
             let formatter = NumberFormatter()
             formatter.maximumFractionDigits = 1
             let confidencePrecentage = formatter.string(from: result.confidence * 100 as NSNumber)!
-            self.resultsLabel.text = "\n \(result.identifier): \(confidencePrecentage)%    \n"
+            self.results.setTitle("\(result.identifier): \(confidencePrecentage)%", for: .normal)
             self.showResultsView()
+        }
+    }
+    
+    @IBAction func resultsButton(_ sender: Any) {
+        if results.titleLabel!.text ?? "choose or take a photo" != "choose or take a photo" {
+            guard let search = results.titleLabel!.text?.replacingOccurrences(of: " ", with: "_") else {
+                print("Invalid search")
+                return
+            }
+            
+            let endpoint = search.firstIndex(of: ":")!
+            var searchTerm = search[...endpoint]
+            
+            if search.contains(",") {
+                let endpoint = search.firstIndex(of: ",")!
+                searchTerm = search[...endpoint]
+            }
+            
+            recipeAdaptor.getRecipes(String(searchTerm)) { (recipe) in
+                let meals = recipe?.map {return $0.strMeal}
+                
+                DispatchQueue.main.async {
+                    guard let vc = self.storyboard?.instantiateViewController(identifier: "DishesTableViewController") as? DishesTableViewController else {
+                        fatalError("Failed to load Top Dishes View Controller from Storyboard")
+                    }
+                    vc.meals = meals
+                    self.present(vc, animated: true)
+                }
+            }
         }
     }
     

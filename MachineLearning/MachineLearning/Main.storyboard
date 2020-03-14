@@ -35,27 +35,28 @@
                                     <action selector="takePicture:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jS5-LH-od5"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Results Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNN-Zp-eHe">
-                                <rect key="frame" x="144" y="64" width="126.5" height="24"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4GE-to-uP3">
+                                <rect key="frame" x="181.5" y="64" width="51" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Results"/>
+                                <connections>
+                                    <action selector="resultsButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zVk-tI-ll7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="LNN-Zp-eHe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="65f-c8-WSn"/>
                             <constraint firstItem="kJM-TV-drs" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="68G-Yo-YI9"/>
                             <constraint firstItem="lP4-d0-0Cs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="60" id="70j-no-2AW"/>
                             <constraint firstAttribute="bottom" secondItem="kJM-TV-drs" secondAttribute="bottom" id="AGQ-5c-JSj"/>
+                            <constraint firstItem="4GE-to-uP3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Efy-ic-3rb"/>
                             <constraint firstItem="wJD-H6-bsJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-60" id="FKo-1B-a5T"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="lP4-d0-0Cs" secondAttribute="bottom" constant="20" id="RKe-rM-H9Q"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4GE-to-uP3" secondAttribute="trailing" constant="20" id="RYL-Ad-6Is"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wJD-H6-bsJ" secondAttribute="bottom" constant="20" id="TdR-tk-PPf"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="LNN-Zp-eHe" secondAttribute="trailing" constant="20" id="bCi-bj-TBh"/>
                             <constraint firstItem="kJM-TV-drs" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="dJ1-Ay-1X5"/>
-                            <constraint firstItem="LNN-Zp-eHe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="fD9-Gi-gZS"/>
-                            <constraint firstItem="LNN-Zp-eHe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hZp-fg-kFR"/>
+                            <constraint firstItem="4GE-to-uP3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="mJA-t4-xQg"/>
+                            <constraint firstItem="4GE-to-uP3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="mqD-Xs-hnW"/>
                             <constraint firstItem="kJM-TV-drs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qIt-SZ-BTP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -64,12 +65,40 @@
                         <outlet property="cameraButton" destination="wJD-H6-bsJ" id="sM2-AS-ULa"/>
                         <outlet property="imageView" destination="kJM-TV-drs" id="Zqi-aY-CyF"/>
                         <outlet property="photosButton" destination="lP4-d0-0Cs" id="bx8-IS-SIr"/>
-                        <outlet property="resultsLabel" destination="LNN-Zp-eHe" id="s5W-kF-RWJ"/>
+                        <outlet property="results" destination="4GE-to-uP3" id="5EL-47-52N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="114.50892857142857"/>
+        </scene>
+        <!--Dishes Table View Controller-->
+        <scene sceneID="w48-xi-ak3">
+            <objects>
+                <tableViewController storyboardIdentifier="DishesTableViewController" id="LAf-3d-ywl" customClass="DishesTableViewController" customModule="MachineLearning" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="zpk-6E-Vdy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="dish" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Dish" id="3aP-ce-aya">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3aP-ce-aya" id="qMv-MQ-RVa">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="LAf-3d-ywl" id="wgD-2d-AX8"/>
+                            <outlet property="delegate" destination="LAf-3d-ywl" id="QR2-TQ-hPz"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W3w-3u-BQF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="914" y="115"/>
         </scene>
     </scenes>
     <resources>

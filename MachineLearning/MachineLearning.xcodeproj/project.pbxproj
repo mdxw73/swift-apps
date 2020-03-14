@@ -16,6 +16,10 @@
 		D7171B3724196EC3009EA06A /* MachineLearningUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7171B3624196EC3009EA06A /* MachineLearningUITests.swift */; };
 		D7171B4724196F10009EA06A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7171B4624196F10009EA06A /* Main.storyboard */; };
 		D7D8D2B824197B9800706E80 /* SqueezeNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D7D8D2B724197B9800706E80 /* SqueezeNet.mlmodel */; };
+		D7DF496B241D2BFE0084348B /* RecipeAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DF496A241D2BFE0084348B /* RecipeAdaptor.swift */; };
+		D7DF496F241D31080084348B /* RecipeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DF496E241D31080084348B /* RecipeResponse.swift */; };
+		D7DF4971241D32800084348B /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DF4970241D32800084348B /* Recipe.swift */; };
+		D7DF4975241D511A0084348B /* DishesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DF4974241D511A0084348B /* DishesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,10 @@
 		D7171B3824196EC3009EA06A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7171B4624196F10009EA06A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		D7D8D2B724197B9800706E80 /* SqueezeNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SqueezeNet.mlmodel; sourceTree = "<group>"; };
+		D7DF496A241D2BFE0084348B /* RecipeAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeAdaptor.swift; sourceTree = "<group>"; };
+		D7DF496E241D31080084348B /* RecipeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeResponse.swift; sourceTree = "<group>"; };
+		D7DF4970241D32800084348B /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		D7DF4974241D511A0084348B /* DishesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +117,10 @@
 				D7171B1F24196EC2009EA06A /* LaunchScreen.storyboard */,
 				D7171B2224196EC3009EA06A /* Info.plist */,
 				D7D8D2B724197B9800706E80 /* SqueezeNet.mlmodel */,
+				D7DF496A241D2BFE0084348B /* RecipeAdaptor.swift */,
+				D7DF496E241D31080084348B /* RecipeResponse.swift */,
+				D7DF4970241D32800084348B /* Recipe.swift */,
+				D7DF4974241D511A0084348B /* DishesTableViewController.swift */,
 			);
 			path = MachineLearning;
 			sourceTree = "<group>";
@@ -262,6 +274,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7DF496B241D2BFE0084348B /* RecipeAdaptor.swift in Sources */,
+				D7DF4975241D511A0084348B /* DishesTableViewController.swift in Sources */,
+				D7DF496F241D31080084348B /* RecipeResponse.swift in Sources */,
+				D7DF4971241D32800084348B /* Recipe.swift in Sources */,
 				D7171B1924196EC1009EA06A /* ViewController.swift in Sources */,
 				D7171B1524196EC1009EA06A /* AppDelegate.swift in Sources */,
 				D7D8D2B824197B9800706E80 /* SqueezeNet.mlmodel in Sources */,
