@@ -1,0 +1,4 @@
+while (y < z) {
+ int x = a + b;
+ y += x;
+}
