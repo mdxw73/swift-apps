@@ -9,19 +9,30 @@
 import Foundation
 
 class Lexer {
+    
+    func getType(_ text: String) -> TokenType {
+        if let _ = Int(text) {
+            return .INT_LITERAL
+        } else if let _ = Double(text) {
+            return .DOUBLE
+        } else if text == "=" {
+            return .ASSIGN
+        } else if text == "int" {
+            return .INT
+        }
+        return .IDENTIFIER
+    }
+    
     func lex(text: String) -> [Token] {
         //implement lexical analysis in this method. Remember it should:
         //remove whitespace
-        let array = text.map{$0}
-        var newText = ""
+        let refined = text.trimmingCharacters(in: CharacterSet.newlines)
+        let array = refined.components(separatedBy: " ")
         var finalArray = [Token]()
-        for char in array {
-            if char != " " {
-                newText = newText + String(char)
-            } else {
-                finalArray.append(Token(type: .IDENTIFIER, lexeme: text))
-                newText = ""
-            }
+        var newText = ""
+        for component in array {
+            newText = component.trimmingCharacters(in: CharacterSet.newlines)
+            finalArray.append(Token(type: getType(newText), lexeme: newText))
         }
         //produce an ordered sequence of tokens / lexemes
         return finalArray
