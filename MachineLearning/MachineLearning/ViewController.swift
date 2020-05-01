@@ -17,7 +17,6 @@ class ViewController: UIViewController {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var results: UIButton!
     
-    var firstTime = true
     let recipeAdaptor = RecipeAdaptor()
     
     override func viewDidLoad() {
@@ -28,11 +27,6 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        if firstTime {
-            showResultsView(delay: 2)
-            firstTime = false
-        }
     }
     
     @IBAction func takePicture(_ sender: Any) {
@@ -59,14 +53,6 @@ class ViewController: UIViewController {
         present(picker, animated: true)
     }
     
-    func showResultsView(delay: TimeInterval = 0.1) {
-        view.layoutIfNeeded()
-        
-        UIView.animate(withDuration: 1, delay: delay, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .beginFromCurrentState, animations: {
-            self.view.layoutIfNeeded()
-        }, completion: nil)
-    }
-    
     func classify(image: UIImage) {
         DispatchQueue.global(qos: .userInitiated).async {
             let ciImage = CIImage(image: image)!
@@ -83,7 +69,6 @@ class ViewController: UIViewController {
             formatter.maximumFractionDigits = 1
             let confidencePrecentage = formatter.string(from: result.confidence * 100 as NSNumber)!
             self.results.setTitle("\(result.identifier): \(confidencePrecentage)%", for: .normal)
-            self.showResultsView()
         }
     }
     
