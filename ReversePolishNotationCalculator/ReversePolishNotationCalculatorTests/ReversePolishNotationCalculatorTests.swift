@@ -14,7 +14,7 @@ class ReversePolishNotationCalculatorTests: XCTestCase {
     func testCalculatorWithAdditionOfTwoOperands() {
         //arrange
         let expression = "2 3 +"
-        let expected = 5
+        let expected = "5"
         //act
         let calculator = Calculator()
         //assert
@@ -24,7 +24,7 @@ class ReversePolishNotationCalculatorTests: XCTestCase {
     func testCalculatorWithSubtractionOfTwoOperands() {
         //arrange
         let expression = "17 5 -"
-        let expected = 12
+        let expected = "12"
         //act
         let calculator = Calculator()
         //assert
@@ -34,7 +34,7 @@ class ReversePolishNotationCalculatorTests: XCTestCase {
     func testCalculatorWithMultiplicationOfTwoOperands() {
         //arrange
         let expression = "11 6 *"
-        let expected = 66
+        let expected = "66"
         //act
         let calculator = Calculator()
         //assert
@@ -44,7 +44,7 @@ class ReversePolishNotationCalculatorTests: XCTestCase {
     func testCalculatorWithDivisionOfTwoOperands() {
         //arrange
         let expression = "21 7 /"
-        let expected = 3
+        let expected = "3"
         //act
         let calculator = Calculator()
         //assert
@@ -54,7 +54,7 @@ class ReversePolishNotationCalculatorTests: XCTestCase {
     func testCalculatorWithComplexMultioperationalExpression() {
         //arrange
         let expression = "121 11 / 2 24 * + 5 + 8 /"
-        let expected = 8
+        let expected = "8"
         //act
         let calculator = Calculator()
         //assert
@@ -70,6 +70,26 @@ class ReversePolishNotationCalculatorTests: XCTestCase {
         //assert
         XCTAssertEqual(calculator.isNumber(item1), true)
         XCTAssertEqual(calculator.isNumber(item2), false)
+    }
+    
+    func testMathsErrorScenario() {
+        //arrange
+        let expression = "121 11 / *"
+        let expected = "Maths Error"
+        //act
+        let calculator = Calculator()
+        //assert
+        XCTAssertEqual(calculator.evaluate(expression: expression), expected)
+    }
+    
+    func testUnidentifiedOperatorErrorScenario() {
+        //arrange
+        let expression = "121 11 @"
+        let expected = "Unidentified Operator Error"
+        //act
+        let calculator = Calculator()
+        //assert
+        XCTAssertEqual(calculator.evaluate(expression: expression), expected)
     }
 
 }

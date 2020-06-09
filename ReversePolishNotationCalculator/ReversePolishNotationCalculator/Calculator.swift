@@ -10,7 +10,7 @@ import Foundation
 
 class Calculator {
     
-    func evaluate(expression: String) -> Int {
+    func evaluate(expression: String) -> String {
         let parts = expression.components(separatedBy: " ")
         var stack = [Int]()
         for i in 0 ..< parts.count {
@@ -18,10 +18,20 @@ class Calculator {
             if isNumber(current) {
                 stack.append(Int(current)!)
             } else {
-                let operand2 = stack.last!
-                stack.removeLast()
-                let operand1 = stack.last!
-                stack.removeLast()
+                var operand2 = 0
+                var operand1 = 0
+                if let operandTwo = stack.last {
+                    operand2 = operandTwo
+                    stack.removeLast()
+                } else {
+                    return "Maths Error"
+                }
+                if let operandOne = stack.last {
+                    operand1 = operandOne
+                    stack.removeLast()
+                } else {
+                    return "Maths Error"
+                }
                 
                 var result = 0
                 
@@ -34,12 +44,12 @@ class Calculator {
                 } else if current == "/" {
                     result = operand1 / operand2
                 } else {
-                    print("error: unidentified operator")
+                    return "Unidentified Operator Error"
                 }
                 stack.append(result)
             }
         }
-        return stack.last!
+        return String(stack.last!)
     }
     
     func isNumber(_ item: String) -> Bool {

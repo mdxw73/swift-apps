@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func help(_ sender: Any) {
-        let alert = UIAlertController(title: "Help", message: "The inputs must conform to reverse polish notation. If multiple numbers are entered and insufficient operations are provided, the system will perform the relevant operations on the most recent operands.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Help", message: "Inputs are limited to 3 digit numbers. If an invalid expression has been entered, you must press 'clear' to continue making calculations. If more numbers exist than operations, the initial numbers will be discarded.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Continue", style: .default))
         self.present(alert, animated: true, completion: nil)
     }
@@ -93,8 +93,8 @@ class ViewController: UIViewController {
     }
     @IBAction func evaluate(_ sender: Any) {
         checkFormat()
-        if self.expression.count > 0 && self.expression.last != " " { //Checking again for a space ensures the change sign operator isn't still active
-            self.expression = String(calculator!.evaluate(expression: self.expression))
+        if self.expression.count > 0 && checkError() == false {
+            self.expression = calculator!.evaluate(expression: self.expression)
         }
     }
     @IBAction func clear(_ sender: Any) {
@@ -102,7 +102,7 @@ class ViewController: UIViewController {
     }
     @IBAction func enter(_ sender: Any) {
         checkFormat()
-        if self.expression.last != " " {
+        if self.expression.last != " " && checkError() == false {
             self.expression += " "
         }
     }
@@ -112,56 +112,48 @@ class ViewController: UIViewController {
         } else if self.expression.count == 0 {
             self.expression.append("-")
         } else if let _ = Int(String(self.expression.last!)) {
-        } else {
+        } else if checkError() == false {
             self.expression.append("-")
         }
     }
     @IBAction func add(_ sender: Any) {
         checkFormat()
-        let valid = checkSignsLength()
-        if valid == true {
+        if checkError() == false {
             self.expression += " + "
-        } else {
-               self.expression += " "
-           }
+        }
     }
     @IBAction func subtract(_ sender: Any) {
         checkFormat()
-        let valid = checkSignsLength()
-        if valid == true {
+        if checkError() == false {
             self.expression += " - "
-        } else {
-               self.expression += " "
-           }
+        }
     }
     @IBAction func multiply(_ sender: Any) {
         checkFormat()
-        let valid = checkSignsLength()
-        if valid == true {
+        if checkError() == false {
             self.expression += " * "
-        } else {
-               self.expression += " "
-           }
+        }
     }
     @IBAction func divide(_ sender: Any) {
         checkFormat()
-        let valid = checkSignsLength()
-        if valid == true {
+        if checkError() == false {
             self.expression += " / "
-        } else {
-            self.expression += " "
         }
     }
     
     func checkFormat() {
-        if self.expression.last == " " || self.expression.last == "-" {
+        if self.expression.last == " " {
             self.expression.removeLast()
+            checkFormat()
         }
     }
     
     func checkDigitsLength() -> Bool {
         if self.expression.count > 0 {
-            if self.expression.components(separatedBy: " ").last!.count > 2 {
+            let number = self.expression.components(separatedBy: " ").last!
+            if number.count > 3 {
+                return false
+            } else if number.first != "-" && number.count > 2 {
                 return false
             } else {
                 return true
@@ -170,22 +162,12 @@ class ViewController: UIViewController {
         return true
     }
     
-    func checkSignsLength() -> Bool {
-        if self.expression.count > 0 {
-            let parts = self.expression.components(separatedBy: " ")
-            if parts.count > 1 {
-                if let _ = Int(parts[parts.count-1]) {
-                    return true
-                } else if let _ = Int(parts[parts.count-2]) {
-                    if parts.count > 4 {
-                        return true
-                    }
-                } else {
-                    return false
-                }
-            }
+    func checkError() -> Bool {
+        if self.expression.components(separatedBy: " ").last == "Error" {
+            return true
+        } else {
+            return false
         }
-        return false
     }
     
 }

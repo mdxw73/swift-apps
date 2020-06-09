@@ -106,30 +106,44 @@ class ReversePolishNotationCalculatorUITests: XCTestCase {
         XCTAssertEqual(app.staticTexts["Display"].label, "1")
     }
     
-    func testRestrictionsOnSignsAndDigits() {
+    func testMathsErrorDisplayedAppropriatelyAndPreventsFurtherCalculation() {
         let app = XCUIApplication()
         app.launch()
         
-        let button = app.buttons["6"]
+        app.buttons["8"].tap()
+        app.buttons["Enter"].tap()
+        
+        let app2 = app
+        app2/*@START_MENU_TOKEN@*/.staticTexts["*"]/*[[".buttons[\"*\"].staticTexts[\"*\"]",".staticTexts[\"*\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        
+        let evaluateStaticText = app2/*@START_MENU_TOKEN@*/.staticTexts["Evaluate"]/*[[".buttons[\"Evaluate\"].staticTexts[\"Evaluate\"]",".staticTexts[\"Evaluate\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        evaluateStaticText.tap()
+        app2/*@START_MENU_TOKEN@*/.staticTexts["Enter"]/*[[".buttons[\"Enter\"].staticTexts[\"Enter\"]",".staticTexts[\"Enter\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app.buttons["2"].tap()
+        app.buttons["*"].tap()
+        
+        XCTAssertEqual(app.staticTexts["Display"].label, "Maths Error")
+    }
+    
+    func testDigitLimitSetForPositiveAndNegativeNumbers() {
+        let app = XCUIApplication()
+        app.launch()
+        
+        let button = app.buttons["2"]
         button.tap()
-        button.staticTexts["6"].tap()
-        
-        let staticText = app/*@START_MENU_TOKEN@*/.staticTexts["6"]/*[[".buttons[\"6\"].staticTexts[\"6\"]",".staticTexts[\"6\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        staticText.tap()
         button.tap()
+        button.tap()
+        button.tap()
+        app/*@START_MENU_TOKEN@*/.staticTexts["Enter"]/*[[".buttons[\"Enter\"].staticTexts[\"Enter\"]",".staticTexts[\"Enter\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app/*@START_MENU_TOKEN@*/.staticTexts["+/-"]/*[[".buttons[\"+\/-\"].staticTexts[\"+\/-\"]",".staticTexts[\"+\/-\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         
-        let enterStaticText = app/*@START_MENU_TOKEN@*/.staticTexts["Enter"]/*[[".buttons[\"Enter\"].staticTexts[\"Enter\"]",".staticTexts[\"Enter\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        enterStaticText.tap()
+        let staticText = app/*@START_MENU_TOKEN@*/.staticTexts["2"]/*[[".buttons[\"2\"].staticTexts[\"2\"]",".staticTexts[\"2\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
         staticText.tap()
-        enterStaticText.tap()
+        staticText.tap()
+        staticText.tap()
+        staticText.tap()
         
-        let staticText2 = app/*@START_MENU_TOKEN@*/.staticTexts["/"]/*[[".buttons[\"\/\"].staticTexts[\"\/\"]",".staticTexts[\"\/\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        staticText2.tap()
-        staticText2.tap()
-        app/*@START_MENU_TOKEN@*/.staticTexts["Evaluate"]/*[[".buttons[\"Evaluate\"].staticTexts[\"Evaluate\"]",".staticTexts[\"Evaluate\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        
-        
-        XCTAssertEqual(app.staticTexts["Display"].label, "111")
+        XCTAssertEqual(app.staticTexts["Display"].label, "222 -222")
     }
     
 }
